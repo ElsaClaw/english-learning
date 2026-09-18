@@ -10,11 +10,24 @@ function shuffle(items) { return [...items].sort(() => Math.random() - .5); }
 function scores() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '[]'); } catch { return []; } }
 function saveScore(item) { const all = scores(); all.push(item); localStorage.setItem(STORE_KEY, JSON.stringify(all)); }
 function unitById(id) { return units.find(unit => unit.id === id); }
+let availableVoices = [];
+function refreshVoices() { availableVoices = speechSynthesis.getVoices(); }
+function preferredEnglishVoice() {
+  const preferredNames = ['samantha', 'ava', 'allison', 'zoe', 'daniel'];
+  const englishUS = availableVoices.filter(voice => voice.lang.toLowerCase().startsWith('en-us'));
+  return englishUS.find(voice => preferredNames.some(name => voice.name.toLowerCase().includes(name)))
+    || englishUS.find(voice => /enhanced|premium|siri/i.test(voice.name))
+    || englishUS[0]
+    || availableVoices.find(voice => voice.lang.toLowerCase().startsWith('en-'));
+}
+if ('speechSynthesis' in window) { refreshVoices(); speechSynthesis.addEventListener('voiceschanged', refreshVoices); }
 function say(text) {
   if (!('speechSynthesis' in window)) { alert('此瀏覽器不支援朗讀功能。'); return; }
   speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-US'; utterance.rate = .88; utterance.pitch = 1;
+  const voice = preferredEnglishVoice();
+  if (voice) utterance.voice = voice;
+  utterance.lang = voice?.lang || 'en-US'; utterance.rate = .82; utterance.pitch = 1;
   speechSynthesis.speak(utterance);
 }
 function setRoute(hash) { location.hash = hash; }
@@ -25,11 +38,66 @@ function home() {
   const recent = scores().slice(-1)[0];
   app.innerHTML = `
     <section class="hero" id="home">
-      <div><p class="eyebrow">Grade 8 · Independent Learning</p><h1>讓每一篇英文課文，<br>成為自己的路徑。</h1><p>閱讀中英對照、聆聽自然朗讀、掌握課內單字，再用兩種測驗檢查記憶。所有 Unit 成績都會留在這台裝置上。</p></div>
-      <aside class="hero-note"><strong>今日的小目標</strong>選一個單元完成學習，再進行單字選擇與克漏字測驗。${recent ? `<br><br>最近紀錄：${esc(recent.title)} · ${recent.total}%` : ''}</aside>
+      <div><p class="eyebrow">Independent Learning</p><h1>選擇教材，<br>建立自己的英文路徑。</h1><p>從課文閱讀或字彙練習開始；每套教材各自保有適合的學習與測驗方式。</p></div>
+      <aside class="hero-note"><strong>今日的小目標</strong>選擇一套教材，再挑選要練習的 Unit。${recent ? `<br><br>最近課文紀錄：${esc(recent.title)} · ${recent.total}%` : ''}</aside>
     </section>
-    <section class="unit-grid">${units.map(u => `<article class="unit-card"><span class="tag">${esc(u.group)} · ${u.vocab.length} words</span><h2>${esc(u.title)}</h2><p>${esc(u.subtitle)}</p><button class="primary" data-open="${u.id}">開始學習 →</button></article>`).join('')}</section>`;
+    <section class="book-grid"><article class="book-card"><span class="tag">Reading · Grade 8</span><h2>八年級英文課文</h2><p>中英對照閱讀、核心單字、英文朗讀與兩種測驗學習路徑。</p><button class="primary" data-course="reading">進入課文 Units →</button></article><article class="book-card vocab-book"><span class="tag">Vocabulary</span><h2>字彙字識</h2><p>單字庫、例句朗讀與隨機四選一克漏字測驗；課程會持續增加。</p><button class="primary" data-course="vocab">進入字彙單元 →</button></article></section>`;
+  app.querySelectorAll('[data-course]').forEach(button => button.onclick = () => setRoute(`#${button.dataset.course}`));
+}
+
+function readingCatalog() {
+  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Reading · Grade 8</p><h1>八年級英文課文</h1><p>選擇一個 Unit，依序完成閱讀、單字庫、測驗 A 與測驗 B。</p></section><section class="unit-grid">${units.map(u => `<article class="unit-card"><span class="tag">${esc(u.group)} · ${u.vocab.length} words</span><h2>${esc(u.title)}</h2><p>${esc(u.subtitle)}</p><button class="primary" data-open="${u.id}">開始學習 →</button></article>`).join('')}</section>`;
   app.querySelectorAll('[data-open]').forEach(button => button.onclick = () => setRoute(`#unit/${button.dataset.open}`));
+}
+
+function zhishiCatalog() {
+  const lessons = [vocabZhishi];
+  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Vocabulary · 字彙字識</p><h1>字彙字識</h1><p>選擇一個單元，先從單字庫複習，再進行例句克漏字測驗。</p></section><section class="unit-grid">${lessons.map(item => `<article class="unit-card vocab-unit-card"><span class="tag">Vocabulary</span><h2>${esc(item.title)}</h2><p>${esc(item.subtitle)}<br>${item.records.length} 個詞義／例句項目</p><button class="primary" data-vocab-unit="${esc(item.id)}">開始學習 →</button></article>`).join('')}</section><p class="catalog-note">新的字彙字識單元將會陸續加入這個列表。</p>`;
+  app.querySelectorAll('[data-vocab-unit]').forEach(button => button.onclick = () => setRoute(`#vocab/unit/${button.dataset.vocabUnit}`));
+}
+
+let zhishiTest = null;
+function zhishi() {
+  const lesson = vocabZhishi;
+  app.innerHTML = `<a class="back" href="#vocab">← 字彙字識單元</a><section class="lesson-head"><p class="eyebrow">Vocabulary · 字彙字識</p><h1>${esc(lesson.title)}</h1><p>${esc(lesson.subtitle)}</p><span class="progress-pill">${lesson.records.length} 個詞義／例句學習項目</span></section><div class="parts"><button class="part-tab active" data-zhishi-part="bank">Part 1 · 單字庫</button><button class="part-tab" data-zhishi-part="quiz">Part 2 · 測驗</button></div><section class="panel" id="zhishi-content"></section>`;
+  app.querySelectorAll('[data-zhishi-part]').forEach(button => button.onclick = () => renderZhishi(button.dataset.zhishiPart));
+  renderZhishi('bank');
+}
+function renderZhishi(part) {
+  document.querySelectorAll('[data-zhishi-part]').forEach(button => button.classList.toggle('active', button.dataset.zhishiPart === part));
+  const box = document.querySelector('#zhishi-content'); if (!box) return;
+  if (part === 'bank') {
+    box.innerHTML = `<div class="panel-head"><div><h2>單字庫</h2><p>依詞義與例句分列；同一單字有不同意思時，會保留為不同學習項目。</p></div></div><div class="vocab-grid">${vocabZhishi.records.map((v, index) => `<article class="word-card zhishi-word"><h3>${esc(v.word)}<span class="pos">${esc(v.pos)}</span></h3><p class="phonetic">${esc(v.phonetic)}</p><p class="meaning">${esc(v.meaning)}</p><p class="example">“${esc(v.example)}”</p><p class="translation">${esc(v.translation)}</p><button class="ghost" data-zhishi-speak="${index}">▶ 朗讀例句</button></article>`).join('')}</div>`;
+    box.querySelectorAll('[data-zhishi-speak]').forEach(button => button.onclick = () => say(vocabZhishi.records[button.dataset.zhishiSpeak].example));
+  } else startZhishiQuiz();
+}
+function zhishiQuestion(v) {
+  const answers = [...new Set(vocabZhishi.records.map(item => item.word.toLowerCase()))];
+  const distractors = shuffle(answers.filter(word => word !== v.word.toLowerCase())).slice(0, 3);
+  return { v, choices: shuffle([v.word.toLowerCase(), ...distractors]) };
+}
+function startZhishiQuiz() { zhishiTest = { index: 0, correct: 0, questions: shuffle(vocabZhishi.records).map(zhishiQuestion) }; showZhishiQuiz(); }
+function showZhishiQuiz() {
+  const box = document.querySelector('#zhishi-content'), q = zhishiTest.questions[zhishiTest.index];
+  if (!q) return finishZhishiQuiz();
+  const pattern = new RegExp(q.v.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+  const sentence = q.v.example.replace(pattern, '<mark>' + '_'.repeat(q.v.word.length) + '</mark>');
+  box.innerHTML = `<div class="panel-head"><div><h2>測驗 · 例句克漏字</h2><p>從本單元的四個英文單字中，選出最適合填入例句的答案。</p></div><button class="secondary" id="speak-zhishi-example">🔊 朗讀例句</button></div><div class="quiz-intro">作答進度 ${zhishiTest.index + 1} / ${zhishiTest.questions.length} · 題目與選項每次皆隨機排列</div><div class="question-num">Question ${zhishiTest.index + 1}</div><p class="blank-sentence">${sentence}</p><div class="choices">${q.choices.map((choice, index) => `<button class="choice" data-zhishi-choice="${esc(choice)}"><b>${'ABCD'[index]}.</b> ${esc(choice)}</button>`).join('')}</div><div class="quiz-actions"><span class="quiz-feedback" id="zhishi-feedback">選擇答案後會顯示結果。</span><span>${zhishiTest.correct} 題答對</span></div>`;
+  box.querySelector('#speak-zhishi-example').onclick = () => say(q.v.example);
+  box.querySelectorAll('[data-zhishi-choice]').forEach(button => button.onclick = () => answerZhishi(button, q));
+}
+function answerZhishi(button, q) {
+  const buttons = document.querySelectorAll('[data-zhishi-choice]'); buttons.forEach(item => item.disabled = true);
+  const correct = button.dataset.zhishiChoice === q.v.word.toLowerCase();
+  if (correct) { zhishiTest.correct++; button.classList.add('correct'); document.querySelector('#zhishi-feedback').textContent = '答對了！'; }
+  else { button.classList.add('wrong'); [...buttons].find(item => item.dataset.zhishiChoice === q.v.word.toLowerCase()).classList.add('correct'); document.querySelector('#zhishi-feedback').textContent = `正確答案是「${q.v.word}」。`; }
+  setTimeout(() => { zhishiTest.index++; showZhishiQuiz(); }, 900);
+}
+function finishZhishiQuiz() {
+  const total = zhishiTest.questions.length, percent = Math.round(zhishiTest.correct / total * 100);
+  localStorage.setItem('vocab-zhishi-3-1-last-score', JSON.stringify({ correct: zhishiTest.correct, total, percent, date: new Date().toISOString() }));
+  document.querySelector('#zhishi-content').innerHTML = `<div class="result"><p class="eyebrow">Vocabulary review</p><h2>測驗完成</h2><div class="score-number">${percent}<small style="font-size:1.25rem"> 分</small></div><p class="score-label">答對 ${zhishiTest.correct} / ${total} 題。可以再次測驗，題目與 ABCD 選項將重新隨機排列。</p><button class="primary" id="retry-zhishi">重新測驗 →</button></div>`;
+  document.querySelector('#retry-zhishi').onclick = startZhishiQuiz;
 }
 
 function lesson(id, wantedPart = 'read') {
@@ -144,5 +212,5 @@ function drawChart(data) {
   const points=data.map((d,i)=>({x:data.length===1?(p.l+w-p.r)/2:p.l+i*(w-p.l-p.r)/(data.length-1),y:p.t+(100-d.total)/100*(h-p.t-p.b),d}));
   ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();points.forEach((p,i)=>{ctx.fillStyle='#fffdfa';ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#53636e';ctx.textAlign='center';ctx.fillText(p.d.unit.toUpperCase(),p.x,h-15);});
 }
-function router() { const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'progress') progress(); else home(); }
+function router() { const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && parts[2] === vocabZhishi.id) zhishi(); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'progress') progress(); else home(); }
 window.addEventListener('hashchange', router); window.addEventListener('resize', () => { if(location.hash === '#progress' && scores().length) drawChart(scores()); }); router();
