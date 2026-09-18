@@ -1,0 +1,6 @@
+# Source material and local notes stay outside the public website repository.
+*.pdf
+SKILL_KNOWLEDGE_CARD.md
+
+# macOS / editor files
+.DS_Store
