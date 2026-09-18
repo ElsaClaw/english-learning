@@ -4,6 +4,7 @@ let activeUnit = null;
 let activePart = 'read';
 let testA = null;
 let testB = null;
+let enterNext = null;
 
 function esc(value) { return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
 function shuffle(items) { return [...items].sort(() => Math.random() - .5); }
@@ -32,6 +33,9 @@ function say(text) {
 }
 function setRoute(hash) { location.hash = hash; }
 function allMeanings() { return [...new Set(units.flatMap(u => u.vocab.map(v => v[2])))]; }
+function armEnterNext(action) { enterNext = action; }
+function clearEnterNext() { enterNext = null; }
+window.addEventListener('keydown', event => { if (event.key === 'Enter' && enterNext) { event.preventDefault(); const action = enterNext; enterNext = null; action(); } });
 
 function home() {
   activeUnit = null;
@@ -78,6 +82,7 @@ function zhishiQuestion(v) {
 }
 function startZhishiQuiz() { zhishiTest = { index: 0, correct: 0, questions: shuffle(vocabZhishi.records).map(zhishiQuestion) }; showZhishiQuiz(); }
 function showZhishiQuiz() {
+  clearEnterNext();
   const box = document.querySelector('#zhishi-content'), q = zhishiTest.questions[zhishiTest.index];
   if (!q) return finishZhishiQuiz();
   const pattern = new RegExp(q.v.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
@@ -89,9 +94,14 @@ function showZhishiQuiz() {
 function answerZhishi(button, q) {
   const buttons = document.querySelectorAll('[data-zhishi-choice]'); buttons.forEach(item => item.disabled = true);
   const correct = button.dataset.zhishiChoice === q.v.word.toLowerCase();
-  if (correct) { zhishiTest.correct++; button.classList.add('correct'); document.querySelector('#zhishi-feedback').textContent = '答對了！'; }
-  else { button.classList.add('wrong'); [...buttons].find(item => item.dataset.zhishiChoice === q.v.word.toLowerCase()).classList.add('correct'); document.querySelector('#zhishi-feedback').textContent = `正確答案是「${q.v.word}」。`; }
-  setTimeout(() => { zhishiTest.index++; showZhishiQuiz(); }, 900);
+  const pattern = new RegExp(q.v.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+  const question = q.v.example.replace(pattern, '_'.repeat(q.v.word.length));
+  if (correct) { zhishiTest.correct++; button.classList.add('correct'); }
+  else { button.classList.add('wrong'); [...buttons].find(item => item.dataset.zhishiChoice === q.v.word.toLowerCase()).classList.add('correct'); storeMistake({ id: `vocab:${vocabZhishi.id}:${q.v.id}`, course: 'vocab', courseLabel: '字彙字識', unit: vocabZhishi.title, kind: 'choice', question, choices: q.choices, correct: q.v.word.toLowerCase(), correctLabel: q.v.word, meanings: Object.fromEntries(q.choices.map(choice => [choice, [...new Set(vocabZhishi.records.filter(item => item.word.toLowerCase() === choice).map(item => item.meaning))].join('；')])) }, button.dataset.zhishiChoice); }
+  [...buttons].forEach((item, index) => { const choice = item.dataset.zhishiChoice; const meaning = [...new Set(vocabZhishi.records.filter(record => record.word.toLowerCase() === choice).map(record => record.meaning))].join('；'); item.innerHTML = `<b>${'ABCD'[index]}. ${esc(choice)}</b><span class="choice-meaning">${esc(meaning)}</span>`; });
+  document.querySelector('#zhishi-feedback').textContent = correct ? `答對了！${q.v.word}（${q.v.meaning}）` : `正確答案是「${q.v.word}（${q.v.meaning}）」。`;
+  const next = document.createElement('button'); next.className = 'secondary next-question'; next.textContent = '下一題 →'; next.onclick = () => { clearEnterNext(); zhishiTest.index++; showZhishiQuiz(); };
+  document.querySelector('.quiz-actions').append(next); armEnterNext(next.onclick);
 }
 function finishZhishiQuiz() {
   const total = zhishiTest.questions.length, percent = Math.round(zhishiTest.correct / total * 100);
@@ -132,13 +142,14 @@ function renderPart(part) {
 }
 
 function startTestA() {
-  testA = { index: 0, correct: 0, questions: shuffle(activeUnit.vocab).map(v => {
+  testA = { index: 0, correct: 0, questions: shuffle(activeUnit.vocab.map((v, sourceIndex) => ({ v, sourceIndex }))).map(({ v, sourceIndex }) => {
     const distractors = shuffle(allMeanings().filter(x => x !== v[2])).slice(0, 3);
-    return { word: v[0], answer: v[2], choices: shuffle([v[2], ...distractors]) };
+    return { id: `reading:${activeUnit.id}:a:${sourceIndex}`, word: v[0], answer: v[2], choices: shuffle([v[2], ...distractors]) };
   }) };
   showTestA();
 }
 function showTestA() {
+  clearEnterNext();
   const box = document.querySelector('#part-content'), q = testA.questions[testA.index];
   if (!q) return finishA();
   box.innerHTML = `<div class="panel-head"><div><h2>測驗 A · 詞義選擇</h2><p>聽英文單字，選出正確的繁體中文意思。</p></div><button class="secondary speak-btn" id="speak-word">🔊 朗讀單字</button></div><div class="quiz-intro">作答進度 ${testA.index + 1} / ${testA.questions.length} · 每題一分</div><div class="question-num">Question ${testA.index + 1}</div><div class="question">${esc(q.word)}</div><div class="choices">${q.choices.map(choice => `<button class="choice" data-choice="${esc(choice)}">${esc(choice)}</button>`).join('')}</div><div class="quiz-actions"><span class="quiz-feedback" id="feedback">按下選項後顯示答案</span><span>${testA.correct} 題答對</span></div>`;
@@ -149,9 +160,11 @@ function showTestA() {
 function answerA(button, q) {
   const buttons = document.querySelectorAll('.choice'); buttons.forEach(b => b.disabled = true);
   const correct = button.dataset.choice === q.answer;
-  if (correct) { testA.correct++; button.classList.add('correct'); document.querySelector('#feedback').textContent = '答對了！很好。'; }
-  else { button.classList.add('wrong'); [...buttons].find(b => b.dataset.choice === q.answer).classList.add('correct'); document.querySelector('#feedback').textContent = `正確答案是「${q.answer}」。`; }
-  setTimeout(() => { testA.index++; showTestA(); }, 1000);
+  if (correct) { testA.correct++; button.classList.add('correct'); }
+  else { button.classList.add('wrong'); [...buttons].find(b => b.dataset.choice === q.answer).classList.add('correct'); storeMistake({ id: q.id, course: 'reading', courseLabel: '八年級英文課文', unit: activeUnit.group + ' · ' + activeUnit.title, kind: 'choice', question: q.word, choices: q.choices, correct: q.answer, correctLabel: q.answer }, button.dataset.choice); }
+  document.querySelector('#feedback').textContent = correct ? `答對了！${q.word}（${q.answer}）。請確認答案後再進入下一題。` : `正確答案是「${q.word}（${q.answer}）」。請確認答案後再進入下一題。`;
+  const next = document.createElement('button'); next.className = 'secondary next-question'; next.textContent = '下一題 →'; next.onclick = () => { clearEnterNext(); testA.index++; showTestA(); };
+  document.querySelector('.quiz-actions').append(next); armEnterNext(next.onclick);
 }
 function finishA() {
   const percent = Math.round(testA.correct / testA.questions.length * 100);
@@ -165,7 +178,7 @@ function masked(word) {
   const first = positions[0], last = positions.at(-1);
   return letters.map((x, i) => (i === first || i === last || !/[a-z]/i.test(x)) ? x : '_').join('');
 }
-function startTestB() { testB = { index: 0, correct: 0, questions: shuffle(activeUnit.vocab).map(v => ({ word:v[0], sentence:v[3] })) }; showTestB(); }
+function startTestB() { testB = { index: 0, correct: 0, questions: shuffle(activeUnit.vocab.map((v, sourceIndex) => ({ word:v[0], sentence:v[3], id:`reading:${activeUnit.id}:b:${sourceIndex}` }))) }; showTestB(); }
 function showTestB() {
   const box = document.querySelector('#part-content'), q = testB.questions[testB.index];
   if (!q) return finishB();
@@ -181,7 +194,7 @@ function answerB(q) {
   const input = document.querySelector('#blank-answer'), button = document.querySelector('#check-answer'); if (button.disabled) return;
   const correct = normalize(input.value) === normalize(q.word); button.disabled = true; input.disabled = true;
   if (correct) { testB.correct++; input.style.borderColor = '#53a16d'; document.querySelector('#feedback').textContent = '答對了！很好。'; }
-  else { input.style.borderColor = '#cd706b'; document.querySelector('#feedback').textContent = `正確答案：${q.word}`; }
+  else { input.style.borderColor = '#cd706b'; document.querySelector('#feedback').textContent = `正確答案：${q.word}`; storeMistake({ id: q.id, course: 'reading', courseLabel: '八年級英文課文', unit: activeUnit.group + ' · ' + activeUnit.title, kind: 'input', question: q.sentence, correct: q.word, correctLabel: q.word }, input.value); }
   setTimeout(() => { testB.index++; showTestB(); }, 1100);
 }
 function finishB() {
@@ -198,6 +211,34 @@ function finishB() {
 }
 function resultHTML(title, score, detail, label, next) { return `<div class="result"><p class="eyebrow">學習回饋</p><h2>${title}</h2><div class="score-number">${score}<small style="font-size:1.25rem"> 分</small></div><p class="score-label">${detail}</p><button class="primary" data-next="${next}">${label}</button></div>`; }
 
+let mistakeReview = null;
+function mistakesPage() {
+  const records = mistakeBank();
+  const groups = [{ id: 'reading', label: '八年級英文課文' }, { id: 'vocab', label: '字彙字識' }];
+  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Review center</p><h1>錯題複習</h1><p>每一題保留原本題幹與選項；同一題答對 3 次會自動從錯題庫移除。</p></section><section class="mistake-groups">${groups.map(group => { const items = records.filter(item => item.course === group.id); return `<article class="mistake-group"><h2>${group.label}</h2><p>${items.length ? `目前有 ${items.length} 題待複習` : '目前沒有待複習的錯題。'}</p>${items.length ? `<button class="primary" data-review-course="${group.id}">Random 錯題練習 →</button>` : ''}</article>`; }).join('')}</section>`;
+  app.querySelectorAll('[data-review-course]').forEach(button => button.onclick = () => { location.hash = `#mistakes/${button.dataset.reviewCourse}`; });
+}
+function startMistakeReview(course) { mistakeReview = { course, index: 0, questions: shuffle(mistakeBank().filter(item => item.course === course)) }; showMistakeReview(); }
+function showMistakeReview() {
+  clearEnterNext();
+  const q = mistakeReview.questions[mistakeReview.index]; if (!q) { location.hash = '#mistakes'; return; }
+  const isChoice = q.kind === 'choice';
+  app.innerHTML = `<a class="back" href="#mistakes">← 錯題複習</a><section class="panel"><div class="panel-head"><div><p class="eyebrow">${esc(q.courseLabel)} · ${esc(q.unit)}</p><h2>錯題練習</h2><p>第 ${mistakeReview.index + 1} 題／${mistakeReview.questions.length} 題 · 已連續答對 ${q.streak || 0} / 3 次</p></div></div><div class="question-num">原題保留</div>${isChoice ? `<p class="blank-sentence">${esc(q.question)}</p><div class="choices">${q.choices.map((choice, index) => `<button class="choice" data-review-choice="${esc(choice)}"><b>${'ABCD'[index]}.</b> ${esc(choice)}</button>`).join('')}</div>` : `<p class="blank-sentence">${esc(q.question)}</p><div class="answer-form"><input id="review-answer" autocomplete="off" placeholder="輸入完整英文單字或片語" aria-label="答案"><button class="primary" id="check-review">確認答案</button></div>`}<div class="quiz-actions"><span class="quiz-feedback" id="review-feedback">${isChoice ? '選擇答案後顯示解析。' : '輸入答案後顯示解析。'}</span></div><button class="ghost" id="learned">我已經學會了</button></section>`;
+  if (isChoice) app.querySelectorAll('[data-review-choice]').forEach(button => button.onclick = () => answerMistakeChoice(button, q));
+  else { const check = () => answerMistakeInput(q); app.querySelector('#check-review').onclick = check; app.querySelector('#review-answer').addEventListener('keydown', event => { if (event.key === 'Enter') check(); }); app.querySelector('#review-answer').focus(); }
+  app.querySelector('#learned').onclick = () => { removeMistake(q.id); mistakeReview.index++; showMistakeReview(); };
+}
+function finishMistakeAnswer(q, correct, selected) {
+  const answerPair = q.course === 'vocab' ? `${q.correctLabel}（${q.meanings?.[q.correct] || ''}）` : `${q.question}（${q.correctLabel}）`;
+  let message;
+  if (correct) { const result = markMistakeCorrect(q.id); message = result.removed ? `答對了！${answerPair}。已連續答對 3 次，這題已從錯題庫移除！` : `答對了！${answerPair}。連續答對 ${result.streak} / 3 次。`; }
+  else { storeMistake(q, selected); message = `正確答案是「${answerPair}」。此題的連續答對次數已重新計算。`; }
+  document.querySelector('#review-feedback').textContent = message;
+  const next = document.createElement('button'); next.className = 'secondary next-question'; next.textContent = '下一題 →'; next.onclick = () => { clearEnterNext(); mistakeReview.index++; showMistakeReview(); }; document.querySelector('.quiz-actions').append(next); armEnterNext(next.onclick);
+}
+function answerMistakeChoice(button, q) { const buttons = document.querySelectorAll('[data-review-choice]'); buttons.forEach(item => item.disabled = true); const correct = button.dataset.reviewChoice === q.correct; if (correct) button.classList.add('correct'); else { button.classList.add('wrong'); [...buttons].find(item => item.dataset.reviewChoice === q.correct).classList.add('correct'); } if (q.course === 'vocab') [...buttons].forEach((item, index) => { const choice = item.dataset.reviewChoice; item.innerHTML = `<b>${'ABCD'[index]}. ${esc(choice)}</b><span class="choice-meaning">${esc(q.meanings?.[choice] || '')}</span>`; }); finishMistakeAnswer(q, correct, button.dataset.reviewChoice); }
+function answerMistakeInput(q) { const input = document.querySelector('#review-answer'), button = document.querySelector('#check-review'); if (button.disabled) return; button.disabled = true; input.disabled = true; const correct = normalize(input.value) === normalize(q.correct); input.style.borderColor = correct ? '#53a16d' : '#cd706b'; finishMistakeAnswer(q, correct, input.value); }
+
 function progress() {
   const data = scores();
   app.innerHTML = `<a class="back" href="#home">← 所有學習單元</a><section class="panel" id="progress"><div class="history-top"><div><p class="eyebrow">Learning record</p><h2>所有考試成績</h2><p style="color:var(--muted);margin:.2rem 0 0">每次完整完成 A、B 測驗後，系統會記錄兩者平均總分。</p></div><button class="secondary" id="clear-history">清除本機紀錄</button></div>${data.length ? `<div class="chart-box"><canvas id="score-chart" aria-label="考試成績曲線圖"></canvas></div><div class="history-list">${[...data].reverse().map(item => `<article class="history-card"><strong>${esc(item.title)}</strong><span>${new Date(item.date).toLocaleString('zh-TW', {dateStyle:'medium', timeStyle:'short'})}</span><div class="score">總分 ${item.total}</div><span>A ${item.a} · B ${item.b}</span></article>`).join('')}</div>` : `<div class="empty">尚未有完整的單元測驗紀錄。<br>完成同一單元的測驗 A 和 B 後，成績會顯示在這裡。</div>`}</section>`;
@@ -212,5 +253,5 @@ function drawChart(data) {
   const points=data.map((d,i)=>({x:data.length===1?(p.l+w-p.r)/2:p.l+i*(w-p.l-p.r)/(data.length-1),y:p.t+(100-d.total)/100*(h-p.t-p.b),d}));
   ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();points.forEach((p,i)=>{ctx.fillStyle='#fffdfa';ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#53636e';ctx.textAlign='center';ctx.fillText(p.d.unit.toUpperCase(),p.x,h-15);});
 }
-function router() { const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && parts[2] === vocabZhishi.id) zhishi(); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'progress') progress(); else home(); }
+function router() { const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && parts[2] === vocabZhishi.id) zhishi(); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
 window.addEventListener('hashchange', router); window.addEventListener('resize', () => { if(location.hash === '#progress' && scores().length) drawChart(scores()); }); router();
