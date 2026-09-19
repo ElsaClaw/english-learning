@@ -5,7 +5,7 @@ function saveMistakeBank(items) { localStorage.setItem(MISTAKE_STORE_KEY, JSON.s
 function storeMistake(item, selected) {
   const items = mistakeBank();
   const existing = items.find(record => record.id === item.id);
-  if (existing) Object.assign(existing, { ...item, selected, wrongCount: (existing.wrongCount || 0) + 1, streak: 0, updatedAt: new Date().toISOString() });
+  if (existing) Object.assign(existing, { selected, wrongCount: (existing.wrongCount || 0) + 1, streak: 0, updatedAt: new Date().toISOString() });
   else items.push({ ...item, selected, wrongCount: 1, streak: 0, updatedAt: new Date().toISOString() });
   saveMistakeBank(items);
 }

@@ -55,57 +55,78 @@ function readingCatalog() {
 }
 
 function zhishiCatalog() {
-  const lessons = [vocabZhishi];
+  const lessons = vocabUnits;
   app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Vocabulary · 字彙字識</p><h1>字彙字識</h1><p>選擇一個單元，先從單字庫複習，再進行例句克漏字測驗。</p></section><section class="unit-grid">${lessons.map(item => `<article class="unit-card vocab-unit-card"><span class="tag">Vocabulary</span><h2>${esc(item.title)}</h2><p>${esc(item.subtitle)}<br>${item.records.length} 個詞義／例句項目</p><button class="primary" data-vocab-unit="${esc(item.id)}">開始學習 →</button></article>`).join('')}</section><p class="catalog-note">新的字彙字識單元將會陸續加入這個列表。</p>`;
   app.querySelectorAll('[data-vocab-unit]').forEach(button => button.onclick = () => setRoute(`#vocab/unit/${button.dataset.vocabUnit}`));
 }
 
 let zhishiTest = null;
-function zhishi() {
-  const lesson = vocabZhishi;
-  app.innerHTML = `<a class="back" href="#vocab">← 字彙字識單元</a><section class="lesson-head"><p class="eyebrow">Vocabulary · 字彙字識</p><h1>${esc(lesson.title)}</h1><p>${esc(lesson.subtitle)}</p><span class="progress-pill">${lesson.records.length} 個詞義／例句學習項目</span></section><div class="parts"><button class="part-tab active" data-zhishi-part="bank">Part 1 · 單字庫</button><button class="part-tab" data-zhishi-part="quiz">Part 2 · 測驗</button></div><section class="panel" id="zhishi-content"></section>`;
+let activeVocabUnit = vocabUnits[0];
+function zhishi(id) {
+  const lesson = vocabUnits.find(item => item.id === id);
+  if (!lesson) return zhishiCatalog();
+  activeVocabUnit = lesson;
+  app.innerHTML = `<a class="back" href="#vocab">← 字彙字識單元</a><section class="lesson-head"><p class="eyebrow">Vocabulary · 字彙字識</p><h1>${esc(lesson.title)}</h1><p>${esc(lesson.subtitle)}</p>${lesson.sourceNote ? `<p class="catalog-note">${esc(lesson.sourceNote)}</p>` : ''}<span class="progress-pill">${lesson.records.length} 個詞義／例句學習項目</span></section><div class="parts"><button class="part-tab active" data-zhishi-part="bank">Part 1 · 單字庫</button><button class="part-tab" data-zhishi-part="quiz">Part 2 · 測驗</button></div><section class="panel" id="zhishi-content"></section>`;
   app.querySelectorAll('[data-zhishi-part]').forEach(button => button.onclick = () => renderZhishi(button.dataset.zhishiPart));
   renderZhishi('bank');
 }
 function renderZhishi(part) {
+  clearEnterNext();
   document.querySelectorAll('[data-zhishi-part]').forEach(button => button.classList.toggle('active', button.dataset.zhishiPart === part));
   const box = document.querySelector('#zhishi-content'); if (!box) return;
   if (part === 'bank') {
-    box.innerHTML = `<div class="panel-head"><div><h2>單字庫</h2><p>依詞義與例句分列；同一單字有不同意思時，會保留為不同學習項目。</p></div></div><div class="vocab-grid">${vocabZhishi.records.map((v, index) => `<article class="word-card zhishi-word"><h3>${esc(v.word)}<span class="pos">${esc(v.pos)}</span></h3><p class="phonetic">${esc(v.phonetic)}</p><p class="meaning">${esc(v.meaning)}</p><p class="example">“${esc(v.example)}”</p><p class="translation">${esc(v.translation)}</p><button class="ghost" data-zhishi-speak="${index}">▶ 朗讀例句</button></article>`).join('')}</div>`;
-    box.querySelectorAll('[data-zhishi-speak]').forEach(button => button.onclick = () => say(vocabZhishi.records[button.dataset.zhishiSpeak].example));
+    box.innerHTML = `<div class="panel-head"><div><h2>單字庫</h2><p>依詞義與例句分列；同一單字有不同意思時，會保留為不同學習項目。</p></div></div><div class="vocab-grid">${activeVocabUnit.records.map((v, index) => `<article class="word-card zhishi-word"><h3>${esc(v.word)}<span class="pos">${esc(v.pos)}</span></h3><p class="phonetic">${esc(v.phonetic)}</p>${v.supplement ? `<span class="tag">${esc(v.supplementNote || '字識＋ · 音標與中譯補充')}</span>` : ''}<p class="meaning">${esc(v.meaning)}</p><p class="example">“${esc(v.example)}”</p><p class="translation">${esc(v.translation)}</p><button class="ghost" data-zhishi-word="${index}">▶ 單字發音</button><button class="ghost" data-zhishi-speak="${index}">▶ 朗讀例句</button></article>`).join('')}</div>`;
+    box.querySelectorAll('[data-zhishi-word]').forEach(button => button.onclick = () => say(activeVocabUnit.records[button.dataset.zhishiWord].word));
+    box.querySelectorAll('[data-zhishi-speak]').forEach(button => button.onclick = () => say(activeVocabUnit.records[button.dataset.zhishiSpeak].example));
   } else startZhishiQuiz();
 }
-function zhishiQuestion(v) {
-  const answers = [...new Set(vocabZhishi.records.map(item => item.word.toLowerCase()))];
-  const distractors = shuffle(answers.filter(word => word !== v.word.toLowerCase())).slice(0, 3);
-  return { v, choices: shuffle([v.word.toLowerCase(), ...distractors]) };
+function zhishiAnswer(v) { return (v.answerForm || v.word).toLowerCase(); }
+function zhishiForm(v) {
+  if (v.answerForm) return v.answerForm;
+  const forms = [v.word, v.word + 's', v.word + 'es', v.word + 'd', v.word + 'ed'];
+  return forms.find(form => new RegExp('\\b' + form + '\\b', 'i').test(v.example)) || v.word;
 }
-function startZhishiQuiz() { zhishiTest = { index: 0, correct: 0, questions: shuffle(vocabZhishi.records).map(zhishiQuestion) }; showZhishiQuiz(); }
+function zhishiBlank(v) {
+  const form = zhishiForm(v);
+  const pattern = new RegExp('\\b' + form.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
+  return v.example.replace(pattern, '________');
+}
+function zhishiMeaning(choice) { return [...new Set(activeVocabUnit.records.filter(v => zhishiAnswer(v) === choice).map(v => v.meaning))].join('；'); }
+function zhishiQuestion(v) {
+  const answers = [...new Set(activeVocabUnit.records.map(zhishiAnswer))];
+  const distractors = shuffle(answers.filter(word => word !== zhishiAnswer(v))).slice(0, 3);
+  return { v, choices: shuffle([zhishiAnswer(v), ...distractors]) };
+}
+function startZhishiQuiz() {
+  clearEnterNext();
+  if (new Set(activeVocabUnit.records.map(zhishiAnswer)).size < 4) {
+    document.querySelector('#zhishi-content').textContent = '本單元不足四個不同英文答案，暫時無法進行四選一測驗。'; return;
+  }
+  zhishiTest = { index: 0, correct: 0, questions: shuffle(activeVocabUnit.records).map(zhishiQuestion) }; showZhishiQuiz();
+}
 function showZhishiQuiz() {
   clearEnterNext();
   const box = document.querySelector('#zhishi-content'), q = zhishiTest.questions[zhishiTest.index];
   if (!q) return finishZhishiQuiz();
-  const pattern = new RegExp(q.v.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-  const sentence = q.v.example.replace(pattern, '<mark>' + '_'.repeat(q.v.word.length) + '</mark>');
+  const sentence = esc(zhishiBlank(q.v)).replace(/________/g, '<mark>________</mark>');
   box.innerHTML = `<div class="panel-head"><div><h2>測驗 · 例句克漏字</h2><p>從本單元的四個英文單字中，選出最適合填入例句的答案。</p></div><button class="secondary" id="speak-zhishi-example">🔊 朗讀例句</button></div><div class="quiz-intro">作答進度 ${zhishiTest.index + 1} / ${zhishiTest.questions.length} · 題目與選項每次皆隨機排列</div><div class="question-num">Question ${zhishiTest.index + 1}</div><p class="blank-sentence">${sentence}</p><div class="choices">${q.choices.map((choice, index) => `<button class="choice" data-zhishi-choice="${esc(choice)}"><b>${'ABCD'[index]}.</b> ${esc(choice)}</button>`).join('')}</div><div class="quiz-actions"><span class="quiz-feedback" id="zhishi-feedback">選擇答案後會顯示結果。</span><span>${zhishiTest.correct} 題答對</span></div>`;
   box.querySelector('#speak-zhishi-example').onclick = () => say(q.v.example);
   box.querySelectorAll('[data-zhishi-choice]').forEach(button => button.onclick = () => answerZhishi(button, q));
 }
 function answerZhishi(button, q) {
   const buttons = document.querySelectorAll('[data-zhishi-choice]'); buttons.forEach(item => item.disabled = true);
-  const correct = button.dataset.zhishiChoice === q.v.word.toLowerCase();
-  const pattern = new RegExp(q.v.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-  const question = q.v.example.replace(pattern, '_'.repeat(q.v.word.length));
+  const correct = button.dataset.zhishiChoice === zhishiAnswer(q.v);
+  const question = zhishiBlank(q.v);
   if (correct) { zhishiTest.correct++; button.classList.add('correct'); }
-  else { button.classList.add('wrong'); [...buttons].find(item => item.dataset.zhishiChoice === q.v.word.toLowerCase()).classList.add('correct'); storeMistake({ id: `vocab:${vocabZhishi.id}:${q.v.id}`, course: 'vocab', courseLabel: '字彙字識', unit: vocabZhishi.title, kind: 'choice', question, choices: q.choices, correct: q.v.word.toLowerCase(), correctLabel: q.v.word, meanings: Object.fromEntries(q.choices.map(choice => [choice, [...new Set(vocabZhishi.records.filter(item => item.word.toLowerCase() === choice).map(item => item.meaning))].join('；')])) }, button.dataset.zhishiChoice); }
-  [...buttons].forEach((item, index) => { const choice = item.dataset.zhishiChoice; const meaning = [...new Set(vocabZhishi.records.filter(record => record.word.toLowerCase() === choice).map(record => record.meaning))].join('；'); item.innerHTML = `<b>${'ABCD'[index]}. ${esc(choice)}</b><span class="choice-meaning">${esc(meaning)}</span>`; });
-  document.querySelector('#zhishi-feedback').textContent = correct ? `答對了！${q.v.word}（${q.v.meaning}）` : `正確答案是「${q.v.word}（${q.v.meaning}）」。`;
+  else { button.classList.add('wrong'); [...buttons].find(item => item.dataset.zhishiChoice === zhishiAnswer(q.v)).classList.add('correct'); storeMistake({ id: `vocab:${activeVocabUnit.id}:${q.v.id}`, course: 'vocab', courseLabel: '字彙字識', unit: activeVocabUnit.title, kind: 'choice', question, choices: q.choices, correct: zhishiAnswer(q.v), correctLabel: q.v.answerForm || q.v.word, meanings: Object.fromEntries(q.choices.map(choice => [choice, zhishiMeaning(choice)])) }, button.dataset.zhishiChoice); }
+  [...buttons].forEach((item, index) => { const choice = item.dataset.zhishiChoice; const meaning = zhishiMeaning(choice); item.innerHTML = `<b>${'ABCD'[index]}. ${esc(choice)}</b><span class="choice-meaning">${esc(meaning)}</span>`; });
+  document.querySelector('#zhishi-feedback').textContent = correct ? `答對了！${q.v.answerForm || q.v.word}（${q.v.meaning}）` : `正確答案是「${q.v.answerForm || q.v.word}（${q.v.meaning}）」。`;
   const next = document.createElement('button'); next.className = 'secondary next-question'; next.textContent = '下一題 →'; next.onclick = () => { clearEnterNext(); zhishiTest.index++; showZhishiQuiz(); };
   document.querySelector('.quiz-actions').append(next); armEnterNext(next.onclick);
 }
 function finishZhishiQuiz() {
   const total = zhishiTest.questions.length, percent = Math.round(zhishiTest.correct / total * 100);
-  localStorage.setItem('vocab-zhishi-3-1-last-score', JSON.stringify({ correct: zhishiTest.correct, total, percent, date: new Date().toISOString() }));
+  localStorage.setItem(`${activeVocabUnit.id}-last-score`, JSON.stringify({ correct: zhishiTest.correct, total, percent, date: new Date().toISOString() }));
   document.querySelector('#zhishi-content').innerHTML = `<div class="result"><p class="eyebrow">Vocabulary review</p><h2>測驗完成</h2><div class="score-number">${percent}<small style="font-size:1.25rem"> 分</small></div><p class="score-label">答對 ${zhishiTest.correct} / ${total} 題。可以再次測驗，題目與 ABCD 選項將重新隨機排列。</p><button class="primary" id="retry-zhishi">重新測驗 →</button></div>`;
   document.querySelector('#retry-zhishi').onclick = startZhishiQuiz;
 }
@@ -215,7 +236,7 @@ let mistakeReview = null;
 function mistakesPage() {
   const records = mistakeBank();
   const groups = [{ id: 'reading', label: '八年級英文課文' }, { id: 'vocab', label: '字彙字識' }];
-  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Review center</p><h1>錯題複習</h1><p>每一題保留原本題幹與選項；同一題答對 3 次會自動從錯題庫移除。</p></section><section class="mistake-groups">${groups.map(group => { const items = records.filter(item => item.course === group.id); return `<article class="mistake-group"><h2>${group.label}</h2><p>${items.length ? `目前有 ${items.length} 題待複習` : '目前沒有待複習的錯題。'}</p>${items.length ? `<button class="primary" data-review-course="${group.id}">Random 錯題練習 →</button>` : ''}</article>`; }).join('')}</section>`;
+  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Review center</p><h1>錯題複習</h1><p>每一題保留原本題幹與選項；同一題連續答對 3 次會自動從錯題庫移除。錯題只儲存在此 Browser 的 localStorage，不會跨裝置或 Browser 同步。</p></section><section class="mistake-groups">${groups.map(group => { const items = records.filter(item => item.course === group.id); return `<article class="mistake-group"><h2>${group.label}</h2><p>${items.length ? `目前有 ${items.length} 題待複習` : '目前沒有待複習的錯題。'}</p>${items.length ? `<button class="primary" data-review-course="${group.id}">Random 錯題練習 →</button>` : ''}</article>`; }).join('')}</section>`;
   app.querySelectorAll('[data-review-course]').forEach(button => button.onclick = () => { location.hash = `#mistakes/${button.dataset.reviewCourse}`; });
 }
 function startMistakeReview(course) { mistakeReview = { course, index: 0, questions: shuffle(mistakeBank().filter(item => item.course === course)) }; showMistakeReview(); }
@@ -253,5 +274,5 @@ function drawChart(data) {
   const points=data.map((d,i)=>({x:data.length===1?(p.l+w-p.r)/2:p.l+i*(w-p.l-p.r)/(data.length-1),y:p.t+(100-d.total)/100*(h-p.t-p.b),d}));
   ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();points.forEach((p,i)=>{ctx.fillStyle='#fffdfa';ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#53636e';ctx.textAlign='center';ctx.fillText(p.d.unit.toUpperCase(),p.x,h-15);});
 }
-function router() { const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && parts[2] === vocabZhishi.id) zhishi(); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
+function router() { clearEnterNext(); const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && vocabUnits.some(item => item.id === parts[2])) zhishi(parts[2]); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
 window.addEventListener('hashchange', router); window.addEventListener('resize', () => { if(location.hash === '#progress' && scores().length) drawChart(scores()); }); router();
