@@ -45,7 +45,7 @@ function home() {
       <div><p class="eyebrow">Independent Learning</p><h1>選擇教材，<br>建立自己的英文路徑。</h1><p>從課文閱讀或字彙練習開始；每套教材各自保有適合的學習與測驗方式。</p></div>
       <aside class="hero-note"><strong>今日的小目標</strong>選擇一套教材，再挑選要練習的 Unit。${recent ? `<br><br>最近課文紀錄：${esc(recent.title)} · ${recent.total}%` : ''}</aside>
     </section>
-    <section class="book-grid"><article class="book-card"><span class="tag">Reading · Grade 8</span><h2>八年級英文課文</h2><p>中英對照閱讀、核心單字、英文朗讀與兩種測驗學習路徑。</p><button class="primary" data-course="reading">進入課文 Units →</button></article><article class="book-card vocab-book"><span class="tag">Vocabulary</span><h2>字彙字識</h2><p>單字庫、例句朗讀與隨機四選一克漏字測驗；課程會持續增加。</p><button class="primary" data-course="vocab">進入字彙單元 →</button></article></section>`;
+    ${gardenBanner()}<section class="book-grid"><article class="book-card"><span class="tag">Reading · Grade 8</span><h2>八年級英文課文</h2><p>中英對照閱讀、核心單字、英文朗讀與兩種測驗學習路徑。</p><button class="primary" data-course="reading">進入課文 Units →</button></article><article class="book-card vocab-book"><span class="tag">Vocabulary</span><h2>字彙字識</h2><p>單字庫、例句朗讀與隨機四選一克漏字測驗；課程會持續增加。</p><button class="primary" data-course="vocab">進入字彙單元 →</button></article><article class="book-card"><span class="tag">Mock Exam · Grade 8</span><h2>第一次段考</h2><p>三份全新情境模擬考，每份 20 題克漏字與 30 題選擇，整合全部課程單字範圍。</p><button class="primary" data-course="midterm">進入模擬考 →</button></article></section>`;
   app.querySelectorAll('[data-course]').forEach(button => button.onclick = () => setRoute(`#${button.dataset.course}`));
 }
 
@@ -56,7 +56,7 @@ function readingCatalog() {
 
 function zhishiCatalog() {
   const lessons = vocabUnits;
-  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Vocabulary · 字彙字識</p><h1>字彙字識</h1><p>選擇一個單元，先從單字庫複習，再進行例句克漏字測驗。</p></section><section class="unit-grid">${lessons.map(item => `<article class="unit-card vocab-unit-card"><span class="tag">Vocabulary</span><h2>${esc(item.title)}</h2><p>${esc(item.subtitle)}<br>${item.records.length} 個詞義／例句項目</p><button class="primary" data-vocab-unit="${esc(item.id)}">開始學習 →</button></article>`).join('')}</section><p class="catalog-note">新的字彙字識單元將會陸續加入這個列表。</p>`;
+  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Vocabulary · 字彙字識</p><h1>字彙字識</h1><p>選擇一個單元，先從單字庫複習，再進行例句克漏字測驗。</p></section>${gardenBanner()}<section class="unit-grid">${lessons.map(item => `<article class="unit-card vocab-unit-card"><span class="tag">Vocabulary</span><h2>${esc(item.title)}</h2><p>${esc(item.subtitle)}<br>${item.records.length} 個詞義／例句項目</p><button class="primary" data-vocab-unit="${esc(item.id)}">開始學習 →</button></article>`).join('')}</section><p class="catalog-note">新的字彙字識單元將會陸續加入這個列表。</p>`;
   app.querySelectorAll('[data-vocab-unit]').forEach(button => button.onclick = () => setRoute(`#vocab/unit/${button.dataset.vocabUnit}`));
 }
 
@@ -274,5 +274,5 @@ function drawChart(data) {
   const points=data.map((d,i)=>({x:data.length===1?(p.l+w-p.r)/2:p.l+i*(w-p.l-p.r)/(data.length-1),y:p.t+(100-d.total)/100*(h-p.t-p.b),d}));
   ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();points.forEach((p,i)=>{ctx.fillStyle='#fffdfa';ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#53636e';ctx.textAlign='center';ctx.fillText(p.d.unit.toUpperCase(),p.x,h-15);});
 }
-function router() { clearEnterNext(); const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && vocabUnits.some(item => item.id === parts[2])) zhishi(parts[2]); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
+function router() { clearEnterNext(); const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'midterm') midtermPage(parts[1]); else if(parts[0] === 'garden') gardenPage(); else if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && vocabUnits.some(item => item.id === parts[2])) zhishi(parts[2]); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
 window.addEventListener('hashchange', router); window.addEventListener('resize', () => { if(location.hash === '#progress' && scores().length) drawChart(scores()); }); router();
