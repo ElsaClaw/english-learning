@@ -14,17 +14,27 @@ function examHint(answer, letterOnly) {
   const letters=[...answer].map((c,i)=>/[a-z]/i.test(c)?i:-1).filter(i=>i>=0);
   return [...answer].map((c,i)=>/[a-z]/i.test(c)&&i!==letters[0]&&i!==letters.at(-1)?'＿':c).join('');
 }
+function examScoreBreakdown(reading, choice, counts) {
+  return [counts.reading ? `克漏字 ${reading}/${counts.reading}` : '', counts.choice ? `選擇 ${choice}/${counts.choice}` : ''].filter(Boolean).join(' · ');
+}
 function midtermCatalog() {
   const history=examRecords();
-  app.innerHTML=`<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">First Midterm · Practice</p><h1>第一次段考</h1><p>模擬考 1～3：八年級英文課文與字彙字識，克漏字 20 題＋選擇 30 題。</p><p>模擬考 4～6：八年級英文課文 Unit 1～3.2 與翰林三上 Unit 4 的克漏字 40 題（僅首尾字母提示），加上原範圍字彙字識選擇 30 題。</p><p>各部分題序與選項隨機排列，交卷後才顯示答案。每題等權重，總分按答對比例換算為 100 分，四捨五入至小數點後一位。</p></section><section class="unit-grid">${midtermPapers.map(p=>{const counts=examCounts(p);return `<article class="unit-card"><span class="tag">${counts.total} 題 · 100 分</span><h2>${esc(p.title)}</h2><p>課文單字克漏字 ${counts.reading} 題<br>字彙字識選擇 ${counts.choice} 題</p><button class="primary" data-exam="${p.id}">開始作答 →</button></article>`;}).join('')}</section><section class="exam-history"><h2>段考練習紀錄</h2><p>紀錄僅儲存於目前 Browser。作答期間可返回上一題；離開或重新整理前請先交卷。</p>${history.length?history.slice().reverse().map(r=>`<p>${esc(r.title)} · ${esc(new Date(r.date).toLocaleString('zh-TW'))} · <strong>${r.score} 分</strong>（克漏字 ${r.reading}/${r.readingTotal || 20}，選擇 ${r.choice}/${r.choiceTotal || 30}）</p>`).join(''):'<p>還沒有交卷紀錄，選一份開始吧！</p>'}</section>`;
+  app.innerHTML=`<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">First Midterm · Practice</p><h1>第一次段考</h1>
+    <p>模擬考 1～4：綜合練習，保留原有題目與範圍。</p>
+    <p>模擬考 5、6：各 50 題克漏字，涵蓋八年級英文課文 Unit 1～3.2 與翰林三上 Unit 4 的全部 98 個單字／片語。兩份只有 brain、wallet 重複，使用不同句子。</p>
+    <p>模擬考 7～10：105、105、105、102 題選擇題，合計涵蓋字彙字識全部 417 個不同考詞，跨試卷不重複。</p>
+    <p>專項試卷的考詞固定分配，題序及選項隨機排列。克漏字僅提供首尾字母提示；if 為兩字母特例，不顯示字母；not ... anymore 使用兩個空格作答。</p>
+    <p>交卷後才顯示答案。每題等權重，總分按答對比例換算為 100 分，四捨五入至小數點後一位。</p></section>
+    <section class="unit-grid">${midtermPapers.map(p=>{const counts=examCounts(p);return `<article class="unit-card"><span class="tag">${counts.total} 題 · 100 分</span><h2>${esc(p.title)}</h2><p>${[counts.reading?`課文單字克漏字 ${counts.reading} 題`:'',counts.choice?`字彙字識選擇 ${counts.choice} 題`:''].filter(Boolean).join('<br>')}</p><button class="primary" data-exam="${p.id}">開始作答 →</button></article>`;}).join('')}</section>
+    <section class="exam-history"><h2>段考練習紀錄</h2><p>紀錄僅儲存於目前 Browser。作答期間可返回上一題；離開或重新整理前請先交卷。</p>${history.length?history.slice().reverse().map(r=>`<p>${esc(r.title)}${['midterm-5','midterm-6'].includes(r.paperId)?'（舊版）':''} · ${esc(new Date(r.date).toLocaleString('zh-TW'))} · <strong>${r.score} 分</strong>（${examScoreBreakdown(r.reading,r.choice,{reading:r.readingTotal ?? 20,choice:r.choiceTotal ?? 30})}）</p>`).join(''):'<p>還沒有交卷紀錄，選一份開始吧！</p>'}</section>`;
   app.querySelectorAll('[data-exam]').forEach(b=>b.onclick=()=>{const p=midtermPapers.find(p=>p.id===b.dataset.exam);midtermAttempt={paper:p,index:0,answers:{},questions:['reading','choice'].flatMap(type=>examShuffle(p.questions.filter(q=>q.type===type)).map(q=>({...q,choices:q.choices?examShuffle(q.choices):null})))};setRoute('#midterm/test');});
 }
 function midtermPage(part) { if(part==='test'&&midtermAttempt) midtermQuestion(); else midtermCatalog(); }
 function midtermQuestion() {
   clearEnterNext();const a=midtermAttempt,q=a.questions[a.index];
   const answered=Object.values(a.answers).filter(v=>String(v).trim()).length;
-  const hint=examHint(q.answer,a.paper.letterOnly), total=a.questions.length;
-  app.innerHTML=`<section class="exam-shell"><p class="eyebrow">${esc(a.paper.title)} · ${q.type==='reading'?'第一部分：克漏字':'第二部分：選擇題'}</p><h1>第 ${a.index+1} / ${total} 題</h1><p>已作答 ${answered} 題 · 總分 100 分</p><progress value="${answered}" max="${total}" aria-label="已作答題數"></progress><form id="exam-form"><h2 class="exam-sentence">${esc(q.prompt)}</h2>${q.type==='reading'?`<p>提示：${a.paper.letterOnly?'':esc(q.meaning)+' · '}${esc(hint)}</p><label for="exam-answer">請輸入完整單字或片語（不分大小寫）</label><input id="exam-answer" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(a.answers[q.id]||'')}">`:`<fieldset class="exam-options"><legend>選出最符合句意的單字</legend>${q.choices.map((v,i)=>`<label><input type="radio" name="answer" value="${esc(v)}" ${a.answers[q.id]===v?'checked':''}> <span>${String.fromCharCode(65+i)}. ${esc(v)}</span></label>`).join('')}</fieldset>`}<div class="exam-actions"><button type="button" id="exam-prev" ${a.index===0?'disabled':''}>← 上一題</button><button type="submit" class="primary">${a.index===total-1?'檢查並交卷':'下一題 →'}</button></div></form><details><summary>題號導覽（可跳題）</summary><div class="exam-numbers">${a.questions.map((v,i)=>`<button aria-label="第 ${i+1} 題${a.answers[v.id]?'，已作答':''}" ${i===a.index?'aria-current="step"':''} data-jump="${i}">${i+1}${a.answers[v.id]?' ✓':''}</button>`).join('')}</div></details></section>`;
+  const hint=q.hint || examHint(q.answer,a.paper.letterOnly), total=a.questions.length;
+  app.innerHTML=`<section class="exam-shell"><p class="eyebrow">${esc(a.paper.title)} · ${q.type==='reading'?'克漏字':'選擇題'}</p><h1>第 ${a.index+1} / ${total} 題</h1><p>已作答 ${answered} 題 · 總分 100 分</p><progress value="${answered}" max="${total}" aria-label="已作答題數"></progress><form id="exam-form"><h2 class="exam-sentence">${esc(q.prompt)}</h2>${q.type==='reading'?`<p class="exam-hint">提示：${a.paper.letterOnly?'':esc(q.meaning)+' · '}${esc(hint)}</p><label for="exam-answer">${esc(q.inputNote || '請輸入完整單字或片語（不分大小寫）')}</label><input id="exam-answer" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(a.answers[q.id]||'')}">`:`<fieldset class="exam-options"><legend>選出最符合句意的單字</legend>${q.choices.map((v,i)=>`<label><input type="radio" name="answer" value="${esc(v)}" ${a.answers[q.id]===v?'checked':''}> <span>${String.fromCharCode(65+i)}. ${esc(v)}</span></label>`).join('')}</fieldset>`}<div class="exam-actions"><button type="button" id="exam-prev" ${a.index===0?'disabled':''}>← 上一題</button><button type="submit" class="primary">${a.index===total-1?'檢查並交卷':'下一題 →'}</button></div></form><details><summary>題號導覽（可跳題）</summary><div class="exam-numbers">${a.questions.map((v,i)=>`<button aria-label="第 ${i+1} 題${a.answers[v.id]?'，已作答':''}" ${i===a.index?'aria-current="step"':''} data-jump="${i}">${i+1}${a.answers[v.id]?' ✓':''}</button>`).join('')}</div></details></section>`;
   const persist=()=>{a.answers[q.id]=q.type==='reading'?app.querySelector('#exam-answer').value:app.querySelector('input[name="answer"]:checked')?.value||'';};
   app.querySelector('#exam-form').oninput=persist;
   app.querySelector('#exam-prev').onclick=()=>{persist();a.index--;midtermQuestion();};
@@ -39,12 +49,17 @@ function midtermReviewSubmit() {
   app.querySelector('#exam-submit').onclick=midtermResult;
 }
 function examNormalize(value) { return String(value||'').normalize('NFKC').toLowerCase().trim().replace(/[’‘]/g,"'").replace(/\s+/g,' '); }
+function examAnswerCorrect(q, value) {
+  let normalize=examNormalize;
+  if(q.word==='not ... anymore') normalize=v=>examNormalize(v).replace(/\s*(?:\.{3}|…)\s*/g,' ');
+  return [q.answer,...(q.acceptedAnswers || [])].some(answer=>normalize(value)===normalize(answer));
+}
 function midtermResult() {
   const a=midtermAttempt;if(!a)return;
-  const results=a.questions.map(q=>({...q,given:a.answers[q.id]||'',correct:examNormalize(a.answers[q.id])===examNormalize(q.answer)}));
+  const results=a.questions.map(q=>({...q,given:a.answers[q.id]||'',correct:examAnswerCorrect(q,a.answers[q.id])}));
   const reading=results.filter(q=>q.type==='reading'&&q.correct).length,choice=results.filter(q=>q.type==='choice'&&q.correct).length;
   const counts=examCounts(a.paper);const score=Math.round((reading+choice)/counts.total*1000)/10;let saved=true;
   try {const history=examRecords();history.push({title:a.paper.title,paperId:a.paper.id,date:new Date().toISOString(),score,reading,choice,readingTotal:counts.reading,choiceTotal:counts.choice});localStorage.setItem(MIDTERM_STORE,JSON.stringify(history));}catch{saved=false;}
   midtermAttempt=null;
-  app.innerHTML=`<a class="back" href="#midterm">← 第一次段考</a><section class="catalog-head"><p class="eyebrow">${esc(a.paper.title)} · Result</p><h1>${score} 分</h1><p>克漏字 ${reading}/${counts.reading} · 選擇 ${choice}/${counts.choice}</p><p>${saved?'此次成績已儲存在目前 Browser。':'Browser 無法儲存此次成績；請先記下分數。'}</p></section><section>${results.map((q,i)=>`<article class="exam-answer-card ${q.correct?'is-correct':'is-wrong'}"><h2>${i+1}. ${q.correct?'✓ 答對':'訂正'}</h2><p>${esc(q.prompt)}</p><p>你的答案：${esc(q.given||'未作答')} · 正確答案：<strong>${esc(q.answer)}</strong></p><p>${esc(q.explanation)}</p><small>單字來源：${esc(q.sourceTitle)}</small></article>`).join('')}</section>`;window.scrollTo(0,0);
+  app.innerHTML=`<a class="back" href="#midterm">← 第一次段考</a><section class="catalog-head"><p class="eyebrow">${esc(a.paper.title)} · Result</p><h1>${score} 分</h1><p>${examScoreBreakdown(reading,choice,counts)}</p><p>${saved?'此次成績已儲存在目前 Browser。':'Browser 無法儲存此次成績；請先記下分數。'}</p></section><section>${results.map((q,i)=>`<article class="exam-answer-card ${q.correct?'is-correct':'is-wrong'}"><h2>${i+1}. ${q.correct?'✓ 答對':'訂正'}</h2><p>${esc(q.prompt)}</p><p>你的答案：${esc(q.given||'未作答')} · 正確答案：<strong>${esc(q.answer)}</strong></p><p>${esc(q.explanation)}</p><small>單字來源：${esc(q.sourceTitle)}</small></article>`).join('')}</section>`;window.scrollTo(0,0);
 }
