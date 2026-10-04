@@ -10,7 +10,7 @@ function esc(value) { return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;
 function shuffle(items) { return [...items].sort(() => Math.random() - .5); }
 function scores() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '[]'); } catch { return []; } }
 function saveScore(item) { const all = scores(); all.push(item); localStorage.setItem(STORE_KEY, JSON.stringify(all)); }
-function unitById(id) { return units.find(unit => unit.id === id); }
+function unitById(id) { return [...units, ...hanlinUnits].find(unit => unit.id === id); }
 let availableVoices = [];
 function refreshVoices() { availableVoices = speechSynthesis.getVoices(); }
 function preferredEnglishVoice() {
@@ -32,7 +32,7 @@ function say(text) {
   speechSynthesis.speak(utterance);
 }
 function setRoute(hash) { location.hash = hash; }
-function allMeanings() { return [...new Set(units.flatMap(u => u.vocab.map(v => v[2])))]; }
+function allMeanings() { return [...new Set([...units, ...hanlinUnits].flatMap(u => u.vocab.map(v => v[2])))]; }
 function armEnterNext(action) { enterNext = action; }
 function clearEnterNext() { enterNext = null; }
 window.addEventListener('keydown', event => { if (event.key === 'Enter' && enterNext) { event.preventDefault(); const action = enterNext; enterNext = null; action(); } });
@@ -45,7 +45,7 @@ function home() {
       <div><p class="eyebrow">Independent Learning</p><h1>選擇教材，<br>建立自己的英文路徑。</h1><p>從課文閱讀或字彙練習開始；每套教材各自保有適合的學習與測驗方式。</p></div>
       <aside class="hero-note"><strong>今日的小目標</strong>選擇一套教材，再挑選要練習的 Unit。${recent ? `<br><br>最近課文紀錄：${esc(recent.title)} · ${recent.total}%` : ''}</aside>
     </section>
-    ${gardenBanner()}<section class="book-grid"><article class="book-card"><span class="tag">Reading · Grade 8</span><h2>八年級英文課文</h2><p>中英對照閱讀、核心單字、英文朗讀與兩種測驗學習路徑。</p><button class="primary" data-course="reading">進入課文 Units →</button></article><article class="book-card vocab-book"><span class="tag">Vocabulary</span><h2>字彙字識</h2><p>單字庫、例句朗讀與隨機四選一克漏字測驗；課程會持續增加。</p><button class="primary" data-course="vocab">進入字彙單元 →</button></article><article class="book-card"><span class="tag">Mock Exam · Grade 8</span><h2>第一次段考</h2><p>三份全新情境模擬考，每份 20 題克漏字與 30 題選擇，整合全部課程單字範圍。</p><button class="primary" data-course="midterm">進入模擬考 →</button></article></section>`;
+    ${gardenBanner()}<section class="book-grid"><article class="book-card"><span class="tag">Reading · Grade 8</span><h2>八年級英文課文</h2><p>中英對照閱讀、核心單字、英文朗讀與兩種測驗學習路徑。</p><button class="primary" data-course="reading">進入課文 Units →</button></article><article class="book-card vocab-book"><span class="tag">Vocabulary</span><h2>字彙字識</h2><p>單字庫、例句朗讀與隨機四選一克漏字測驗；課程會持續增加。</p><button class="primary" data-course="vocab">進入字彙單元 →</button></article><article class="book-card"><span class="tag">Mock Exam · Grade 8</span><h2>第一次段考</h2><p>六份全新情境模擬考：1～3 每份 50 題；4～6 每份 70 題，加入翰林 Unit 4 與首尾字母提示。</p><button class="primary" data-course="midterm">進入模擬考 →</button></article><article class="book-card hanlin-book"><span class="tag">Hanlin · 三上</span><h2>翰林英文課本</h2><p>課本對話與閱讀、中英對照、單字朗讀及 Part 1～Part 4 互動練習。</p><button class="primary" data-course="hanlin">進入翰林課程 →</button></article></section>`;
   app.querySelectorAll('[data-course]').forEach(button => button.onclick = () => setRoute(`#${button.dataset.course}`));
 }
 
@@ -53,6 +53,12 @@ function readingCatalog() {
   app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Reading · Grade 8</p><h1>八年級英文課文</h1><p>選擇一個 Unit，依序完成閱讀、單字庫、測驗 A 與測驗 B。</p></section><section class="unit-grid">${units.map(u => `<article class="unit-card"><span class="tag">${esc(u.group)} · ${u.vocab.length} words</span><h2>${esc(u.title)}</h2><p>${esc(u.subtitle)}</p><button class="primary" data-open="${u.id}">開始學習 →</button></article>`).join('')}</section>`;
   app.querySelectorAll('[data-open]').forEach(button => button.onclick = () => setRoute(`#unit/${button.dataset.open}`));
 }
+
+function hanlinCatalog() {
+  app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Hanlin English</p><h1>翰林英文課本</h1><p>選擇課本單元，完成 Part 1～Part 4 的閱讀、單字與測驗。</p></section><section class="unit-grid">${hanlinUnits.map(u => `<article class="unit-card"><span class="tag">${esc(u.group)} · ${u.vocab.length} 個單字／片語</span><h2>${esc(u.title)}</h2><p>${esc(u.subtitle)}</p><button class="primary" data-hanlin="${esc(u.id)}">開始學習 →</button></article>`).join('')}</section>`;
+  app.querySelectorAll('[data-hanlin]').forEach(button => button.onclick = () => setRoute(`#unit/${button.dataset.hanlin}`));
+}
+function readingCourse() { return { course: activeUnit.course || 'reading', courseLabel: activeUnit.courseLabel || '八年級英文課文' }; }
 
 function zhishiCatalog() {
   const lessons = vocabUnits;
@@ -135,8 +141,8 @@ function lesson(id, wantedPart = 'read') {
   const unit = unitById(id); if (!unit) return home();
   activeUnit = unit; activePart = wantedPart; testA = null; testB = null;
   app.innerHTML = `
-    <a class="back" href="#home">← 所有學習單元</a>
-    <section class="lesson-head"><p class="eyebrow">${esc(unit.group)} · 學習單元</p><h1>${esc(unit.title)}</h1><p>${esc(unit.subtitle)}</p><span class="progress-pill">${unit.vocab.length} 個核心單字</span></section>
+    <a class="back" href="${unit.course === 'hanlin' ? '#hanlin' : '#reading'}">← ${esc(unit.courseLabel || '八年級英文課文')}</a>
+    <section class="lesson-head"><p class="eyebrow">${esc(unit.group)} · 學習單元</p><h1>${esc(unit.title)}</h1><p>${esc(unit.subtitle)}</p>${unit.sourceNote ? `<p class="catalog-note">${esc(unit.sourceNote)}</p>` : ''}<span class="progress-pill">${unit.vocab.length} 個核心單字</span></section>
     <div class="parts">
       <button class="part-tab ${wantedPart === 'read' ? 'active':''}" data-part="read">Part 1 · 閱讀</button>
       <button class="part-tab ${wantedPart === 'vocab' ? 'active':''}" data-part="vocab">Part 2 · 單字庫</button>
@@ -148,24 +154,27 @@ function lesson(id, wantedPart = 'read') {
 }
 
 function renderPart(part) {
+  clearEnterNext();
   activePart = part;
   document.querySelectorAll('.part-tab').forEach(button => button.classList.toggle('active', button.dataset.part === part));
   const box = document.querySelector('#part-content'); if (!box || !activeUnit) return;
   if (part === 'read') {
-    box.innerHTML = `<div class="panel-head"><div><h2>課文對照</h2><p>先讀英文，再參照繁體中文理解意思。</p></div><button class="secondary speak-btn" id="speak-all">🔊 朗讀完整課文</button></div>${activeUnit.text.map(([en, zh], index) => `<article class="reading"><p class="english">${esc(en)}</p><p class="chinese">${esc(zh)}</p><button class="ghost" data-sentence="${index}">▶ 朗讀這段</button></article>`).join('')}`;
+    box.innerHTML = `<div class="panel-head"><div><h2>課文對照</h2><p>先讀英文，再參照繁體中文理解意思。</p></div><button class="secondary speak-btn" id="speak-all">🔊 朗讀完整課文</button></div>${activeUnit.text.map(([en, zh], index) => `${activeUnit.sections?.[index] ? `<h3>${esc(activeUnit.sections[index])}</h3>` : ''}<article class="reading"><p class="english">${esc(en)}</p><p class="chinese">${esc(zh)}</p><button class="ghost" data-sentence="${index}">▶ 朗讀這段</button></article>`).join('')}`;
     box.querySelector('#speak-all').onclick = () => say(activeUnit.text.map(t => t[0]).join(' '));
     box.querySelectorAll('[data-sentence]').forEach(btn => btn.onclick = () => say(activeUnit.text[btn.dataset.sentence][0]));
   } else if (part === 'vocab') {
-    box.innerHTML = `<div class="panel-head"><div><h2>核心單字</h2><p>每個例句均取自本單元課文或教材例句。</p></div></div><div class="vocab-grid">${activeUnit.vocab.map((v, index) => `<article class="word-card"><h3>${esc(v[0])}<span class="pos">${esc(v[1])}</span></h3><p class="meaning">${esc(v[2])}</p><p class="example">“${esc(v[3])}”</p><button class="ghost" data-word="${index}">▶ 發音</button></article>`).join('')}</div>`;
+    box.innerHTML = `<div class="panel-head"><div><h2>核心單字</h2><p>依本單元教材整理；補充例句會另行標示，測驗依例句中的字形作答。</p></div></div><div class="vocab-grid">${activeUnit.vocab.map((v, index) => `<article class="word-card"><h3>${esc(v[0])}<span class="pos">${esc(v[1])}</span></h3><p class="meaning">${esc(v[2])}</p><p class="example">“${esc(v[3])}”</p>${v[5] ? `<p class="catalog-note">${esc(v[5])}</p>` : ''}${v[4] && v[4] !== v[0] ? `<p class="catalog-note">例句字形：${esc(v[4])}</p>` : ''}<button class="ghost" data-example="${index}">▶ 朗讀例句</button><button class="ghost" data-word="${index}">▶ 發音</button></article>`).join('')}</div>`;
+    box.querySelectorAll('[data-example]').forEach(btn => btn.onclick = () => say(activeUnit.vocab[btn.dataset.example][3]));
     box.querySelectorAll('[data-word]').forEach(btn => btn.onclick = () => say(activeUnit.vocab[btn.dataset.word][0]));
   } else if (part === 'a') startTestA();
   else startTestB();
 }
 
 function startTestA() {
+  resetSavedAttempt();
   testA = { index: 0, correct: 0, questions: shuffle(activeUnit.vocab.map((v, sourceIndex) => ({ v, sourceIndex }))).map(({ v, sourceIndex }) => {
     const distractors = shuffle(allMeanings().filter(x => x !== v[2])).slice(0, 3);
-    return { id: `reading:${activeUnit.id}:a:${sourceIndex}`, word: v[0], answer: v[2], choices: shuffle([v[2], ...distractors]) };
+    return { id: `${activeUnit.course || 'reading'}:${activeUnit.id}:a:${sourceIndex}`, word: v[0], answer: v[2], choices: shuffle([v[2], ...distractors]) };
   }) };
   showTestA();
 }
@@ -182,16 +191,36 @@ function answerA(button, q) {
   const buttons = document.querySelectorAll('.choice'); buttons.forEach(b => b.disabled = true);
   const correct = button.dataset.choice === q.answer;
   if (correct) { testA.correct++; button.classList.add('correct'); }
-  else { button.classList.add('wrong'); [...buttons].find(b => b.dataset.choice === q.answer).classList.add('correct'); storeMistake({ id: q.id, course: 'reading', courseLabel: '八年級英文課文', unit: activeUnit.group + ' · ' + activeUnit.title, kind: 'choice', question: q.word, choices: q.choices, correct: q.answer, correctLabel: q.answer }, button.dataset.choice); }
+  else { button.classList.add('wrong'); [...buttons].find(b => b.dataset.choice === q.answer).classList.add('correct'); storeMistake({ id: q.id, ...readingCourse(), unit: activeUnit.group + ' · ' + activeUnit.title, kind: 'choice', question: q.word, choices: q.choices, correct: q.answer, correctLabel: q.answer }, button.dataset.choice); }
   document.querySelector('#feedback').textContent = correct ? `答對了！${q.word}（${q.answer}）。請確認答案後再進入下一題。` : `正確答案是「${q.word}（${q.answer}）」。請確認答案後再進入下一題。`;
   const next = document.createElement('button'); next.className = 'secondary next-question'; next.textContent = '下一題 →'; next.onclick = () => { clearEnterNext(); testA.index++; showTestA(); };
   document.querySelector('.quiz-actions').append(next); armEnterNext(next.onclick);
 }
 function finishA() {
-  const percent = Math.round(testA.correct / testA.questions.length * 100);
-  document.querySelector('#part-content').innerHTML = resultHTML('測驗 A 完成', percent, `${testA.correct} / ${testA.questions.length} 題答對`, '前往測驗 B →', 'b');
-  document.querySelector('[data-next]').onclick = () => renderPart('b');
+  testA.completed = true;
+  finishPair('a');
 }
+function finishPair(part) {
+  const paired = testA?.completed && testB?.completed;
+  const current = part === 'a' ? testA : testB;
+  const percent = Math.round(current.correct / current.questions.length * 100);
+  if (paired) {
+    const a = Math.round(testA.correct / testA.questions.length * 100);
+    const b = Math.round(testB.correct / testB.questions.length * 100);
+    const total = Math.round((a + b) / 2);
+    if (!testA.saved && !testB.saved) {
+      saveScore({ unit: activeUnit.id, title: (activeUnit.courseLabel ? activeUnit.courseLabel + ' · ' : '') + activeUnit.group + ' · ' + activeUnit.title, a, b, total, date: new Date().toISOString() });
+      testA.saved = testB.saved = true;
+    }
+    document.querySelector('#part-content').innerHTML = resultHTML('本單元測驗完成', total, `測驗 A：${a} 分 · 測驗 B：${b} 分`, '查看學習紀錄 →', 'progress');
+    document.querySelector('[data-next]').onclick = () => setRoute('#progress');
+  } else {
+    const next = part === 'a' ? 'b' : 'a';
+    document.querySelector('#part-content').innerHTML = resultHTML(`測驗 ${part.toUpperCase()} 完成`, percent, `${current.correct} / ${current.questions.length} 題答對。完成另一份測驗後記錄平均總分。`, `前往測驗 ${next.toUpperCase()} →`, next);
+    document.querySelector('[data-next]').onclick = () => renderPart(next);
+  }
+}
+function resetSavedAttempt() { if (testA?.saved || testB?.saved) { testA = null; testB = null; } }
 
 function masked(word) {
   const letters = [...word]; const positions = letters.map((x, i) => /[a-z]/i.test(x) ? i : -1).filter(i => i >= 0);
@@ -199,15 +228,16 @@ function masked(word) {
   const first = positions[0], last = positions.at(-1);
   return letters.map((x, i) => (i === first || i === last || !/[a-z]/i.test(x)) ? x : '_').join('');
 }
-function startTestB() { testB = { index: 0, correct: 0, questions: shuffle(activeUnit.vocab.map((v, sourceIndex) => ({ word:v[0], sentence:v[3], id:`reading:${activeUnit.id}:b:${sourceIndex}` }))) }; showTestB(); }
+function startTestB() { resetSavedAttempt(); testB = { index: 0, correct: 0, questions: shuffle(activeUnit.vocab.map((v, sourceIndex) => ({ word:v[4] === false ? '' : (v[4] || v[0]), sentence:v[3], id:`${activeUnit.course || 'reading'}:${activeUnit.id}:b:${sourceIndex}` })).filter(q => q.word && q.sentence.toLowerCase().includes(q.word.toLowerCase()))) }; showTestB(); }
 function showTestB() {
   const box = document.querySelector('#part-content'), q = testB.questions[testB.index];
   if (!q) return finishB();
   const pattern = new RegExp(q.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-  const sentence = q.sentence.replace(pattern, `<mark>${masked(q.word)}</mark>`);
+  const match = pattern.exec(q.sentence);
+  const sentence = match ? esc(q.sentence.slice(0, match.index)) + `<mark>${esc(masked(match[0]))}</mark>` + esc(q.sentence.slice(match.index + match[0].length)) : esc(q.sentence);
   box.innerHTML = `<div class="panel-head"><div><h2>測驗 B · 克漏字</h2><p>依例句填入單字；保留第一與最後一個英文字母作為提示。</p></div></div><div class="quiz-intro">作答進度 ${testB.index + 1} / ${testB.questions.length} · 不分大小寫作答</div><div class="question-num">Question ${testB.index + 1}</div><p class="blank-sentence">${sentence}</p><div class="answer-form"><input id="blank-answer" autocomplete="off" placeholder="輸入完整英文單字或片語" aria-label="答案" /><button class="primary" id="check-answer">確認答案</button></div><div class="quiz-actions"><span class="quiz-feedback" id="feedback">提示：${esc(masked(q.word))}</span><span>${testB.correct} 題答對</span></div>`;
   const check = () => answerB(q); box.querySelector('#check-answer').onclick = check;
-  box.querySelector('#blank-answer').addEventListener('keydown', e => { if(e.key === 'Enter') check(); });
+  box.querySelector('#blank-answer').addEventListener('keydown', e => { if(e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); check(); } });
   box.querySelector('#blank-answer').focus();
 }
 function normalize(str) { return str.toLowerCase().replace(/[^a-z]/g, ''); }
@@ -215,27 +245,17 @@ function answerB(q) {
   const input = document.querySelector('#blank-answer'), button = document.querySelector('#check-answer'); if (button.disabled) return;
   const correct = normalize(input.value) === normalize(q.word); button.disabled = true; input.disabled = true;
   if (correct) { testB.correct++; input.style.borderColor = '#53a16d'; document.querySelector('#feedback').textContent = '答對了！很好。'; }
-  else { input.style.borderColor = '#cd706b'; document.querySelector('#feedback').textContent = `正確答案：${q.word}`; storeMistake({ id: q.id, course: 'reading', courseLabel: '八年級英文課文', unit: activeUnit.group + ' · ' + activeUnit.title, kind: 'input', question: q.sentence, correct: q.word, correctLabel: q.word }, input.value); }
-  setTimeout(() => { testB.index++; showTestB(); }, 1100);
+  else { input.style.borderColor = '#cd706b'; document.querySelector('#feedback').textContent = `正確答案：${q.word}`; storeMistake({ id: q.id, ...readingCourse(), unit: activeUnit.group + ' · ' + activeUnit.title, kind: 'input', question: q.sentence, correct: q.word, correctLabel: q.word }, input.value); }
+  const currentTest = testB;
+  setTimeout(() => { if (testB === currentTest && activePart === 'b' && document.querySelector('#blank-answer') === input) { testB.index++; showTestB(); } }, 1100);
 }
-function finishB() {
-  const percent = Math.round(testB.correct / testB.questions.length * 100);
-  const aPercent = testA ? Math.round(testA.correct / testA.questions.length * 100) : null;
-  if (aPercent !== null) {
-    const total = Math.round((aPercent + percent) / 2);
-    saveScore({ unit: activeUnit.id, title: activeUnit.group + ' · ' + activeUnit.title, a:aPercent, b:percent, total, date:new Date().toISOString() });
-    document.querySelector('#part-content').innerHTML = resultHTML('本單元測驗完成', total, `測驗 A：${aPercent} 分　·　測驗 B：${percent} 分`, '查看學習紀錄 →', 'progress', true);
-  } else {
-    document.querySelector('#part-content').innerHTML = resultHTML('測驗 B 完成', percent, `${testB.correct} / ${testB.questions.length} 題答對。請再完成測驗 A，才能寫入單元總分。`, '前往測驗 A →', 'a');
-  }
-  document.querySelector('[data-next]').onclick = () => setRoute(document.querySelector('[data-next]').dataset.next === 'progress' ? '#progress' : `#unit/${activeUnit.id}/${document.querySelector('[data-next]').dataset.next}`);
-}
+function finishB() { testB.completed = true; finishPair('b'); }
 function resultHTML(title, score, detail, label, next) { return `<div class="result"><p class="eyebrow">學習回饋</p><h2>${title}</h2><div class="score-number">${score}<small style="font-size:1.25rem"> 分</small></div><p class="score-label">${detail}</p><button class="primary" data-next="${next}">${label}</button></div>`; }
 
 let mistakeReview = null;
 function mistakesPage() {
   const records = mistakeBank();
-  const groups = [{ id: 'reading', label: '八年級英文課文' }, { id: 'vocab', label: '字彙字識' }];
+  const groups = [{ id: 'reading', label: '八年級英文課文' }, { id: 'hanlin', label: '翰林英文課本' }, { id: 'vocab', label: '字彙字識' }];
   app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Review center</p><h1>錯題複習</h1><p>每一題保留原本題幹與選項；同一題連續答對 3 次會自動從錯題庫移除。錯題只儲存在此 Browser 的 localStorage，不會跨裝置或 Browser 同步。</p></section><section class="mistake-groups">${groups.map(group => { const items = records.filter(item => item.course === group.id); return `<article class="mistake-group"><h2>${group.label}</h2><p>${items.length ? `目前有 ${items.length} 題待複習` : '目前沒有待複習的錯題。'}</p>${items.length ? `<button class="primary" data-review-course="${group.id}">Random 錯題練習 →</button>` : ''}</article>`; }).join('')}</section>`;
   app.querySelectorAll('[data-review-course]').forEach(button => button.onclick = () => { location.hash = `#mistakes/${button.dataset.reviewCourse}`; });
 }
@@ -274,5 +294,5 @@ function drawChart(data) {
   const points=data.map((d,i)=>({x:data.length===1?(p.l+w-p.r)/2:p.l+i*(w-p.l-p.r)/(data.length-1),y:p.t+(100-d.total)/100*(h-p.t-p.b),d}));
   ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();points.forEach((p,i)=>{ctx.fillStyle='#fffdfa';ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#53636e';ctx.textAlign='center';ctx.fillText(p.d.unit.toUpperCase(),p.x,h-15);});
 }
-function router() { clearEnterNext(); const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'midterm') midtermPage(parts[1]); else if(parts[0] === 'garden') gardenPage(); else if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && vocabUnits.some(item => item.id === parts[2])) zhishi(parts[2]); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
+function router() { clearEnterNext(); const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'midterm') midtermPage(parts[1]); else if(parts[0] === 'garden') gardenPage(); else if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'hanlin') hanlinCatalog(); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && vocabUnits.some(item => item.id === parts[2])) zhishi(parts[2]); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
 window.addEventListener('hashchange', router); window.addEventListener('resize', () => { if(location.hash === '#progress' && scores().length) drawChart(scores()); }); router();

@@ -1,4 +1,4 @@
-// Original assessment sentences; source IDs trace back to the course vocabulary.
+// Original assessment sentences; source IDs trace back to course vocabulary.
 const midtermPapers = [
   {
     "id": "midterm-1",
@@ -2204,6 +2204,2877 @@ const midtermPapers = [
           "frequency",
           "generation",
           "lifetime"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "midterm-4",
+    "title": "模擬考 4",
+    "letterOnly": true,
+    "questions": [
+      {
+        "id": "m4-reading-1",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "bullet",
+        "meaning": "子彈",
+        "prompt": "A _____ from the hunter's gun left a small hole in the fence.",
+        "answer": "bullet",
+        "explanation": "bullet：子彈。完整句：A bullet from the hunter's gun left a small hole in the fence."
+      },
+      {
+        "id": "m4-reading-4",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "brain",
+        "meaning": "大腦",
+        "prompt": "A helmet protects your head and the _____ inside it when you fall.",
+        "answer": "brain",
+        "explanation": "brain：大腦。完整句：A helmet protects your head and the brain inside it when you fall."
+      },
+      {
+        "id": "m4-reading-7",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "weak",
+        "meaning": "虛弱的",
+        "prompt": "The sick kitten was so _____ that it could not lift its head.",
+        "answer": "weak",
+        "explanation": "weak：虛弱的。完整句：The sick kitten was so weak that it could not lift its head."
+      },
+      {
+        "id": "m4-reading-10",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "surgeon",
+        "meaning": "外科醫生",
+        "prompt": "The _____ put on gloves before cutting into the patient's injured leg.",
+        "answer": "surgeon",
+        "explanation": "surgeon：外科醫生。完整句：The surgeon put on gloves before cutting into the patient's injured leg."
+      },
+      {
+        "id": "m4-reading-13",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "edge",
+        "meaning": "邊緣",
+        "prompt": "Keep back from the _____ of the cliff, or you could fall.",
+        "answer": "edge",
+        "explanation": "edge：邊緣。完整句：Keep back from the edge of the cliff, or you could fall."
+      },
+      {
+        "id": "m4-reading-16",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "railway station",
+        "meaning": "火車站",
+        "prompt": "We waited on the platform at the _____ for the next train.",
+        "answer": "railway station",
+        "explanation": "railway station：火車站。完整句：We waited on the platform at the railway station for the next train."
+      },
+      {
+        "id": "m4-reading-19",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "earn",
+        "meaning": "贏得；賺得",
+        "prompt": "I wash my neighbors' cars to _____ money for a new camera.",
+        "answer": "earn",
+        "explanation": "earn：贏得；賺得。完整句：I wash my neighbors' cars to earn money for a new camera."
+      },
+      {
+        "id": "m4-reading-22",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "attitude",
+        "meaning": "態度",
+        "prompt": "Although the work was difficult, her cheerful _____ encouraged the team.",
+        "answer": "attitude",
+        "explanation": "attitude：態度。完整句：Although the work was difficult, her cheerful attitude encouraged the team."
+      },
+      {
+        "id": "m4-reading-25",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "cottage",
+        "meaning": "小屋",
+        "prompt": "The farmer lived in a tiny _____ with just two rooms and a stone roof.",
+        "answer": "cottage",
+        "explanation": "cottage：小屋。完整句：The farmer lived in a tiny cottage with just two rooms and a stone roof."
+      },
+      {
+        "id": "m4-reading-28",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "mansion",
+        "meaning": "豪宅",
+        "prompt": "The millionaire's _____ has thirty bedrooms and a private swimming pool.",
+        "answer": "mansion",
+        "explanation": "mansion：豪宅。完整句：The millionaire's mansion has thirty bedrooms and a private swimming pool."
+      },
+      {
+        "id": "m4-reading-31",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "valuable",
+        "meaning": "有價值的；珍貴的",
+        "prompt": "Keep this _____ diamond ring in a safe because it costs a fortune.",
+        "answer": "valuable",
+        "explanation": "valuable：有價值的；珍貴的。完整句：Keep this valuable diamond ring in a safe because it costs a fortune."
+      },
+      {
+        "id": "m4-reading-34",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "treasure",
+        "meaning": "寶藏",
+        "prompt": "The pirates buried their gold and other _____ beneath a palm tree.",
+        "answer": "treasure",
+        "explanation": "treasure：寶藏。完整句：The pirates buried their gold and other treasure beneath a palm tree."
+      },
+      {
+        "id": "m4-reading-37",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "dripping",
+        "meaning": "滴水的",
+        "prompt": "The _____ towel left a trail of water across the bathroom floor.",
+        "answer": "dripping",
+        "explanation": "dripping：滴水的。完整句：The dripping towel left a trail of water across the bathroom floor."
+      },
+      {
+        "id": "m4-reading-40",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "manager",
+        "meaning": "經理",
+        "prompt": "The store _____ assigns jobs to the workers and handles customer problems.",
+        "answer": "manager",
+        "explanation": "manager：經理。完整句：The store manager assigns jobs to the workers and handles customer problems."
+      },
+      {
+        "id": "m4-reading-43",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "drugstore",
+        "meaning": "藥房",
+        "prompt": "You can buy cough medicine and bandages at the _____ on this street.",
+        "answer": "drugstore",
+        "explanation": "drugstore：藥房。完整句：You can buy cough medicine and bandages at the drugstore on this street."
+      },
+      {
+        "id": "m4-reading-46",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "reward",
+        "meaning": "報酬；獎賞",
+        "prompt": "The police offered a cash _____ for information that would help find the missing child.",
+        "answer": "reward",
+        "explanation": "reward：報酬；獎賞。完整句：The police offered a cash reward for information that would help find the missing child."
+      },
+      {
+        "id": "m4-reading-49",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "will",
+        "meaning": "遺囑",
+        "prompt": "In her _____, the old woman said her house should go to her daughter after her death.",
+        "answer": "will",
+        "explanation": "will：遺囑。完整句：In her will, the old woman said her house should go to her daughter after her death."
+      },
+      {
+        "id": "m4-reading-52",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "banker",
+        "meaning": "銀行家",
+        "prompt": "The _____ discussed savings accounts and loans with her customers.",
+        "answer": "banker",
+        "explanation": "banker：銀行家。完整句：The banker discussed savings accounts and loans with her customers."
+      },
+      {
+        "id": "m4-reading-55",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "commute",
+        "meaning": "通勤",
+        "prompt": "Many people _____ from their homes in the suburbs to jobs in the city each day.",
+        "answer": "commute",
+        "explanation": "commute：通勤。完整句：Many people commute from their homes in the suburbs to jobs in the city each day."
+      },
+      {
+        "id": "m4-reading-58",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "stuck",
+        "meaning": "卡住的；受困的",
+        "prompt": "The elevator was _____ between two floors, so nobody could get out.",
+        "answer": "stuck",
+        "explanation": "stuck：卡住的；受困的。完整句：The elevator was stuck between two floors, so nobody could get out."
+      },
+      {
+        "id": "m4-reading-61",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "waterproof",
+        "meaning": "防水的",
+        "prompt": "This _____ watch keeps working even when you wear it while swimming.",
+        "answer": "waterproof",
+        "explanation": "waterproof：防水的。完整句：This waterproof watch keeps working even when you wear it while swimming."
+      },
+      {
+        "id": "m4-reading-64",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "drag",
+        "meaning": "拖拉",
+        "prompt": "The dog tried to _____ the large branch along the ground with its teeth.",
+        "answer": "drag",
+        "explanation": "drag：拖拉。完整句：The dog tried to drag the large branch along the ground with its teeth."
+      },
+      {
+        "id": "m4-reading-67",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "routine",
+        "meaning": "例行事務",
+        "prompt": "Brushing my teeth is part of my daily morning _____.",
+        "answer": "routine",
+        "explanation": "routine：例行事務。完整句：Brushing my teeth is part of my daily morning routine."
+      },
+      {
+        "id": "m4-reading-70",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "temperature",
+        "meaning": "溫度",
+        "prompt": "The nurse used a thermometer to measure the child's _____.",
+        "answer": "temperature",
+        "explanation": "temperature：溫度。完整句：The nurse used a thermometer to measure the child's temperature."
+      },
+      {
+        "id": "m4-reading-73",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "metal",
+        "meaning": "金屬",
+        "prompt": "Iron is a strong _____ used to make tools and bridges.",
+        "answer": "metal",
+        "explanation": "metal：金屬。完整句：Iron is a strong metal used to make tools and bridges."
+      },
+      {
+        "id": "m4-reading-76",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "estimate",
+        "meaning": "估計",
+        "prompt": "We can only _____ the crowd's size because there are too many people to count.",
+        "answer": "estimate",
+        "explanation": "estimate：估計。完整句：We can only estimate the crowd's size because there are too many people to count."
+      },
+      {
+        "id": "m4-reading-79",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "consume",
+        "meaning": "消耗；吃掉",
+        "prompt": "A large truck will _____ more fuel than a small car on the same trip.",
+        "answer": "consume",
+        "explanation": "consume：消耗；吃掉。完整句：A large truck will consume more fuel than a small car on the same trip."
+      },
+      {
+        "id": "m4-reading-82",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "prefer",
+        "meaning": "偏好",
+        "prompt": "I _____ quiet beaches to crowded ones because I enjoy peace.",
+        "answer": "prefer",
+        "explanation": "prefer：偏好。完整句：I prefer quiet beaches to crowded ones because I enjoy peace."
+      },
+      {
+        "id": "m4-reading-85",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "ordinary",
+        "meaning": "普通的",
+        "prompt": "It was just an _____ school day, with nothing special or surprising happening.",
+        "answer": "ordinary",
+        "explanation": "ordinary：普通的。完整句：It was just an ordinary school day, with nothing special or surprising happening."
+      },
+      {
+        "id": "m4-reading-88",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "perform",
+        "meaning": "表演",
+        "prompt": "The band will _____ three songs on stage at the school concert.",
+        "answer": "perform",
+        "explanation": "perform：表演。完整句：The band will perform three songs on stage at the school concert."
+      },
+      {
+        "id": "m4-reading-91",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "gate",
+        "meaning": "大門",
+        "prompt": "The guard opened the school _____ so the bus could enter the yard.",
+        "answer": "gate",
+        "explanation": "gate：大門。完整句：The guard opened the school gate so the bus could enter the yard."
+      },
+      {
+        "id": "m4-reading-94",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "file",
+        "meaning": "檔案",
+        "prompt": "Please attach the report as a _____ to your message instead of printing it.",
+        "answer": "file",
+        "explanation": "file：檔案。完整句：Please attach the report as a file to your message instead of printing it."
+      },
+      {
+        "id": "m4-reading-97",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "chalk",
+        "meaning": "粉筆",
+        "prompt": "The teacher used a piece of white _____ to write on the blackboard.",
+        "answer": "chalk",
+        "explanation": "chalk：粉筆。完整句：The teacher used a piece of white chalk to write on the blackboard."
+      },
+      {
+        "id": "m4-reading-100",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "screen",
+        "meaning": "螢幕",
+        "prompt": "The phone's _____ went black when its battery died.",
+        "answer": "screen",
+        "explanation": "screen：螢幕。完整句：The phone's screen went black when its battery died."
+      },
+      {
+        "id": "m4-reading-103",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "error",
+        "meaning": "錯誤",
+        "prompt": "There is an _____ in your sum: two plus three is five, not six.",
+        "answer": "error",
+        "explanation": "error：錯誤。完整句：There is an error in your sum: two plus three is five, not six."
+      },
+      {
+        "id": "m4-reading-106",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "dozen",
+        "meaning": "一打",
+        "prompt": "There are twelve eggs in a _____.",
+        "answer": "dozen",
+        "explanation": "dozen：一打。完整句：There are twelve eggs in a dozen."
+      },
+      {
+        "id": "m4-reading-109",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "refrigerator",
+        "meaning": "冰箱",
+        "prompt": "Put the fresh milk in the _____ to keep it cold.",
+        "answer": "refrigerator",
+        "explanation": "refrigerator：冰箱。完整句：Put the fresh milk in the refrigerator to keep it cold."
+      },
+      {
+        "id": "m4-reading-112",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "wallet",
+        "meaning": "錢包",
+        "prompt": "He opened his _____ to take out cash and a credit card.",
+        "answer": "wallet",
+        "explanation": "wallet：錢包。完整句：He opened his wallet to take out cash and a credit card."
+      },
+      {
+        "id": "m4-reading-115",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "upload",
+        "meaning": "上傳",
+        "prompt": "Click here to _____ your video from your phone to the class website.",
+        "answer": "upload",
+        "explanation": "upload：上傳。完整句：Click here to upload your video from your phone to the class website."
+      },
+      {
+        "id": "m4-reading-118",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "connect",
+        "meaning": "連接",
+        "prompt": "Use this cable to _____ the printer to your computer.",
+        "answer": "connect",
+        "explanation": "connect：連接。完整句：Use this cable to connect the printer to your computer."
+      },
+      {
+        "id": "m4-choice-121",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "accountant",
+        "meaning": "會計師",
+        "prompt": "The _____ found a mistake while checking the company's tax records.",
+        "answer": "accountant",
+        "explanation": "accountant：會計師。完整句：The accountant found a mistake while checking the company's tax records.",
+        "choices": [
+          "accountant",
+          "composer",
+          "athlete",
+          "carpenter"
+        ]
+      },
+      {
+        "id": "m4-choice-124",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "carpenter",
+        "meaning": "木匠",
+        "prompt": "A _____ used wood and nails to repair the broken staircase.",
+        "answer": "carpenter",
+        "explanation": "carpenter：木匠。完整句：A carpenter used wood and nails to repair the broken staircase.",
+        "choices": [
+          "carpenter",
+          "banker",
+          "athlete",
+          "composer"
+        ]
+      },
+      {
+        "id": "m4-choice-127",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "composer",
+        "meaning": "作曲家",
+        "prompt": "The _____ created the music that the singers will perform tonight.",
+        "answer": "composer",
+        "explanation": "composer：作曲家。完整句：The composer created the music that the singers will perform tonight.",
+        "choices": [
+          "composer",
+          "carpenter",
+          "cleaner",
+          "burglar"
+        ]
+      },
+      {
+        "id": "m4-choice-130",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "detective",
+        "meaning": "偵探",
+        "prompt": "The _____ questioned the suspects and compared their stories.",
+        "answer": "detective",
+        "explanation": "detective：偵探。完整句：The detective questioned the suspects and compared their stories.",
+        "choices": [
+          "detective",
+          "composer",
+          "athlete",
+          "bride"
+        ]
+      },
+      {
+        "id": "m4-choice-133",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "librarian",
+        "meaning": "圖書館員",
+        "prompt": "The _____ helped me borrow a book and explained when to return it.",
+        "answer": "librarian",
+        "explanation": "librarian：圖書館員。完整句：The librarian helped me borrow a book and explained when to return it.",
+        "choices": [
+          "librarian",
+          "miner",
+          "mechanic",
+          "magician"
+        ]
+      },
+      {
+        "id": "m4-choice-136",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "mechanic",
+        "meaning": "技工",
+        "prompt": "The _____ replaced the broken part in the car's engine.",
+        "answer": "mechanic",
+        "explanation": "mechanic：技工。完整句：The mechanic replaced the broken part in the car's engine.",
+        "choices": [
+          "mechanic",
+          "librarian",
+          "novelist",
+          "monk"
+        ]
+      },
+      {
+        "id": "m4-choice-139",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "lifeguard",
+        "meaning": "救生員",
+        "prompt": "The beach _____ warned swimmers about the dangerous waves.",
+        "answer": "lifeguard",
+        "explanation": "lifeguard：救生員。完整句：The beach lifeguard warned swimmers about the dangerous waves.",
+        "choices": [
+          "lifeguard",
+          "historian",
+          "novelist",
+          "miner"
+        ]
+      },
+      {
+        "id": "m4-choice-142",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "historian",
+        "meaning": "歷史學家",
+        "prompt": "The _____ studied ancient letters to understand the king's rule.",
+        "answer": "historian",
+        "explanation": "historian：歷史學家。完整句：The historian studied ancient letters to understand the king's rule.",
+        "choices": [
+          "historian",
+          "mechanic",
+          "hairdresser",
+          "lifeguard"
+        ]
+      },
+      {
+        "id": "m4-choice-145",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "plumber",
+        "meaning": "水電工；水管瓦斯工人",
+        "prompt": "The _____ replaced the broken water pipe beneath the floor.",
+        "answer": "plumber",
+        "explanation": "plumber：水電工；水管瓦斯工人。完整句：The plumber replaced the broken water pipe beneath the floor.",
+        "choices": [
+          "plumber",
+          "pilot",
+          "tailor",
+          "translator"
+        ]
+      },
+      {
+        "id": "m4-choice-148",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "tailor",
+        "meaning": "裁縫師",
+        "prompt": "The _____ shortened the sleeves of my jacket with a needle and thread.",
+        "answer": "tailor",
+        "explanation": "tailor：裁縫師。完整句：The tailor shortened the sleeves of my jacket with a needle and thread.",
+        "choices": [
+          "tailor",
+          "pilot",
+          "plumber",
+          "physicist"
+        ]
+      },
+      {
+        "id": "m4-choice-151",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "translator",
+        "meaning": "譯者；翻譯家",
+        "prompt": "The _____ produced a Chinese version of the French letter.",
+        "answer": "translator",
+        "explanation": "translator：譯者；翻譯家。完整句：The translator produced a Chinese version of the French letter.",
+        "choices": [
+          "translator",
+          "tailor",
+          "plumber",
+          "pilot"
+        ]
+      },
+      {
+        "id": "m4-choice-154",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "shepherd",
+        "meaning": "牧羊人",
+        "prompt": "The _____ counted his sheep before leading them into the barn.",
+        "answer": "shepherd",
+        "explanation": "shepherd：牧羊人。完整句：The shepherd counted his sheep before leading them into the barn.",
+        "choices": [
+          "shepherd",
+          "publisher",
+          "translator",
+          "plumber"
+        ]
+      },
+      {
+        "id": "m4-choice-157",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "aquarium",
+        "meaning": "水族館；水族箱",
+        "prompt": "At the _____, we saw sharks swimming behind a huge glass wall.",
+        "answer": "aquarium",
+        "explanation": "aquarium：水族館；水族箱。完整句：At the aquarium, we saw sharks swimming behind a huge glass wall.",
+        "choices": [
+          "aquarium",
+          "cinema",
+          "alley",
+          "cafeteria"
+        ]
+      },
+      {
+        "id": "m4-choice-160",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "deadline",
+        "meaning": "截止日期",
+        "prompt": "The application _____ is noon, so send your form before twelve.",
+        "answer": "deadline",
+        "explanation": "deadline：截止日期。完整句：The application deadline is noon, so send your form before twelve.",
+        "choices": [
+          "deadline",
+          "decade",
+          "county",
+          "curve"
+        ]
+      },
+      {
+        "id": "m4-choice-163",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "basement",
+        "meaning": "地下室",
+        "prompt": "We walked downstairs below street level into the _____.",
+        "answer": "basement",
+        "explanation": "basement：地下室。完整句：We walked downstairs below street level into the basement.",
+        "choices": [
+          "basement",
+          "avenue",
+          "campus",
+          "deck"
+        ]
+      },
+      {
+        "id": "m4-choice-166",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "decade",
+        "meaning": "十年",
+        "prompt": "The shop ran from 2010 to 2020, a period of one _____.",
+        "answer": "decade",
+        "explanation": "decade：十年。完整句：The shop ran from 2010 to 2020, a period of one decade.",
+        "choices": [
+          "decade",
+          "deadline",
+          "era",
+          "anniversary"
+        ]
+      },
+      {
+        "id": "m4-choice-169",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "greenhouse",
+        "meaning": "花房；溫室",
+        "prompt": "The glass walls of the _____ help the gardener grow flowers in winter.",
+        "answer": "greenhouse",
+        "explanation": "greenhouse：花房；溫室。完整句：The glass walls of the greenhouse help the gardener grow flowers in winter.",
+        "choices": [
+          "greenhouse",
+          "harbor",
+          "garage",
+          "lobby"
+        ]
+      },
+      {
+        "id": "m4-choice-172",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "lighthouse",
+        "meaning": "燈塔",
+        "prompt": "Sailors looked for the warning beam from the coastal _____.",
+        "answer": "lighthouse",
+        "explanation": "lighthouse：燈塔。完整句：Sailors looked for the warning beam from the coastal lighthouse.",
+        "choices": [
+          "lighthouse",
+          "dormitory",
+          "kindergarten",
+          "garage"
+        ]
+      },
+      {
+        "id": "m4-choice-175",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "hive",
+        "meaning": "蜂窩",
+        "prompt": "The beekeeper carefully opened the _____ to check the honey.",
+        "answer": "hive",
+        "explanation": "hive：蜂窩。完整句：The beekeeper carefully opened the hive to check the honey.",
+        "choices": [
+          "hive",
+          "inn",
+          "mall",
+          "lobby"
+        ]
+      },
+      {
+        "id": "m4-choice-178",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "observatory",
+        "meaning": "天文台；觀測站",
+        "prompt": "The mountain _____ has telescopes for studying distant planets.",
+        "answer": "observatory",
+        "explanation": "observatory：天文台；觀測站。完整句：The mountain observatory has telescopes for studying distant planets.",
+        "choices": [
+          "observatory",
+          "nursery",
+          "garage",
+          "harbor"
+        ]
+      },
+      {
+        "id": "m4-choice-181",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "tunnel",
+        "meaning": "隧道",
+        "prompt": "Workers dug a _____ under the river for the new subway line.",
+        "answer": "tunnel",
+        "explanation": "tunnel：隧道。完整句：Workers dug a tunnel under the river for the new subway line.",
+        "choices": [
+          "tunnel",
+          "stadium",
+          "palace",
+          "studio"
+        ]
+      },
+      {
+        "id": "m4-choice-184",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "postpone",
+        "meaning": "使延期",
+        "prompt": "We decided to _____ the match from Monday to Thursday because of rain.",
+        "answer": "postpone",
+        "explanation": "postpone：使延期。完整句：We decided to postpone the match from Monday to Thursday because of rain.",
+        "choices": [
+          "postpone",
+          "surround",
+          "prolong",
+          "locate"
+        ]
+      },
+      {
+        "id": "m4-choice-187",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "temporary",
+        "meaning": "暫時的",
+        "prompt": "These _____ desks will be removed when our new furniture arrives.",
+        "answer": "temporary",
+        "explanation": "temporary：暫時的。完整句：These temporary desks will be removed when our new furniture arrives.",
+        "choices": [
+          "temporary",
+          "tropical",
+          "outer",
+          "yearly"
+        ]
+      },
+      {
+        "id": "m4-choice-190",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "rural",
+        "meaning": "鄉村的",
+        "prompt": "The _____ area is full of farms and has very few busy streets.",
+        "answer": "rural",
+        "explanation": "rural：鄉村的。完整句：The rural area is full of farms and has very few busy streets.",
+        "choices": [
+          "rural",
+          "urban",
+          "weekly",
+          "temporary"
+        ]
+      },
+      {
+        "id": "m4-choice-193",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "flock",
+        "meaning": "鳥群；羊群；（同類人的）一大群",
+        "prompt": "A _____ of geese flew south together before winter.",
+        "answer": "flock",
+        "explanation": "flock：鳥群；羊群；（同類人的）一大群。完整句：A flock of geese flew south together before winter.",
+        "choices": [
+          "flock",
+          "herd",
+          "school",
+          "pack"
+        ]
+      },
+      {
+        "id": "m4-choice-196",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "slice",
+        "meaning": "一片",
+        "prompt": "She cut a thin _____ of cheese to put in her sandwich.",
+        "answer": "slice",
+        "explanation": "slice：一片。完整句：She cut a thin slice of cheese to put in her sandwich.",
+        "choices": [
+          "slice",
+          "herd",
+          "flock",
+          "gallon"
+        ]
+      },
+      {
+        "id": "m4-choice-199",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "parcel",
+        "meaning": "包裹",
+        "prompt": "The post office weighed my wrapped _____ before sending it.",
+        "answer": "parcel",
+        "explanation": "parcel：包裹。完整句：The post office weighed my wrapped parcel before sending it.",
+        "choices": [
+          "parcel",
+          "comma",
+          "percentage",
+          "calorie"
+        ]
+      },
+      {
+        "id": "m4-choice-202",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "ashamed",
+        "meaning": "羞愧的",
+        "prompt": "She felt _____ when she realized she had blamed an innocent classmate.",
+        "answer": "ashamed",
+        "explanation": "ashamed：羞愧的。完整句：She felt ashamed when she realized she had blamed an innocent classmate.",
+        "choices": [
+          "ashamed",
+          "cheerful",
+          "admirable",
+          "attractive"
+        ]
+      },
+      {
+        "id": "m4-choice-205",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "curiosity",
+        "meaning": "好奇心",
+        "prompt": "The strange sound awakened his _____, and he went to find its source.",
+        "answer": "curiosity",
+        "explanation": "curiosity：好奇心。完整句：The strange sound awakened his curiosity, and he went to find its source.",
+        "choices": [
+          "curiosity",
+          "disgust",
+          "approval",
+          "depression"
+        ]
+      },
+      {
+        "id": "m4-choice-208",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "conscience",
+        "meaning": "良心",
+        "prompt": "His _____ would not let him ignore the person he had hurt.",
+        "answer": "conscience",
+        "explanation": "conscience：良心。完整句：His conscience would not let him ignore the person he had hurt.",
+        "choices": [
+          "conscience",
+          "attraction",
+          "amusement",
+          "curiosity"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "midterm-5",
+    "title": "模擬考 5",
+    "letterOnly": true,
+    "questions": [
+      {
+        "id": "m5-reading-2",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "bullet",
+        "meaning": "子彈",
+        "prompt": "The soldier removed a _____ from the box and loaded his gun.",
+        "answer": "bullet",
+        "explanation": "bullet：子彈。完整句：The soldier removed a bullet from the box and loaded his gun."
+      },
+      {
+        "id": "m5-reading-5",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "brain",
+        "meaning": "大腦",
+        "prompt": "Your _____ receives messages from your eyes and helps you understand what you see.",
+        "answer": "brain",
+        "explanation": "brain：大腦。完整句：Your brain receives messages from your eyes and helps you understand what you see."
+      },
+      {
+        "id": "m5-reading-8",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "weak",
+        "meaning": "虛弱的",
+        "prompt": "After a week in bed, my legs felt too _____ to carry me upstairs.",
+        "answer": "weak",
+        "explanation": "weak：虛弱的。完整句：After a week in bed, my legs felt too weak to carry me upstairs."
+      },
+      {
+        "id": "m5-reading-11",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "surgeon",
+        "meaning": "外科醫生",
+        "prompt": "A heart _____ will perform the operation to repair the damaged heart.",
+        "answer": "surgeon",
+        "explanation": "surgeon：外科醫生。完整句：A heart surgeon will perform the operation to repair the damaged heart."
+      },
+      {
+        "id": "m5-reading-14",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "edge",
+        "meaning": "邊緣",
+        "prompt": "The plate was hanging over the _____ of the table and almost fell.",
+        "answer": "edge",
+        "explanation": "edge：邊緣。完整句：The plate was hanging over the edge of the table and almost fell."
+      },
+      {
+        "id": "m5-reading-17",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "railway station",
+        "meaning": "火車站",
+        "prompt": "The taxi dropped us at the _____, where we bought tickets to Taipei.",
+        "answer": "railway station",
+        "explanation": "railway station：火車站。完整句：The taxi dropped us at the railway station, where we bought tickets to Taipei."
+      },
+      {
+        "id": "m5-reading-20",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "earn",
+        "meaning": "贏得；賺得",
+        "prompt": "She hopes to _____ her parents' trust by always telling the truth.",
+        "answer": "earn",
+        "explanation": "earn：贏得；賺得。完整句：She hopes to earn her parents' trust by always telling the truth."
+      },
+      {
+        "id": "m5-reading-23",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "attitude",
+        "meaning": "態度",
+        "prompt": "His rude _____ toward the waiter upset everyone at the table.",
+        "answer": "attitude",
+        "explanation": "attitude：態度。完整句：His rude attitude toward the waiter upset everyone at the table."
+      },
+      {
+        "id": "m5-reading-26",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "cottage",
+        "meaning": "小屋",
+        "prompt": "We rented a small country _____ with a fireplace beside the woods.",
+        "answer": "cottage",
+        "explanation": "cottage：小屋。完整句：We rented a small country cottage with a fireplace beside the woods."
+      },
+      {
+        "id": "m5-reading-29",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "mansion",
+        "meaning": "豪宅",
+        "prompt": "The tour guide showed us a huge _____ that once belonged to a wealthy king.",
+        "answer": "mansion",
+        "explanation": "mansion：豪宅。完整句：The tour guide showed us a huge mansion that once belonged to a wealthy king."
+      },
+      {
+        "id": "m5-reading-32",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "valuable",
+        "meaning": "有價值的；珍貴的",
+        "prompt": "The museum locked the _____ painting behind glass to prevent theft.",
+        "answer": "valuable",
+        "explanation": "valuable：有價值的；珍貴的。完整句：The museum locked the valuable painting behind glass to prevent theft."
+      },
+      {
+        "id": "m5-reading-35",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "treasure",
+        "meaning": "寶藏",
+        "prompt": "An old map led the sailors to a chest of hidden _____.",
+        "answer": "treasure",
+        "explanation": "treasure：寶藏。完整句：An old map led the sailors to a chest of hidden treasure."
+      },
+      {
+        "id": "m5-reading-38",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "dripping",
+        "meaning": "滴水的",
+        "prompt": "He held his _____ jacket over the sink so the water would not wet the floor.",
+        "answer": "dripping",
+        "explanation": "dripping：滴水的。完整句：He held his dripping jacket over the sink so the water would not wet the floor."
+      },
+      {
+        "id": "m5-reading-41",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "manager",
+        "meaning": "經理",
+        "prompt": "When the waiter could not solve our problem, we asked to speak to the restaurant _____.",
+        "answer": "manager",
+        "explanation": "manager：經理。完整句：When the waiter could not solve our problem, we asked to speak to the restaurant manager."
+      },
+      {
+        "id": "m5-reading-44",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "drugstore",
+        "meaning": "藥房",
+        "prompt": "The _____ sells medicine, but it does not perform medical operations.",
+        "answer": "drugstore",
+        "explanation": "drugstore：藥房。完整句：The drugstore sells medicine, but it does not perform medical operations."
+      },
+      {
+        "id": "m5-reading-47",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "reward",
+        "meaning": "報酬；獎賞",
+        "prompt": "As a _____ for returning the lost wallet, the owner gave Tom twenty dollars.",
+        "answer": "reward",
+        "explanation": "reward：報酬；獎賞。完整句：As a reward for returning the lost wallet, the owner gave Tom twenty dollars."
+      },
+      {
+        "id": "m5-reading-50",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "will",
+        "meaning": "遺囑",
+        "prompt": "The lawyer read the man's _____ to learn who would receive his money.",
+        "answer": "will",
+        "explanation": "will：遺囑。完整句：The lawyer read the man's will to learn who would receive his money."
+      },
+      {
+        "id": "m5-reading-53",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "banker",
+        "meaning": "銀行家",
+        "prompt": "A _____ manages financial services rather than treating sick patients.",
+        "answer": "banker",
+        "explanation": "banker：銀行家。完整句：A banker manages financial services rather than treating sick patients."
+      },
+      {
+        "id": "m5-reading-56",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "commute",
+        "meaning": "通勤",
+        "prompt": "I will _____ to my new office by train instead of driving every morning.",
+        "answer": "commute",
+        "explanation": "commute：通勤。完整句：I will commute to my new office by train instead of driving every morning."
+      },
+      {
+        "id": "m5-reading-59",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "stuck",
+        "meaning": "卡住的；受困的",
+        "prompt": "Our bus was _____ in deep mud and could not move forward.",
+        "answer": "stuck",
+        "explanation": "stuck：卡住的；受困的。完整句：Our bus was stuck in deep mud and could not move forward."
+      },
+      {
+        "id": "m5-reading-62",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "waterproof",
+        "meaning": "防水的",
+        "prompt": "We need a _____ tent that will keep the rain from coming inside.",
+        "answer": "waterproof",
+        "explanation": "waterproof：防水的。完整句：We need a waterproof tent that will keep the rain from coming inside."
+      },
+      {
+        "id": "m5-reading-65",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "drag",
+        "meaning": "拖拉",
+        "prompt": "Please lift your suitcase instead of trying to _____ it over the rough stones.",
+        "answer": "drag",
+        "explanation": "drag：拖拉。完整句：Please lift your suitcase instead of trying to drag it over the rough stones."
+      },
+      {
+        "id": "m5-reading-68",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "routine",
+        "meaning": "例行事務",
+        "prompt": "Her exercise _____ is the same every day: walk, stretch, and then run.",
+        "answer": "routine",
+        "explanation": "routine：例行事務。完整句：Her exercise routine is the same every day: walk, stretch, and then run."
+      },
+      {
+        "id": "m5-reading-71",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "temperature",
+        "meaning": "溫度",
+        "prompt": "The _____ fell below zero, and the water began to freeze.",
+        "answer": "temperature",
+        "explanation": "temperature：溫度。完整句：The temperature fell below zero, and the water began to freeze."
+      },
+      {
+        "id": "m5-reading-74",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "metal",
+        "meaning": "金屬",
+        "prompt": "The shiny _____ spoon felt much colder than the wooden one.",
+        "answer": "metal",
+        "explanation": "metal：金屬。完整句：The shiny metal spoon felt much colder than the wooden one."
+      },
+      {
+        "id": "m5-reading-77",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "estimate",
+        "meaning": "估計",
+        "prompt": "Can you _____ the cost of fixing the roof before we start?",
+        "answer": "estimate",
+        "explanation": "estimate：估計。完整句：Can you estimate the cost of fixing the roof before we start?"
+      },
+      {
+        "id": "m5-reading-80",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "consume",
+        "meaning": "消耗；吃掉",
+        "prompt": "Growing teenagers may _____ more food than younger children.",
+        "answer": "consume",
+        "explanation": "consume：消耗；吃掉。完整句：Growing teenagers may consume more food than younger children."
+      },
+      {
+        "id": "m5-reading-83",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "prefer",
+        "meaning": "偏好",
+        "prompt": "Would you _____ to sit by the window rather than near the door?",
+        "answer": "prefer",
+        "explanation": "prefer：偏好。完整句：Would you prefer to sit by the window rather than near the door?"
+      },
+      {
+        "id": "m5-reading-86",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "ordinary",
+        "meaning": "普通的",
+        "prompt": "Unlike the rare blue flower, this _____ kind grows in almost every garden.",
+        "answer": "ordinary",
+        "explanation": "ordinary：普通的。完整句：Unlike the rare blue flower, this ordinary kind grows in almost every garden."
+      },
+      {
+        "id": "m5-reading-89",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "perform",
+        "meaning": "表演",
+        "prompt": "The dancers practice daily so they can _____ well in front of an audience.",
+        "answer": "perform",
+        "explanation": "perform：表演。完整句：The dancers practice daily so they can perform well in front of an audience."
+      },
+      {
+        "id": "m5-reading-92",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "gate",
+        "meaning": "大門",
+        "prompt": "Please close the garden _____ so the dog cannot run into the street.",
+        "answer": "gate",
+        "explanation": "gate：大門。完整句：Please close the garden gate so the dog cannot run into the street."
+      },
+      {
+        "id": "m5-reading-95",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "file",
+        "meaning": "檔案",
+        "prompt": "I cannot open this _____ on my computer because its data is damaged.",
+        "answer": "file",
+        "explanation": "file：檔案。完整句：I cannot open this file on my computer because its data is damaged."
+      },
+      {
+        "id": "m5-reading-98",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "chalk",
+        "meaning": "粉筆",
+        "prompt": "My fingers became dusty after I drew on the board with _____.",
+        "answer": "chalk",
+        "explanation": "chalk：粉筆。完整句：My fingers became dusty after I drew on the board with chalk."
+      },
+      {
+        "id": "m5-reading-101",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "screen",
+        "meaning": "螢幕",
+        "prompt": "The words on the computer _____ are too small for me to read.",
+        "answer": "screen",
+        "explanation": "screen：螢幕。完整句：The words on the computer screen are too small for me to read."
+      },
+      {
+        "id": "m5-reading-104",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "error",
+        "meaning": "錯誤",
+        "prompt": "The computer displayed an _____ message because the password was incorrect.",
+        "answer": "error",
+        "explanation": "error：錯誤。完整句：The computer displayed an error message because the password was incorrect."
+      },
+      {
+        "id": "m5-reading-107",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "dozen",
+        "meaning": "一打",
+        "prompt": "Half a _____ pencils means six pencils.",
+        "answer": "dozen",
+        "explanation": "dozen：一打。完整句：Half a dozen pencils means six pencils."
+      },
+      {
+        "id": "m5-reading-110",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "refrigerator",
+        "meaning": "冰箱",
+        "prompt": "Our _____ stopped working, so the food inside was no longer cold.",
+        "answer": "refrigerator",
+        "explanation": "refrigerator：冰箱。完整句：Our refrigerator stopped working, so the food inside was no longer cold."
+      },
+      {
+        "id": "m5-reading-113",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "wallet",
+        "meaning": "錢包",
+        "prompt": "My _____ was missing, along with all the money and cards inside it.",
+        "answer": "wallet",
+        "explanation": "wallet：錢包。完整句：My wallet was missing, along with all the money and cards inside it."
+      },
+      {
+        "id": "m5-reading-116",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "upload",
+        "meaning": "上傳",
+        "prompt": "Students must _____ their homework files to the online learning system.",
+        "answer": "upload",
+        "explanation": "upload：上傳。完整句：Students must upload their homework files to the online learning system."
+      },
+      {
+        "id": "m5-reading-119",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "connect",
+        "meaning": "連接",
+        "prompt": "You must _____ your phone to the Internet before using this online service.",
+        "answer": "connect",
+        "explanation": "connect：連接。完整句：You must connect your phone to the Internet before using this online service."
+      },
+      {
+        "id": "m5-choice-122",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "accountant",
+        "meaning": "會計師",
+        "prompt": "Our _____ keeps careful records of all the money the business receives.",
+        "answer": "accountant",
+        "explanation": "accountant：會計師。完整句：Our accountant keeps careful records of all the money the business receives.",
+        "choices": [
+          "accountant",
+          "composer",
+          "athlete",
+          "carpenter"
+        ]
+      },
+      {
+        "id": "m5-choice-125",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "carpenter",
+        "meaning": "木匠",
+        "prompt": "The _____ cut the boards before building a new cupboard.",
+        "answer": "carpenter",
+        "explanation": "carpenter：木匠。完整句：The carpenter cut the boards before building a new cupboard.",
+        "choices": [
+          "carpenter",
+          "banker",
+          "athlete",
+          "composer"
+        ]
+      },
+      {
+        "id": "m5-choice-128",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "composer",
+        "meaning": "作曲家",
+        "prompt": "A famous _____ wrote this symphony when she was only twenty.",
+        "answer": "composer",
+        "explanation": "composer：作曲家。完整句：A famous composer wrote this symphony when she was only twenty.",
+        "choices": [
+          "composer",
+          "carpenter",
+          "cleaner",
+          "burglar"
+        ]
+      },
+      {
+        "id": "m5-choice-131",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "detective",
+        "meaning": "偵探",
+        "prompt": "A private _____ followed the clues to solve the mystery.",
+        "answer": "detective",
+        "explanation": "detective：偵探。完整句：A private detective followed the clues to solve the mystery.",
+        "choices": [
+          "detective",
+          "composer",
+          "athlete",
+          "bride"
+        ]
+      },
+      {
+        "id": "m5-choice-134",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "librarian",
+        "meaning": "圖書館員",
+        "prompt": "Our school _____ places returned books on the correct shelves.",
+        "answer": "librarian",
+        "explanation": "librarian：圖書館員。完整句：Our school librarian places returned books on the correct shelves.",
+        "choices": [
+          "librarian",
+          "miner",
+          "mechanic",
+          "magician"
+        ]
+      },
+      {
+        "id": "m5-choice-137",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "mechanic",
+        "meaning": "技工",
+        "prompt": "Our bicycle _____ fixed the brakes before the long ride.",
+        "answer": "mechanic",
+        "explanation": "mechanic：技工。完整句：Our bicycle mechanic fixed the brakes before the long ride.",
+        "choices": [
+          "mechanic",
+          "librarian",
+          "novelist",
+          "monk"
+        ]
+      },
+      {
+        "id": "m5-choice-140",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "lifeguard",
+        "meaning": "救生員",
+        "prompt": "A _____ watches the pool and helps swimmers who are in danger.",
+        "answer": "lifeguard",
+        "explanation": "lifeguard：救生員。完整句：A lifeguard watches the pool and helps swimmers who are in danger.",
+        "choices": [
+          "lifeguard",
+          "historian",
+          "novelist",
+          "miner"
+        ]
+      },
+      {
+        "id": "m5-choice-143",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "historian",
+        "meaning": "歷史學家",
+        "prompt": "A _____ explained how life in this town changed over two centuries.",
+        "answer": "historian",
+        "explanation": "historian：歷史學家。完整句：A historian explained how life in this town changed over two centuries.",
+        "choices": [
+          "historian",
+          "mechanic",
+          "hairdresser",
+          "lifeguard"
+        ]
+      },
+      {
+        "id": "m5-choice-146",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "plumber",
+        "meaning": "水電工；水管瓦斯工人",
+        "prompt": "We called a _____ because water would not drain from the bathtub.",
+        "answer": "plumber",
+        "explanation": "plumber：水電工；水管瓦斯工人。完整句：We called a plumber because water would not drain from the bathtub.",
+        "choices": [
+          "plumber",
+          "pilot",
+          "tailor",
+          "translator"
+        ]
+      },
+      {
+        "id": "m5-choice-149",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "tailor",
+        "meaning": "裁縫師",
+        "prompt": "A _____ made a suit that fitted my father perfectly.",
+        "answer": "tailor",
+        "explanation": "tailor：裁縫師。完整句：A tailor made a suit that fitted my father perfectly.",
+        "choices": [
+          "tailor",
+          "pilot",
+          "plumber",
+          "physicist"
+        ]
+      },
+      {
+        "id": "m5-choice-152",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "translator",
+        "meaning": "譯者；翻譯家",
+        "prompt": "A _____ must understand both languages before translating a book.",
+        "answer": "translator",
+        "explanation": "translator：譯者；翻譯家。完整句：A translator must understand both languages before translating a book.",
+        "choices": [
+          "translator",
+          "tailor",
+          "plumber",
+          "pilot"
+        ]
+      },
+      {
+        "id": "m5-choice-155",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "shepherd",
+        "meaning": "牧羊人",
+        "prompt": "A _____ spent the day watching a flock on the green hillside.",
+        "answer": "shepherd",
+        "explanation": "shepherd：牧羊人。完整句：A shepherd spent the day watching a flock on the green hillside.",
+        "choices": [
+          "shepherd",
+          "publisher",
+          "translator",
+          "plumber"
+        ]
+      },
+      {
+        "id": "m5-choice-158",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "aquarium",
+        "meaning": "水族館；水族箱",
+        "prompt": "The _____ keeps sea animals in tanks that visitors can walk past.",
+        "answer": "aquarium",
+        "explanation": "aquarium：水族館；水族箱。完整句：The aquarium keeps sea animals in tanks that visitors can walk past.",
+        "choices": [
+          "aquarium",
+          "cinema",
+          "alley",
+          "cafeteria"
+        ]
+      },
+      {
+        "id": "m5-choice-161",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "deadline",
+        "meaning": "截止日期",
+        "prompt": "We worked late to finish the project before its Friday _____.",
+        "answer": "deadline",
+        "explanation": "deadline：截止日期。完整句：We worked late to finish the project before its Friday deadline.",
+        "choices": [
+          "deadline",
+          "decade",
+          "county",
+          "curve"
+        ]
+      },
+      {
+        "id": "m5-choice-164",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "basement",
+        "meaning": "地下室",
+        "prompt": "The house has a _____ under the first floor where we store old boxes.",
+        "answer": "basement",
+        "explanation": "basement：地下室。完整句：The house has a basement under the first floor where we store old boxes.",
+        "choices": [
+          "basement",
+          "avenue",
+          "campus",
+          "deck"
+        ]
+      },
+      {
+        "id": "m5-choice-167",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "decade",
+        "meaning": "十年",
+        "prompt": "A _____ is ten years, not one hundred years.",
+        "answer": "decade",
+        "explanation": "decade：十年。完整句：A decade is ten years, not one hundred years.",
+        "choices": [
+          "decade",
+          "deadline",
+          "era",
+          "anniversary"
+        ]
+      },
+      {
+        "id": "m5-choice-170",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "greenhouse",
+        "meaning": "花房；溫室",
+        "prompt": "Tomatoes inside the warm _____ grew faster than those outside in the cold.",
+        "answer": "greenhouse",
+        "explanation": "greenhouse：花房；溫室。完整句：Tomatoes inside the warm greenhouse grew faster than those outside in the cold.",
+        "choices": [
+          "greenhouse",
+          "harbor",
+          "garage",
+          "lobby"
+        ]
+      },
+      {
+        "id": "m5-choice-173",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "lighthouse",
+        "meaning": "燈塔",
+        "prompt": "The _____ flashed its powerful light to guide boats safely at night.",
+        "answer": "lighthouse",
+        "explanation": "lighthouse：燈塔。完整句：The lighthouse flashed its powerful light to guide boats safely at night.",
+        "choices": [
+          "lighthouse",
+          "dormitory",
+          "kindergarten",
+          "garage"
+        ]
+      },
+      {
+        "id": "m5-choice-176",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "hive",
+        "meaning": "蜂窩",
+        "prompt": "The bees flew back to their _____ after visiting the flowers.",
+        "answer": "hive",
+        "explanation": "hive：蜂窩。完整句：The bees flew back to their hive after visiting the flowers.",
+        "choices": [
+          "hive",
+          "inn",
+          "mall",
+          "lobby"
+        ]
+      },
+      {
+        "id": "m5-choice-179",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "observatory",
+        "meaning": "天文台；觀測站",
+        "prompt": "Astronomers at the _____ watched the comet through a telescope.",
+        "answer": "observatory",
+        "explanation": "observatory：天文台；觀測站。完整句：Astronomers at the observatory watched the comet through a telescope.",
+        "choices": [
+          "observatory",
+          "nursery",
+          "garage",
+          "harbor"
+        ]
+      },
+      {
+        "id": "m5-choice-182",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "tunnel",
+        "meaning": "隧道",
+        "prompt": "The road passes through a _____ cut into the mountain.",
+        "answer": "tunnel",
+        "explanation": "tunnel：隧道。完整句：The road passes through a tunnel cut into the mountain.",
+        "choices": [
+          "tunnel",
+          "stadium",
+          "palace",
+          "studio"
+        ]
+      },
+      {
+        "id": "m5-choice-185",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "postpone",
+        "meaning": "使延期",
+        "prompt": "The sick singer had to _____ her concert until she recovered.",
+        "answer": "postpone",
+        "explanation": "postpone：使延期。完整句：The sick singer had to postpone her concert until she recovered.",
+        "choices": [
+          "postpone",
+          "surround",
+          "prolong",
+          "locate"
+        ]
+      },
+      {
+        "id": "m5-choice-188",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "temporary",
+        "meaning": "暫時的",
+        "prompt": "The bridge is a _____ solution until workers finish the permanent one.",
+        "answer": "temporary",
+        "explanation": "temporary：暫時的。完整句：The bridge is a temporary solution until workers finish the permanent one.",
+        "choices": [
+          "temporary",
+          "tropical",
+          "outer",
+          "yearly"
+        ]
+      },
+      {
+        "id": "m5-choice-191",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "rural",
+        "meaning": "鄉村的",
+        "prompt": "Many people leave _____ villages to find jobs in large cities.",
+        "answer": "rural",
+        "explanation": "rural：鄉村的。完整句：Many people leave rural villages to find jobs in large cities.",
+        "choices": [
+          "rural",
+          "urban",
+          "weekly",
+          "temporary"
+        ]
+      },
+      {
+        "id": "m5-choice-194",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "flock",
+        "meaning": "鳥群；羊群；（同類人的）一大群",
+        "prompt": "The farmer watched a _____ of sheep moving across the hill.",
+        "answer": "flock",
+        "explanation": "flock：鳥群；羊群；（同類人的）一大群。完整句：The farmer watched a flock of sheep moving across the hill.",
+        "choices": [
+          "flock",
+          "herd",
+          "school",
+          "pack"
+        ]
+      },
+      {
+        "id": "m5-choice-197",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "slice",
+        "meaning": "一片",
+        "prompt": "May I have one _____ of this round cake rather than the whole cake?",
+        "answer": "slice",
+        "explanation": "slice：一片。完整句：May I have one slice of this round cake rather than the whole cake?",
+        "choices": [
+          "slice",
+          "herd",
+          "flock",
+          "gallon"
+        ]
+      },
+      {
+        "id": "m5-choice-200",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "parcel",
+        "meaning": "包裹",
+        "prompt": "A _____ containing my new shoes arrived by mail today.",
+        "answer": "parcel",
+        "explanation": "parcel：包裹。完整句：A parcel containing my new shoes arrived by mail today.",
+        "choices": [
+          "parcel",
+          "comma",
+          "percentage",
+          "calorie"
+        ]
+      },
+      {
+        "id": "m5-choice-203",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "ashamed",
+        "meaning": "羞愧的",
+        "prompt": "He was _____ of cheating and promised never to do it again.",
+        "answer": "ashamed",
+        "explanation": "ashamed：羞愧的。完整句：He was ashamed of cheating and promised never to do it again.",
+        "choices": [
+          "ashamed",
+          "cheerful",
+          "admirable",
+          "attractive"
+        ]
+      },
+      {
+        "id": "m5-choice-206",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "curiosity",
+        "meaning": "好奇心",
+        "prompt": "A child's _____ often leads to questions about how things work.",
+        "answer": "curiosity",
+        "explanation": "curiosity：好奇心。完整句：A child's curiosity often leads to questions about how things work.",
+        "choices": [
+          "curiosity",
+          "disgust",
+          "approval",
+          "depression"
+        ]
+      },
+      {
+        "id": "m5-choice-209",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "conscience",
+        "meaning": "良心",
+        "prompt": "A guilty _____ kept her awake after she stole the money.",
+        "answer": "conscience",
+        "explanation": "conscience：良心。完整句：A guilty conscience kept her awake after she stole the money.",
+        "choices": [
+          "conscience",
+          "attraction",
+          "amusement",
+          "curiosity"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "midterm-6",
+    "title": "模擬考 6",
+    "letterOnly": true,
+    "questions": [
+      {
+        "id": "m6-reading-3",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "bullet",
+        "meaning": "子彈",
+        "prompt": "The thick metal shield stopped the _____ that had been fired at him.",
+        "answer": "bullet",
+        "explanation": "bullet：子彈。完整句：The thick metal shield stopped the bullet that had been fired at him."
+      },
+      {
+        "id": "m6-reading-6",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "brain",
+        "meaning": "大腦",
+        "prompt": "The doctor studied a picture of the patient's _____ to find the cause of his memory problems.",
+        "answer": "brain",
+        "explanation": "brain：大腦。完整句：The doctor studied a picture of the patient's brain to find the cause of his memory problems."
+      },
+      {
+        "id": "m6-reading-9",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "weak",
+        "meaning": "虛弱的",
+        "prompt": "The old rope was too _____ to hold the heavy box and soon broke.",
+        "answer": "weak",
+        "explanation": "weak：虛弱的。完整句：The old rope was too weak to hold the heavy box and soon broke."
+      },
+      {
+        "id": "m6-reading-12",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "surgeon",
+        "meaning": "外科醫生",
+        "prompt": "After the operation, the _____ explained how she had removed the broken bone.",
+        "answer": "surgeon",
+        "explanation": "surgeon：外科醫生。完整句：After the operation, the surgeon explained how she had removed the broken bone."
+      },
+      {
+        "id": "m6-reading-15",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "edge",
+        "meaning": "邊緣",
+        "prompt": "She sat at the _____ of the pool with only her feet in the water.",
+        "answer": "edge",
+        "explanation": "edge：邊緣。完整句：She sat at the edge of the pool with only her feet in the water."
+      },
+      {
+        "id": "m6-reading-18",
+        "type": "reading",
+        "sourceId": "u1",
+        "sourceTitle": "八年級英文課文 Unit 1",
+        "word": "railway station",
+        "meaning": "火車站",
+        "prompt": "The last train had already left the _____ when we reached the platform.",
+        "answer": "railway station",
+        "explanation": "railway station：火車站。完整句：The last train had already left the railway station when we reached the platform."
+      },
+      {
+        "id": "m6-reading-21",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "earn",
+        "meaning": "贏得；賺得",
+        "prompt": "Students can _____ extra money by helping at the bookstore on weekends.",
+        "answer": "earn",
+        "explanation": "earn：贏得；賺得。完整句：Students can earn extra money by helping at the bookstore on weekends."
+      },
+      {
+        "id": "m6-reading-24",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "attitude",
+        "meaning": "態度",
+        "prompt": "You need to change your _____ toward mistakes and see them as chances to learn.",
+        "answer": "attitude",
+        "explanation": "attitude：態度。完整句：You need to change your attitude toward mistakes and see them as chances to learn."
+      },
+      {
+        "id": "m6-reading-27",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "cottage",
+        "meaning": "小屋",
+        "prompt": "The little _____ near the farm was large enough for only one family.",
+        "answer": "cottage",
+        "explanation": "cottage：小屋。完整句：The little cottage near the farm was large enough for only one family."
+      },
+      {
+        "id": "m6-reading-30",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "mansion",
+        "meaning": "豪宅",
+        "prompt": "Only a very rich family could afford that enormous _____ with its own theater.",
+        "answer": "mansion",
+        "explanation": "mansion：豪宅。完整句：Only a very rich family could afford that enormous mansion with its own theater."
+      },
+      {
+        "id": "m6-reading-33",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "valuable",
+        "meaning": "有價值的；珍貴的",
+        "prompt": "Her advice was _____ because it helped us avoid a costly mistake.",
+        "answer": "valuable",
+        "explanation": "valuable：有價值的；珍貴的。完整句：Her advice was valuable because it helped us avoid a costly mistake."
+      },
+      {
+        "id": "m6-reading-36",
+        "type": "reading",
+        "sourceId": "u21",
+        "sourceTitle": "八年級英文課文 Unit 2.1",
+        "word": "treasure",
+        "meaning": "寶藏",
+        "prompt": "Divers found a box of gold coins and jewels among the ship's lost _____.",
+        "answer": "treasure",
+        "explanation": "treasure：寶藏。完整句：Divers found a box of gold coins and jewels among the ship's lost treasure."
+      },
+      {
+        "id": "m6-reading-39",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "dripping",
+        "meaning": "滴水的",
+        "prompt": "Water kept falling from the dog's _____ fur after its bath.",
+        "answer": "dripping",
+        "explanation": "dripping：滴水的。完整句：Water kept falling from the dog's dripping fur after its bath."
+      },
+      {
+        "id": "m6-reading-42",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "manager",
+        "meaning": "經理",
+        "prompt": "As the hotel _____, she is responsible for the staff and the daily business.",
+        "answer": "manager",
+        "explanation": "manager：經理。完整句：As the hotel manager, she is responsible for the staff and the daily business."
+      },
+      {
+        "id": "m6-reading-45",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "drugstore",
+        "meaning": "藥房",
+        "prompt": "The nurse suggested buying this medicine at a nearby _____.",
+        "answer": "drugstore",
+        "explanation": "drugstore：藥房。完整句：The nurse suggested buying this medicine at a nearby drugstore."
+      },
+      {
+        "id": "m6-reading-48",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "reward",
+        "meaning": "報酬；獎賞",
+        "prompt": "The winner received a medal as a _____ for months of hard training.",
+        "answer": "reward",
+        "explanation": "reward：報酬；獎賞。完整句：The winner received a medal as a reward for months of hard training."
+      },
+      {
+        "id": "m6-reading-51",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "will",
+        "meaning": "遺囑",
+        "prompt": "Before he died, he wrote a _____ leaving his farm to his two sons.",
+        "answer": "will",
+        "explanation": "will：遺囑。完整句：Before he died, he wrote a will leaving his farm to his two sons."
+      },
+      {
+        "id": "m6-reading-54",
+        "type": "reading",
+        "sourceId": "u22",
+        "sourceTitle": "八年級英文課文 Unit 2.2",
+        "word": "banker",
+        "meaning": "銀行家",
+        "prompt": "The local _____ helped the farmer arrange a loan to buy more land.",
+        "answer": "banker",
+        "explanation": "banker：銀行家。完整句：The local banker helped the farmer arrange a loan to buy more land."
+      },
+      {
+        "id": "m6-reading-57",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "commute",
+        "meaning": "通勤",
+        "prompt": "They _____ two hours a day between their village and their workplace.",
+        "answer": "commute",
+        "explanation": "commute：通勤。完整句：They commute two hours a day between their village and their workplace."
+      },
+      {
+        "id": "m6-reading-60",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "stuck",
+        "meaning": "卡住的；受困的",
+        "prompt": "The window was _____, and even Dad could not push it open.",
+        "answer": "stuck",
+        "explanation": "stuck：卡住的；受困的。完整句：The window was stuck, and even Dad could not push it open."
+      },
+      {
+        "id": "m6-reading-63",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "waterproof",
+        "meaning": "防水的",
+        "prompt": "The camera's _____ case allows us to take pictures underwater.",
+        "answer": "waterproof",
+        "explanation": "waterproof：防水的。完整句：The camera's waterproof case allows us to take pictures underwater."
+      },
+      {
+        "id": "m6-reading-66",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "drag",
+        "meaning": "拖拉",
+        "prompt": "They had to _____ the broken boat across the sand because it had no wheels.",
+        "answer": "drag",
+        "explanation": "drag：拖拉。完整句：They had to drag the broken boat across the sand because it had no wheels."
+      },
+      {
+        "id": "m6-reading-69",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "routine",
+        "meaning": "例行事務",
+        "prompt": "Feeding the fish has become part of our usual after-school _____.",
+        "answer": "routine",
+        "explanation": "routine：例行事務。完整句：Feeding the fish has become part of our usual after-school routine."
+      },
+      {
+        "id": "m6-reading-72",
+        "type": "reading",
+        "sourceId": "u31",
+        "sourceTitle": "八年級英文課文 Unit 3.1",
+        "word": "temperature",
+        "meaning": "溫度",
+        "prompt": "Set the oven's _____ to 180 degrees before baking the cake.",
+        "answer": "temperature",
+        "explanation": "temperature：溫度。完整句：Set the oven's temperature to 180 degrees before baking the cake."
+      },
+      {
+        "id": "m6-reading-75",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "metal",
+        "meaning": "金屬",
+        "prompt": "Magnets can attract some kinds of _____, such as iron.",
+        "answer": "metal",
+        "explanation": "metal：金屬。完整句：Magnets can attract some kinds of metal, such as iron."
+      },
+      {
+        "id": "m6-reading-78",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "estimate",
+        "meaning": "估計",
+        "prompt": "Use the map to _____ how long the walk will take.",
+        "answer": "estimate",
+        "explanation": "estimate：估計。完整句：Use the map to estimate how long the walk will take."
+      },
+      {
+        "id": "m6-reading-81",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "consume",
+        "meaning": "消耗；吃掉",
+        "prompt": "Leaving the heater on all night will _____ a lot of electricity.",
+        "answer": "consume",
+        "explanation": "consume：消耗；吃掉。完整句：Leaving the heater on all night will consume a lot of electricity."
+      },
+      {
+        "id": "m6-reading-84",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "prefer",
+        "meaning": "偏好",
+        "prompt": "Cats often _____ warm places to cold corners when they sleep.",
+        "answer": "prefer",
+        "explanation": "prefer：偏好。完整句：Cats often prefer warm places to cold corners when they sleep."
+      },
+      {
+        "id": "m6-reading-87",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "ordinary",
+        "meaning": "普通的",
+        "prompt": "The secret door looked like an _____ wall until someone pushed it.",
+        "answer": "ordinary",
+        "explanation": "ordinary：普通的。完整句：The secret door looked like an ordinary wall until someone pushed it."
+      },
+      {
+        "id": "m6-reading-90",
+        "type": "reading",
+        "sourceId": "u32",
+        "sourceTitle": "八年級英文課文 Unit 3.2",
+        "word": "perform",
+        "meaning": "表演",
+        "prompt": "The children will _____ a short play for their parents on Friday.",
+        "answer": "perform",
+        "explanation": "perform：表演。完整句：The children will perform a short play for their parents on Friday."
+      },
+      {
+        "id": "m6-reading-93",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "gate",
+        "meaning": "大門",
+        "prompt": "A tall iron _____ blocks the entrance to the factory at night.",
+        "answer": "gate",
+        "explanation": "gate：大門。完整句：A tall iron gate blocks the entrance to the factory at night."
+      },
+      {
+        "id": "m6-reading-96",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "file",
+        "meaning": "檔案",
+        "prompt": "Give the photo _____ a clear name so you can find it on your computer later.",
+        "answer": "file",
+        "explanation": "file：檔案。完整句：Give the photo file a clear name so you can find it on your computer later."
+      },
+      {
+        "id": "m6-reading-99",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "chalk",
+        "meaning": "粉筆",
+        "prompt": "The blue _____ broke in half while she was writing on the classroom board.",
+        "answer": "chalk",
+        "explanation": "chalk：粉筆。完整句：The blue chalk broke in half while she was writing on the classroom board."
+      },
+      {
+        "id": "m6-reading-102",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "screen",
+        "meaning": "螢幕",
+        "prompt": "We watched the movie on a large _____ at the front of the room.",
+        "answer": "screen",
+        "explanation": "screen：螢幕。完整句：We watched the movie on a large screen at the front of the room."
+      },
+      {
+        "id": "m6-reading-105",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "error",
+        "meaning": "錯誤",
+        "prompt": "Please correct the spelling _____ in the first line before sending the letter.",
+        "answer": "error",
+        "explanation": "error：錯誤。完整句：Please correct the spelling error in the first line before sending the letter."
+      },
+      {
+        "id": "m6-reading-108",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "dozen",
+        "meaning": "一打",
+        "prompt": "She bought a _____ roses and put all twelve in a vase.",
+        "answer": "dozen",
+        "explanation": "dozen：一打。完整句：She bought a dozen roses and put all twelve in a vase."
+      },
+      {
+        "id": "m6-reading-111",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "refrigerator",
+        "meaning": "冰箱",
+        "prompt": "She opened the _____ and took out a cold bottle of juice.",
+        "answer": "refrigerator",
+        "explanation": "refrigerator：冰箱。完整句：She opened the refrigerator and took out a cold bottle of juice."
+      },
+      {
+        "id": "m6-reading-114",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "wallet",
+        "meaning": "錢包",
+        "prompt": "She keeps a little cash in a leather _____ inside her handbag.",
+        "answer": "wallet",
+        "explanation": "wallet：錢包。完整句：She keeps a little cash in a leather wallet inside her handbag."
+      },
+      {
+        "id": "m6-reading-117",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "upload",
+        "meaning": "上傳",
+        "prompt": "It may take a few minutes to _____ these large photos to the server.",
+        "answer": "upload",
+        "explanation": "upload：上傳。完整句：It may take a few minutes to upload these large photos to the server."
+      },
+      {
+        "id": "m6-reading-120",
+        "type": "reading",
+        "sourceId": "hanlin-3a-u4",
+        "sourceTitle": "翰林英文課本 三上 Unit 4",
+        "word": "connect",
+        "meaning": "連接",
+        "prompt": "The new bridge will _____ the villages on opposite sides of the river.",
+        "answer": "connect",
+        "explanation": "connect：連接。完整句：The new bridge will connect the villages on opposite sides of the river."
+      },
+      {
+        "id": "m6-choice-123",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "accountant",
+        "meaning": "會計師",
+        "prompt": "The factory asked an _____ to prepare its financial report.",
+        "answer": "accountant",
+        "explanation": "accountant：會計師。完整句：The factory asked an accountant to prepare its financial report.",
+        "choices": [
+          "accountant",
+          "composer",
+          "athlete",
+          "carpenter"
+        ]
+      },
+      {
+        "id": "m6-choice-126",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "carpenter",
+        "meaning": "木匠",
+        "prompt": "We need a _____ to make a wooden door that fits this opening.",
+        "answer": "carpenter",
+        "explanation": "carpenter：木匠。完整句：We need a carpenter to make a wooden door that fits this opening.",
+        "choices": [
+          "carpenter",
+          "banker",
+          "athlete",
+          "composer"
+        ]
+      },
+      {
+        "id": "m6-choice-129",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "composer",
+        "meaning": "作曲家",
+        "prompt": "The film's _____ spent weeks writing music for the final scene.",
+        "answer": "composer",
+        "explanation": "composer：作曲家。完整句：The film's composer spent weeks writing music for the final scene.",
+        "choices": [
+          "composer",
+          "carpenter",
+          "cleaner",
+          "burglar"
+        ]
+      },
+      {
+        "id": "m6-choice-132",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-1",
+        "sourceTitle": "字彙字識 3-1",
+        "word": "detective",
+        "meaning": "偵探",
+        "prompt": "The _____ examined the footprints to discover who entered the house.",
+        "answer": "detective",
+        "explanation": "detective：偵探。完整句：The detective examined the footprints to discover who entered the house.",
+        "choices": [
+          "detective",
+          "composer",
+          "athlete",
+          "bride"
+        ]
+      },
+      {
+        "id": "m6-choice-135",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "librarian",
+        "meaning": "圖書館員",
+        "prompt": "Ask the _____ to help you find a novel in the library's collection.",
+        "answer": "librarian",
+        "explanation": "librarian：圖書館員。完整句：Ask the librarian to help you find a novel in the library's collection.",
+        "choices": [
+          "librarian",
+          "miner",
+          "mechanic",
+          "magician"
+        ]
+      },
+      {
+        "id": "m6-choice-138",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "mechanic",
+        "meaning": "技工",
+        "prompt": "The garage's _____ discovered why the motorcycle would not start.",
+        "answer": "mechanic",
+        "explanation": "mechanic：技工。完整句：The garage's mechanic discovered why the motorcycle would not start.",
+        "choices": [
+          "mechanic",
+          "librarian",
+          "novelist",
+          "monk"
+        ]
+      },
+      {
+        "id": "m6-choice-141",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "lifeguard",
+        "meaning": "救生員",
+        "prompt": "The _____ threw a rescue ring to the child struggling in the water.",
+        "answer": "lifeguard",
+        "explanation": "lifeguard：救生員。完整句：The lifeguard threw a rescue ring to the child struggling in the water.",
+        "choices": [
+          "lifeguard",
+          "historian",
+          "novelist",
+          "miner"
+        ]
+      },
+      {
+        "id": "m6-choice-144",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-2",
+        "sourceTitle": "字彙字識 3-2",
+        "word": "historian",
+        "meaning": "歷史學家",
+        "prompt": "The _____ compared old records to discover when the war began.",
+        "answer": "historian",
+        "explanation": "historian：歷史學家。完整句：The historian compared old records to discover when the war began.",
+        "choices": [
+          "historian",
+          "mechanic",
+          "hairdresser",
+          "lifeguard"
+        ]
+      },
+      {
+        "id": "m6-choice-147",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "plumber",
+        "meaning": "水電工；水管瓦斯工人",
+        "prompt": "The _____ stopped the leak by fixing the kitchen tap.",
+        "answer": "plumber",
+        "explanation": "plumber：水電工；水管瓦斯工人。完整句：The plumber stopped the leak by fixing the kitchen tap.",
+        "choices": [
+          "plumber",
+          "pilot",
+          "tailor",
+          "translator"
+        ]
+      },
+      {
+        "id": "m6-choice-150",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "tailor",
+        "meaning": "裁縫師",
+        "prompt": "The _____ sewed a new pocket onto the customer's trousers.",
+        "answer": "tailor",
+        "explanation": "tailor：裁縫師。完整句：The tailor sewed a new pocket onto the customer's trousers.",
+        "choices": [
+          "tailor",
+          "pilot",
+          "plumber",
+          "physicist"
+        ]
+      },
+      {
+        "id": "m6-choice-153",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "translator",
+        "meaning": "譯者；翻譯家",
+        "prompt": "The _____ checked whether the English words kept the meaning of the Japanese text.",
+        "answer": "translator",
+        "explanation": "translator：譯者；翻譯家。完整句：The translator checked whether the English words kept the meaning of the Japanese text.",
+        "choices": [
+          "translator",
+          "tailor",
+          "plumber",
+          "pilot"
+        ]
+      },
+      {
+        "id": "m6-choice-156",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-3-3",
+        "sourceTitle": "字彙字識 3-3",
+        "word": "shepherd",
+        "meaning": "牧羊人",
+        "prompt": "The _____ searched the valley for a lamb that had left his flock.",
+        "answer": "shepherd",
+        "explanation": "shepherd：牧羊人。完整句：The shepherd searched the valley for a lamb that had left his flock.",
+        "choices": [
+          "shepherd",
+          "publisher",
+          "translator",
+          "plumber"
+        ]
+      },
+      {
+        "id": "m6-choice-159",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "aquarium",
+        "meaning": "水族館；水族箱",
+        "prompt": "A guide at the _____ explained how the fish were fed.",
+        "answer": "aquarium",
+        "explanation": "aquarium：水族館；水族箱。完整句：A guide at the aquarium explained how the fish were fed.",
+        "choices": [
+          "aquarium",
+          "cinema",
+          "alley",
+          "cafeteria"
+        ]
+      },
+      {
+        "id": "m6-choice-162",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "deadline",
+        "meaning": "截止日期",
+        "prompt": "The teacher extended the _____, giving us two more days to submit our work.",
+        "answer": "deadline",
+        "explanation": "deadline：截止日期。完整句：The teacher extended the deadline, giving us two more days to submit our work.",
+        "choices": [
+          "deadline",
+          "decade",
+          "county",
+          "curve"
+        ]
+      },
+      {
+        "id": "m6-choice-165",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "basement",
+        "meaning": "地下室",
+        "prompt": "The _____ flooded first because it was the lowest room in the building.",
+        "answer": "basement",
+        "explanation": "basement：地下室。完整句：The basement flooded first because it was the lowest room in the building.",
+        "choices": [
+          "basement",
+          "avenue",
+          "campus",
+          "deck"
+        ]
+      },
+      {
+        "id": "m6-choice-168",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-1",
+        "sourceTitle": "字彙字識 4-1",
+        "word": "decade",
+        "meaning": "十年",
+        "prompt": "She has taught here for a _____, starting exactly ten years ago.",
+        "answer": "decade",
+        "explanation": "decade：十年。完整句：She has taught here for a decade, starting exactly ten years ago.",
+        "choices": [
+          "decade",
+          "deadline",
+          "era",
+          "anniversary"
+        ]
+      },
+      {
+        "id": "m6-choice-171",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "greenhouse",
+        "meaning": "花房；溫室",
+        "prompt": "The farmer repaired the glass roof of the _____ above the plants.",
+        "answer": "greenhouse",
+        "explanation": "greenhouse：花房；溫室。完整句：The farmer repaired the glass roof of the greenhouse above the plants.",
+        "choices": [
+          "greenhouse",
+          "harbor",
+          "garage",
+          "lobby"
+        ]
+      },
+      {
+        "id": "m6-choice-174",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "lighthouse",
+        "meaning": "燈塔",
+        "prompt": "A tall _____ stood on the rocky coast to warn passing ships.",
+        "answer": "lighthouse",
+        "explanation": "lighthouse：燈塔。完整句：A tall lighthouse stood on the rocky coast to warn passing ships.",
+        "choices": [
+          "lighthouse",
+          "dormitory",
+          "kindergarten",
+          "garage"
+        ]
+      },
+      {
+        "id": "m6-choice-177",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "hive",
+        "meaning": "蜂窩",
+        "prompt": "A queen bee and thousands of workers live in one _____.",
+        "answer": "hive",
+        "explanation": "hive：蜂窩。完整句：A queen bee and thousands of workers live in one hive.",
+        "choices": [
+          "hive",
+          "inn",
+          "mall",
+          "lobby"
+        ]
+      },
+      {
+        "id": "m6-choice-180",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-2",
+        "sourceTitle": "字彙字識 4-2",
+        "word": "observatory",
+        "meaning": "天文台；觀測站",
+        "prompt": "We visited an _____ to learn how scientists observe the night sky.",
+        "answer": "observatory",
+        "explanation": "observatory：天文台；觀測站。完整句：We visited an observatory to learn how scientists observe the night sky.",
+        "choices": [
+          "observatory",
+          "nursery",
+          "garage",
+          "harbor"
+        ]
+      },
+      {
+        "id": "m6-choice-183",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "tunnel",
+        "meaning": "隧道",
+        "prompt": "It was dark inside the underground _____ until we reached its far end.",
+        "answer": "tunnel",
+        "explanation": "tunnel：隧道。完整句：It was dark inside the underground tunnel until we reached its far end.",
+        "choices": [
+          "tunnel",
+          "stadium",
+          "palace",
+          "studio"
+        ]
+      },
+      {
+        "id": "m6-choice-186",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "postpone",
+        "meaning": "使延期",
+        "prompt": "They will _____ the meeting to a later date if the manager is absent.",
+        "answer": "postpone",
+        "explanation": "postpone：使延期。完整句：They will postpone the meeting to a later date if the manager is absent.",
+        "choices": [
+          "postpone",
+          "surround",
+          "prolong",
+          "locate"
+        ]
+      },
+      {
+        "id": "m6-choice-189",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "temporary",
+        "meaning": "暫時的",
+        "prompt": "She found a _____ job that would last for only two weeks.",
+        "answer": "temporary",
+        "explanation": "temporary：暫時的。完整句：She found a temporary job that would last for only two weeks.",
+        "choices": [
+          "temporary",
+          "tropical",
+          "outer",
+          "yearly"
+        ]
+      },
+      {
+        "id": "m6-choice-192",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-4-3",
+        "sourceTitle": "字彙字識 4-3",
+        "word": "rural",
+        "meaning": "鄉村的",
+        "prompt": "Our _____ school is surrounded by fields where farmers grow rice.",
+        "answer": "rural",
+        "explanation": "rural：鄉村的。完整句：Our rural school is surrounded by fields where farmers grow rice.",
+        "choices": [
+          "rural",
+          "urban",
+          "weekly",
+          "temporary"
+        ]
+      },
+      {
+        "id": "m6-choice-195",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "flock",
+        "meaning": "鳥群；羊群；（同類人的）一大群",
+        "prompt": "A _____ of pigeons gathered around the bread in the square.",
+        "answer": "flock",
+        "explanation": "flock：鳥群；羊群；（同類人的）一大群。完整句：A flock of pigeons gathered around the bread in the square.",
+        "choices": [
+          "flock",
+          "herd",
+          "school",
+          "pack"
+        ]
+      },
+      {
+        "id": "m6-choice-198",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "slice",
+        "meaning": "一片",
+        "prompt": "He placed a _____ of lemon, cut from the fruit, into his tea.",
+        "answer": "slice",
+        "explanation": "slice：一片。完整句：He placed a slice of lemon, cut from the fruit, into his tea.",
+        "choices": [
+          "slice",
+          "herd",
+          "flock",
+          "gallon"
+        ]
+      },
+      {
+        "id": "m6-choice-201",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-5",
+        "sourceTitle": "字彙字識 5",
+        "word": "parcel",
+        "meaning": "包裹",
+        "prompt": "Please write the address clearly on the _____ before mailing it.",
+        "answer": "parcel",
+        "explanation": "parcel：包裹。完整句：Please write the address clearly on the parcel before mailing it.",
+        "choices": [
+          "parcel",
+          "comma",
+          "percentage",
+          "calorie"
+        ]
+      },
+      {
+        "id": "m6-choice-204",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "ashamed",
+        "meaning": "羞愧的",
+        "prompt": "I felt _____ after laughing at someone who needed help.",
+        "answer": "ashamed",
+        "explanation": "ashamed：羞愧的。完整句：I felt ashamed after laughing at someone who needed help.",
+        "choices": [
+          "ashamed",
+          "cheerful",
+          "admirable",
+          "attractive"
+        ]
+      },
+      {
+        "id": "m6-choice-207",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "curiosity",
+        "meaning": "好奇心",
+        "prompt": "Her _____ made her open the old book to discover its secrets.",
+        "answer": "curiosity",
+        "explanation": "curiosity：好奇心。完整句：Her curiosity made her open the old book to discover its secrets.",
+        "choices": [
+          "curiosity",
+          "disgust",
+          "approval",
+          "depression"
+        ]
+      },
+      {
+        "id": "m6-choice-210",
+        "type": "choice",
+        "sourceId": "vocab-zhishi-6-1",
+        "sourceTitle": "字彙字識 6-1",
+        "word": "conscience",
+        "meaning": "良心",
+        "prompt": "Listen to your _____ when you must decide whether an action is right or wrong.",
+        "answer": "conscience",
+        "explanation": "conscience：良心。完整句：Listen to your conscience when you must decide whether an action is right or wrong.",
+        "choices": [
+          "conscience",
+          "attraction",
+          "amusement",
+          "curiosity"
         ]
       }
     ]
