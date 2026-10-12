@@ -2,8 +2,10 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const c=vm.createContext({});vm.runInContext(['data.js','hanlin-data.js','vocab-data.js','midterm-data.js'].map(f=>fs.readFileSync(f,'utf8')).join('\n')+';globalThis.d={units,hanlinUnits,vocabUnits,midtermPapers}',c);
 const {units,hanlinUnits,vocabUnits,midtermPapers}=JSON.parse(JSON.stringify(c.d));
+// These published papers keep their original 3-1 through 6-1 coverage.
+const examVocabUnits = vocabUnits.filter(u => ['vocab-zhishi-3-1','vocab-zhishi-3-2','vocab-zhishi-3-3','vocab-zhishi-4-1','vocab-zhishi-4-2','vocab-zhishi-4-3','vocab-zhishi-5','vocab-zhishi-6-1'].includes(u.id));
 const readingSources=[...units.filter(u=>['u1','u21','u22','u31','u32'].includes(u.id)),...hanlinUnits.filter(u=>u.id==='hanlin-3a-u4')];
-const expectedReading=new Set(readingSources.flatMap(u=>u.vocab.map(v=>v[0]))),expectedChoice=new Set(vocabUnits.flatMap(u=>u.records.map(v=>v.word)));
+const expectedReading=new Set(readingSources.flatMap(u=>u.vocab.map(v=>v[0]))),expectedChoice=new Set(examVocabUnits.flatMap(u=>u.records.map(v=>v.word)));
 const papers=midtermPapers.slice(4),reading=papers.slice(0,2),choice=papers.slice(2);
 assert.equal(midtermPapers.length,10);assert.deepEqual(papers.map(p=>p.questions.length),[50,50,105,105,105,102]);
 function words(ps){return ps.flatMap(p=>p.questions.map(q=>q.word));}
