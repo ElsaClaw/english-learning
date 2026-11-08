@@ -160,6 +160,7 @@ function renderPart(part) {
   const box = document.querySelector('#part-content'); if (!box || !activeUnit) return;
   if (part === 'read') {
     box.innerHTML = `<div class="panel-head"><div><h2>課文對照</h2><p>先讀英文，再參照繁體中文理解意思。</p></div><button class="secondary speak-btn" id="speak-all">🔊 朗讀完整課文</button></div>${activeUnit.text.map(([en, zh], index) => `${activeUnit.sections?.[index] ? `<h3>${esc(activeUnit.sections[index])}</h3>` : ''}<article class="reading"><p class="english">${esc(en)}</p><p class="chinese">${esc(zh)}</p><button class="ghost" data-sentence="${index}">▶ 朗讀這段</button></article>`).join('')}`;
+    if (activeUnit.practice) box.insertAdjacentHTML('beforeend', `<section class="unit-practice"><h2>延伸學習 · 文法與閱讀練習</h2><p class="catalog-note">以下為自主練習，不列入 Quiz A／B 成績。參考答案為學習輔助整理，非原教材提供的解答。</p>${activeUnit.practice.map(group => `<section><h3>${esc(group.title)}</h3><p>${esc(group.intro)}</p>${group.items.map(([question, answer], index) => `<article class="reading"><p class="english practice-question">${index + 1}. ${esc(question)}</p><details><summary>查看參考答案／說明</summary><p>${esc(answer)}</p></details></article>`).join('')}</section>`).join('')}</section>`);
     box.querySelector('#speak-all').onclick = () => say(activeUnit.text.map(t => t[0]).join(' '));
     box.querySelectorAll('[data-sentence]').forEach(btn => btn.onclick = () => say(activeUnit.text[btn.dataset.sentence][0]));
   } else if (part === 'vocab') {

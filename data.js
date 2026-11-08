@@ -73,3 +73,344 @@ const units = [
     ]
   }
 ];
+
+// Unit 4.2: manually transcribed from all five rendered source pages.
+units.push({
+  "id": "u42",
+  "group": "Unit 4.2",
+  "title": "The Art of the Elephants",
+  "subtitle": "大象的藝術：閱讀故事，練習助動詞的被動語態",
+  "sourceNote": "依 Unit 4.2.pdf 第 38–42 頁逐頁人工轉錄與視覺核對。課文保留原文；繁體中文及練習參考答案為學習輔助。文中 Today 與數量反映教材敘述，並非現況統計。",
+  "text": [
+    [
+      "If your cat walked across something you were painting and left footprints behind, would you consider your cat an artist? What if your bird could hold a colored pencil in its beak and make marks on a piece of paper, would you consider it a good picture? These ideas might sound like a joke to you, but some people have been taking animal art very seriously.",
+      "如果你的貓走過你正在畫的作品，留下腳印，你會認為牠是藝術家嗎？如果你的鳥能用喙叼著色鉛筆，在紙上留下痕跡，你會認為那是一幅好畫嗎？這些想法聽起來可能像個笑話，但有些人一直很認真地看待動物藝術。"
+    ],
+    [
+      "In 1995, two Russian-American artists, Vitaly Komar and Alex Melamid, first heard about the troubled elephants of Thailand. Elephants were used for hundreds of years in Thailand’s logging industry to pull timber from forests in areas where there were no roads. When the forest of Thailand began to disappear slowly, the government put a stop to logging. All of a sudden, there were many elephants that no longer had a way to make a living.",
+      "1995 年，兩位俄裔美國藝術家 Vitaly Komar 和 Alex Melamid 首次聽說泰國大象面臨的困境。數百年來，泰國伐木業利用大象，從沒有道路的森林地區拖運木材。當泰國的森林開始逐漸消失，政府便禁止伐木。突然間，許多大象不再有謀生的方法。"
+    ],
+    [
+      "Some elephants were abused. Others had to try to survive on their own and couldn’t find enough to eat. Once there were tens of thousands of elephants living in Thailand. Today, there are less than five thousand. Komar and Melamid knew that something should be done to help the elephants. Then they came up with an idea that would change the way people thought about Thai elephants.",
+      "有些大象遭到虐待；其他大象必須設法獨自生存，卻找不到足夠的食物。泰國曾經有數萬頭大象，文中所說的當時則不到五千頭。Komar 和 Melamid 知道應該採取行動幫助大象。接著，他們想到一個點子，將改變人們對泰國大象的看法。"
+    ],
+    [
+      "Komar and Melamid visited elephant camps in Thailand. They showed the elephant trainers how to teach elephants to paint. At first, the trainer had to guide the elephant’s trunk. When the elephants became more comfortable doing this with practice—and lots of sweet snacks, they would start to paint on their own.",
+      "Komar 和 Melamid 走訪泰國的大象營地，向馴象師示範如何教大象畫畫。起初，馴象師必須引導大象的鼻子。經過練習，加上許多甜點獎勵，當大象更習慣這個動作後，牠們就會開始自己畫畫。"
+    ],
+    [
+      "Komar and Melamid thought the elephant art schools should be founded and they would save elephants. The strange idea began to work. They helped found several elephant art schools in Thailand and in other Asian countries. The elephants and their trainers go there to learn about painting and to get the supplies they need. Today, people buy elephant artwork from galleries all around the world. Some are even willing to pay more than $2,000 for the work of the elephant artists. The next time you see a piece of colorful abstract art, find out who the artist is. You may be surprised at what you learn!",
+      "Komar 和 Melamid 認為應該成立大象藝術學校，而這些學校能拯救大象。這個奇特的點子開始奏效。他們協助在泰國和其他亞洲國家成立幾所大象藝術學校。大象和馴象師到那裡學習畫畫，並取得所需用品。文中描述人們從世界各地的畫廊購買大象的藝術作品，有些人甚至願意花超過兩千美元購買。下次看到色彩繽紛的抽象藝術作品時，不妨查查藝術家是誰；結果可能令你驚訝！"
+    ]
+  ],
+  "vocab": [
+    [
+      "footprint",
+      "n.",
+      "腳印",
+      "If your cat walked across something you were painting and left footprints behind, would you consider your cat an artist?",
+      "footprints"
+    ],
+    [
+      "consider",
+      "v.",
+      "認為；考慮",
+      "If your cat walked across something you were painting and left footprints behind, would you consider your cat an artist?",
+      "consider"
+    ],
+    [
+      "beak",
+      "n.",
+      "鳥喙",
+      "What if your bird could hold a colored pencil in its beak and make marks on a piece of paper, would you consider it a good picture?",
+      "beak"
+    ],
+    [
+      "logging",
+      "n.",
+      "伐木",
+      "Elephants were used for hundreds of years in Thailand’s logging industry to pull timber from forests in areas where there were no roads.",
+      "logging"
+    ],
+    [
+      "industry",
+      "n.",
+      "產業；工業",
+      "Elephants were used for hundreds of years in Thailand’s logging industry to pull timber from forests in areas where there were no roads.",
+      "industry"
+    ],
+    [
+      "timber",
+      "n.",
+      "木材",
+      "Elephants were used for hundreds of years in Thailand’s logging industry to pull timber from forests in areas where there were no roads.",
+      "timber"
+    ],
+    [
+      "disappear",
+      "v.",
+      "消失",
+      "When the forest of Thailand began to disappear slowly, the government put a stop to logging.",
+      "disappear"
+    ],
+    [
+      "government",
+      "n.",
+      "政府",
+      "When the forest of Thailand began to disappear slowly, the government put a stop to logging.",
+      "government"
+    ],
+    [
+      "all of a sudden",
+      "phr.",
+      "突然",
+      "All of a sudden, there were many elephants that no longer had a way to make a living.",
+      "All of a sudden"
+    ],
+    [
+      "no longer",
+      "phr.",
+      "不再",
+      "All of a sudden, there were many elephants that no longer had a way to make a living.",
+      "no longer"
+    ],
+    [
+      "make a living",
+      "phr.",
+      "謀生",
+      "All of a sudden, there were many elephants that no longer had a way to make a living.",
+      "make a living"
+    ],
+    [
+      "abuse",
+      "v.",
+      "虐待",
+      "Some elephants were abused.",
+      "abused"
+    ],
+    [
+      "survive",
+      "v.",
+      "生存",
+      "Others had to try to survive on their own and couldn’t find enough to eat.",
+      "survive"
+    ],
+    [
+      "on one’s own",
+      "phr.",
+      "獨自；靠自己",
+      "Others had to try to survive on their own and couldn’t find enough to eat.",
+      "on their own"
+    ],
+    [
+      "guide",
+      "v.",
+      "引導",
+      "At first, the trainer had to guide the elephant’s trunk.",
+      "guide"
+    ],
+    [
+      "trunk",
+      "n.",
+      "象鼻",
+      "At first, the trainer had to guide the elephant’s trunk.",
+      "trunk"
+    ],
+    [
+      "found",
+      "v.",
+      "創立；建立",
+      "Komar and Melamid thought the elephant art schools should be founded and they would save elephants.",
+      "founded"
+    ],
+    [
+      "supply",
+      "n.",
+      "用品；補給品",
+      "The elephants and their trainers go there to learn about painting and to get the supplies they need.",
+      "supplies"
+    ],
+    [
+      "gallery",
+      "n.",
+      "畫廊",
+      "Today, people buy elephant artwork from galleries all around the world.",
+      "galleries"
+    ],
+    [
+      "be willing to",
+      "phr.",
+      "願意",
+      "Some are even willing to pay more than $2,000 for the work of the elephant artists.",
+      "are even willing to",
+      "原句在 are 與 willing to 之間有 even；Quiz B 請填入 are even willing to。"
+    ],
+    [
+      "abstract",
+      "adj.",
+      "抽象的",
+      "The next time you see a piece of colorful abstract art, find out who the artist is.",
+      "abstract"
+    ]
+  ],
+  "practice": [
+    {
+      "title": "Passive Voice · 助動詞 + be + p.p.",
+      "intro": "助動詞後接 be，再接過去分詞。以下三句為教材原句。",
+      "items": [
+        [
+          "The letter will be written by the secretary.",
+          "這封信將由祕書撰寫。"
+        ],
+        [
+          "His work cannot be done by others.",
+          "他的工作無法由別人完成。"
+        ],
+        [
+          "Is the wall going to be painted by the children?",
+          "這面牆將由孩子們粉刷嗎？"
+        ]
+      ]
+    },
+    {
+      "title": "Q & A · 閱讀問答",
+      "intro": "先用完整英文句子回答，再展開參考答案。第 7、8 題為開放題。",
+      "items": [
+        [
+          "What did Thai elephants do before 1995?",
+          "They pulled timber from forests for Thailand’s logging industry."
+        ],
+        [
+          "What happened to Thai elephants after 1995? Why was it a serious problem for them?",
+          "According to the passage, many elephants no longer had a way to make a living after logging was stopped. Some were abused, and others could not find enough to eat.（題目沿用教材的年份；課文未明確指出禁伐發生於 1995 年。）"
+        ],
+        [
+          "How many elephants are there in Thailand today?",
+          "According to the passage, there are fewer than five thousand elephants in Thailand.（依教材敘述作答，並非即時數據。）"
+        ],
+        [
+          "What did Komar and Melamid think they could do for the elephants?",
+          "They thought they could help the elephants by teaching them to paint."
+        ],
+        [
+          "How did they teach the elephant trainers to teach elephants to paint?",
+          "They showed the trainers how to guide the elephants’ trunks and help them practice with sweet snacks."
+        ],
+        [
+          "What did Komar and Melamid think should be done for the elephants after elephants knew how to paint?",
+          "They thought elephant art schools should be founded to save the elephants."
+        ],
+        [
+          "Why do you think people buy elephant artwork?",
+          "參考作答：I think people buy it because it is unusual and they want to help elephants."
+        ],
+        [
+          "What other animals that you know can paint? Give an example.",
+          "參考作答：A cat can make marks by walking across wet paint.（呼應課文開頭的假設情境。）"
+        ]
+      ]
+    },
+    {
+      "title": "Grammar Focus · Multiple Choice",
+      "intro": "保留教材題目與選項；參考答案附簡要說明。",
+      "items": [
+        [
+          "The church ____ only a few years ago.\n(A) was built  (B) built  (C) is built  (D) has been built",
+          "A · was built。ago 表示過去；教堂是被建造的。"
+        ],
+        [
+          "____ his new motorcycle bought yesterday?\n(A) Did  (B) Is  (C) Was  (D) Has",
+          "C · Was。過去式被動疑問句：Was + 主詞 + p.p.?"
+        ],
+        [
+          "December 25 ____ Christmas, too.\n(A) calls  (B) called  (C) is called  (D) is calling",
+          "C · is called。某日「被稱為」Christmas。"
+        ],
+        [
+          "Will the bad men ____ by the police?\n(A) be caught  (B) caught  (C) catch  (D) be catching",
+          "A · be caught。will + be + p.p."
+        ],
+        [
+          "An exciting game will never ____.\n(A) forget  (B) be forgot  (C) be remembered  (D) remember",
+          "原題有疑義：依語意應為 be forgotten，但選項未提供；B 的 forgot 應為 forgotten。C 雖符合被動結構，卻表示「永遠不會被記得」，不合通常語意。本題僅供討論，不計分。"
+        ],
+        [
+          "The City Art Museum ____ yet.\n(A) wasn’t built  (B) hasn’t built  (C) isn’t built  (D) hasn’t been built",
+          "D · hasn’t been built。現在完成式被動否定：has not been + p.p."
+        ],
+        [
+          "When a language ____ anymore, it’s called a dead language.\n(A) speaks  (B) doesn’t speak  (C) is spoken  (D) isn’t spoken",
+          "D · isn’t spoken。語言不再「被使用」。"
+        ],
+        [
+          "The game ____ between the LA Lakers and the Phoenix Suns tomorrow.\n(A) will play  (B) are played  (C) will be played  (D) is going to play",
+          "C · will be played。tomorrow 搭配未來式被動。"
+        ]
+      ]
+    },
+    {
+      "title": "Sentence Making · 改寫成被動語態",
+      "intro": "保留原句的時態、助動詞與時間用語；by + 動作者在語意清楚時可省略。",
+      "items": [
+        [
+          "Mary will wear the blue sweater tomorrow.",
+          "The blue sweater will be worn by Mary tomorrow."
+        ],
+        [
+          "Father would fix the windows.",
+          "The windows would be fixed by Father."
+        ],
+        [
+          "You can leave the newspapers behind the door.",
+          "The newspapers can be left behind the door."
+        ],
+        [
+          "You should take the medicine three times a week.",
+          "The medicine should be taken three times a week."
+        ],
+        [
+          "My father won’t wash the car tomorrow afternoon.",
+          "The car won’t be washed by my father tomorrow afternoon."
+        ],
+        [
+          "Peter should clean the rooms.",
+          "The rooms should be cleaned by Peter."
+        ],
+        [
+          "The little boy can’t take out the garbage.",
+          "The garbage can’t be taken out by the little boy."
+        ]
+      ]
+    },
+    {
+      "title": "Translation · 中譯英",
+      "intro": "以下為參考譯法，其他文法與語意正確的答案也可以。",
+      "items": [
+        [
+          "這件毛衣應該用手洗。",
+          "This sweater should be washed by hand."
+        ],
+        [
+          "應該每天練習英文。(English…)",
+          "English should be practiced every day."
+        ],
+        [
+          "所有的玻璃杯都已經洗了。",
+          "All the glasses have already been washed."
+        ],
+        [
+          "會議將會被延期 (postpone)。",
+          "The meeting will be postponed."
+        ],
+        [
+          "這些問題不應該由你來回答。",
+          "These questions should not be answered by you."
+        ],
+        [
+          "這個小男孩將會立刻被送往醫院。",
+          "The little boy will be sent to the hospital immediately."
+        ]
+      ]
+    }
+  ]
+});
