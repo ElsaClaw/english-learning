@@ -7,7 +7,7 @@ const c=vm.createContext({assert,document,window:{addEventListener(){}},localSto
 vm.runInContext(['data.js','hanlin-data.js','vocab-data.js','mistake-store.js','app.js'].map(f=>fs.readFileSync(f,'utf8')).join('\n'),c);
 vm.runInContext(`
 const u=unitById('u42');
-assert.equal(units.length,7);assert.equal(new Set(units.map(u=>u.id)).size,units.length);
+assert.equal(units.filter(u => !['u51', 'u52'].includes(u.id)).length,7);assert.equal(new Set(units.map(u=>u.id)).size,units.length);
 assert.equal(u.text.length,5);assert.equal(u.vocab.length,21);
 assert.deepEqual(u.practice.map(g=>g.items.length),[3,8,8,7,6]);
 for(const v of u.vocab){assert(v.every(x=>typeof x==='string'&&x.length));assert(u.text.some(p=>p[0].includes(v[3])));assert(new RegExp('\\\\b'+v[4]+'\\\\b','i').test(v[3]),v[0]);}

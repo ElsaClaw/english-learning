@@ -414,3 +414,862 @@ units.push({
     }
   ]
 });
+
+// Unit 5.1: manually checked against all seven source pages.
+units.push({
+  "id": "u51",
+  "group": "Unit 5.1",
+  "title": "What’s in a Name?",
+  "subtitle": "探索姓氏的四種起源，學習名詞子句",
+  "sourceNote": "依 Unit 5.1.pdf 第 43–49 頁逐頁人工轉錄與視覺核對。英文課文與例句保留教材原文；繁體中文及練習參考答案為學習輔助整理。",
+  "text": [
+    [
+      "A person who comes from an English-speaking country has a first name, probably a middle name, and a last name, called a surname or family name. He probably got his first two names when he was born, but his surname is much older. When, where, and how did the surnames begin? Surprisingly, most English surnames are less than 900 years old. They started in a number of different ways.",
+      "來自英語系國家的人有名字，可能還有中間名，以及稱為 surname 或 family name 的姓氏。他的前兩個名字可能是在出生時取的，但姓氏的歷史久遠得多。姓氏是何時、何地、如何開始的呢？令人驚訝的是，大多數英語姓氏的歷史不到九百年，其形成方式各不相同。"
+    ],
+    [
+      "In the past, people lived in small villages, where they all knew one another by the first name. As the village grew into small towns, it was common to find several people with the same first name. It became necessary to find some way to tell them apart. For example, if two people were called Michael, you had to add other words, like “Michael by the wood” or “Michael in the field,” which told you where each Michael lived. That made it clear enough. In time, these places became surnames. Today Wood(s), Field(s), Hill, Forest, Brooks, Bank, Lane, and Lake are very common English surnames. Surnames in other languages also started this way. The name of a famous American family, the Du Ponts, comes from a French expression meaning “of the bridge.”",
+      "過去，人們住在小村莊裡，彼此只用名字就能認識對方。村莊發展成小鎮後，同名的情況變得常見，因此有必要找方法區分。例如，兩個人都叫 Michael，就得加上「樹林旁的 Michael」或「田野裡的 Michael」等字眼，說明各自住在哪裡，這樣便清楚了。久而久之，這些地名成為姓氏。如今 Wood(s)、Field(s)、Hill、Forest、Brooks、Bank、Lane、Lake 都是常見的英語姓氏。其他語言也有類似的姓氏起源。美國知名家族 Du Pont 的姓氏，就來自意為「橋的」的法語詞語。"
+    ],
+    [
+      "Another way of telling apart two people of the same first name was to add the person’s skill or trade. As a result, the different Andrews in town became Andrew the cook, Andrew the shepherd, Andrew the baker, and so on. In time these became Andrew Cook, Andrew Shepherd, and Andrew Baker. Many skills of the past are less known today, but they remain some of the most popular surnames: Smith, for example, was someone who worked with metal.",
+      "區分同名者的另一種方法，是加上那個人的技能或職業。因此，鎮上不同的 Andrew 變成「廚師 Andrew」、「牧羊人 Andrew」、「麵包師傅 Andrew」等等。久而久之，就成了 Andrew Cook、Andrew Shepherd 和 Andrew Baker。許多古老技藝如今較少人知道，卻仍保留在最常見的姓氏之中；例如 Smith 原本指從事金屬加工的人。"
+    ],
+    [
+      "A third origin of surnames was to identify people according to their father’s name. In those days, it was a man’s world. No one was identified by his or her mother’s name. If there were three Johns in a village, they had names like John, son of Richard; John, son of Jack; or John, son of Robert. These became Richardson, Jackson, and Robertson. Others like these are Johnson, Wilson, Williamson, and Thompson.",
+      "姓氏的第三種來源，是依父親的名字辨認一個人。在那個男性主導的時代，沒有人依母親的名字來辨認身分。如果村裡有三個 John，就會稱為「Richard 的兒子 John」、「Jack 的兒子 John」或「Robert 的兒子 John」，後來形成 Richardson、Jackson 和 Robertson。Johnson、Wilson、Williamson、Thompson 也屬於這一類。"
+    ],
+    [
+      "Surnames were also based on a person’s physical or personal characteristics, such as Short, Brown, White, Strong, Goodman or Truman.",
+      "姓氏也可能根據一個人的外貌或個人特質而來，例如 Short、Brown、White、Strong、Goodman 或 Truman。"
+    ],
+    [
+      "Times change. Long ago, surnames told us something about people –where they lived, what they did for a living, who their father was, and how they looked. Today it’s different. We may find a Mr. Field who lives in a big city, a tall woman called Ms. Short, or a cook called Mr. Baker.",
+      "時代會改變。很久以前，姓氏透露了人們住在哪裡、靠什麼謀生、父親是誰，以及外貌如何。現在則不同了：Field 先生可能住在大城市，Short 女士可能很高，而 Baker 先生可能是廚師。"
+    ]
+  ],
+  "vocab": [
+    [
+      "surname",
+      "n.",
+      "姓氏",
+      "A person who comes from an English-speaking country has a first name, probably a middle name, and a last name, called a surname or family name.",
+      "surname"
+    ],
+    [
+      "surprisingly",
+      "adv.",
+      "令人驚訝地",
+      "Surprisingly, most English surnames are less than 900 years old.",
+      "Surprisingly"
+    ],
+    [
+      "village",
+      "n.",
+      "村莊",
+      "In the past, people lived in small villages, where they all knew one another by the first name.",
+      "villages"
+    ],
+    [
+      "common",
+      "adj.",
+      "常見的",
+      "As the village grew into small towns, it was common to find several people with the same first name.",
+      "common"
+    ],
+    [
+      "necessary",
+      "adj.",
+      "必要的",
+      "It became necessary to find some way to tell them apart.",
+      "necessary"
+    ],
+    [
+      "tell … apart",
+      "phr.",
+      "區分；辨別",
+      "It became necessary to find some way to tell them apart.",
+      "tell them apart"
+    ],
+    [
+      "in time",
+      "phr.",
+      "久而久之；經過一段時間",
+      "In time, these places became surnames.",
+      "In time"
+    ],
+    [
+      "expression",
+      "n.",
+      "詞語；表達方式",
+      "The name of a famous American family, the Du Ponts, comes from a French expression meaning “of the bridge.”",
+      "expression"
+    ],
+    [
+      "skill",
+      "n.",
+      "技能",
+      "Another way of telling apart two people of the same first name was to add the person’s skill or trade.",
+      "skill"
+    ],
+    [
+      "trade",
+      "n.",
+      "職業；行業",
+      "Another way of telling apart two people of the same first name was to add the person’s skill or trade.",
+      "trade"
+    ],
+    [
+      "as a result",
+      "phr.",
+      "因此；結果",
+      "As a result, the different Andrews in town became Andrew the cook, Andrew the shepherd, Andrew the baker, and so on.",
+      "As a result"
+    ],
+    [
+      "and so on",
+      "phr.",
+      "等等",
+      "As a result, the different Andrews in town became Andrew the cook, Andrew the shepherd, Andrew the baker, and so on.",
+      "and so on"
+    ],
+    [
+      "remain",
+      "v.",
+      "仍然是；保持",
+      "Many skills of the past are less known today, but they remain some of the most popular surnames: Smith, for example, was someone who worked with metal.",
+      "remain"
+    ],
+    [
+      "origin",
+      "n.",
+      "起源",
+      "A third origin of surnames was to identify people according to their father’s name.",
+      "origin"
+    ],
+    [
+      "identify",
+      "v.",
+      "辨認；確認身分",
+      "A third origin of surnames was to identify people according to their father’s name.",
+      "identify"
+    ],
+    [
+      "according to",
+      "phr.",
+      "根據",
+      "A third origin of surnames was to identify people according to their father’s name.",
+      "according to"
+    ],
+    [
+      "physical",
+      "adj.",
+      "身體的；外貌的",
+      "Surnames were also based on a person’s physical or personal characteristics, such as Short, Brown, White, Strong, Goodman or Truman.",
+      "physical"
+    ],
+    [
+      "characteristic",
+      "n.",
+      "特徵；特質",
+      "Surnames were also based on a person’s physical or personal characteristics, such as Short, Brown, White, Strong, Goodman or Truman.",
+      "characteristics"
+    ]
+  ],
+  "practice": [
+    {
+      "title": "Noun Clauses · 名詞子句",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "“Michael by the wood” told you where each Michael lived.",
+          "「樹林旁的 Michael」告訴你每個 Michael 住在哪裡。名詞子句使用直述句語序。"
+        ],
+        [
+          "Surnames come from how a person looks.",
+          "姓氏來自一個人的外貌。how 後為主詞 + 動詞。"
+        ],
+        [
+          "Surnames told us who their father was.",
+          "姓氏告訴我們他們的父親是誰。"
+        ],
+        [
+          "Where did John go? → I don’t know _____.",
+          "I don’t know where John went."
+        ],
+        [
+          "How old is Mary? → I wonder _____.",
+          "I wonder how old Mary is."
+        ]
+      ]
+    },
+    {
+      "title": "T & F · 是非題",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "Most surnames are less than a century old.",
+          "F · 課文說多數英語姓氏不到九百年，不是一百年。"
+        ],
+        [
+          "In the past, people living in small villages had the same surname.",
+          "F · 課文說大家以名字認識彼此，並非同姓。"
+        ],
+        [
+          "When villages grew into towns, people stopped using first name.",
+          "F · 人們在名字之外加上其他字眼以便區分。"
+        ],
+        [
+          "People living in the same town often had the same first name.",
+          "T · 同名者在城鎮裡很常見。"
+        ],
+        [
+          "A name like John the baker told you what the person did.",
+          "T · baker 表示職業。"
+        ],
+        [
+          "Wood was a surname for a person who worked as a woodcutter.",
+          "F · 課文將 Wood 歸為居住地來源。"
+        ],
+        [
+          "Johnson, Jackson, and Truman are all surnames which came in the same way.",
+          "F · Johnson、Jackson 來自父名；Truman 歸於個人特質。"
+        ]
+      ]
+    },
+    {
+      "title": "Q & A · 閱讀問答",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "What are some examples of surnames showing where a person lives? Can you find others? Write them down.",
+          "課文例子：Wood(s), Field(s), Hill, Forest, Brooks, Bank, Lane, and Lake. 延伸例子可自行查證後補充。"
+        ],
+        [
+          "What are some examples of surnames showing skill or trade? Can you find others? Write them down.",
+          "課文例子：Cook, Shepherd, Baker, and Smith."
+        ],
+        [
+          "What are some examples of surnames showing how a person looks? Can you find others? Write them down.",
+          "課文例子：Short, Brown, White, and Strong."
+        ],
+        [
+          "Why was it necessary to have surnames?",
+          "It was necessary to tell people with the same first name apart."
+        ],
+        [
+          "How is the use of surnames different today?",
+          "Today, surnames do not necessarily describe where people live, what they do, who their father is, or how they look."
+        ]
+      ]
+    },
+    {
+      "title": "Discussion · 討論與名字創作",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "Some people do not like their names. Do you? Why or why not?",
+          "開放題：依自己的想法回答，可先在紙上寫下英文句子。"
+        ],
+        [
+          "What does your surname mean?",
+          "開放題：依自己的想法回答，可先在紙上寫下英文句子。"
+        ],
+        [
+          "What does your first name mean? How did you get it?",
+          "開放題：依自己的想法回答，可先在紙上寫下英文句子。"
+        ],
+        [
+          "If you could re-name yourself, what name would you choose? Why?",
+          "開放題：依自己的想法回答，可先在紙上寫下英文句子。"
+        ],
+        [
+          "WHAT IS IN YOUR CHINESE NAME?",
+          "詢問家人取名原因，寫下中文名字的意義，再分享。"
+        ],
+        [
+          "WHAT IS IN YOUR ENGLISH NAME? / MY NAME POEM",
+          "查詢英文名字的意義；依名字每個字母各寫一行詩，每行用對應字母開頭。本頁不儲存姓名或作答內容。"
+        ]
+      ]
+    },
+    {
+      "title": "Grammar Focus · 改寫名詞子句",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "Why did Bob leave? → I don’t know _____.",
+          "I don’t know why Bob left."
+        ],
+        [
+          "What time is it? → I wonder _____.",
+          "I wonder what time it is."
+        ],
+        [
+          "What is Sue talking about? → I don’t understand _____.",
+          "I don’t understand what Sue is talking about."
+        ],
+        [
+          "How did Ann go to the theater? → I don’t know _____.",
+          "I don’t know how Ann went to the theater."
+        ],
+        [
+          "How much is the bicycle? → Who knows _____?",
+          "Who knows how much the bicycle is?"
+        ],
+        [
+          "Where did you park your car? → Can’t you remember _____?",
+          "Can’t you remember where you parked your car?"
+        ],
+        [
+          "When did Mike come to school? → Everyone knows _____.",
+          "Everyone knows when Mike came to school."
+        ],
+        [
+          "When is the meeting? → Do you remember _____?",
+          "Do you remember when the meeting is?"
+        ],
+        [
+          "Who is the woman talking to her? → I don’t know _____.",
+          "I don’t know who the woman talking to her is.（who 問的是「那位正在跟她說話的女人是誰」。）"
+        ],
+        [
+          "Who did he go to the night market with? → No one knows _____.",
+          "No one knows who he went to the night market with."
+        ]
+      ]
+    },
+    {
+      "title": "Translation · 中譯英",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "告訴我你喜歡的是誰。",
+          "Tell me who you like."
+        ],
+        [
+          "你知道他從哪兒來的嗎？",
+          "Do you know where he comes from?"
+        ],
+        [
+          "我不知道為何她們今早遲到。",
+          "I don’t know why they were late this morning."
+        ],
+        [
+          "誰知道意外事故是怎麼發生的？",
+          "Who knows how the accident happened?"
+        ],
+        [
+          "我想知道你何時到家。",
+          "I want to know when you will get home.（若問過去，可用 when you got home。）"
+        ],
+        [
+          "你能告訴我我可以在哪裡買到相同的鞋子嗎？",
+          "Can you tell me where I can buy the same shoes?"
+        ],
+        [
+          "我不知道如何回答這問題。",
+          "I don’t know how to answer this question."
+        ],
+        [
+          "爸爸告訴我去哪裡找我們的狗。",
+          "Dad told me where to look for our dog."
+        ],
+        [
+          "妳知道世界上有多少國家嗎？",
+          "Do you know how many countries there are in the world?"
+        ],
+        [
+          "有任何人記得 Sally 昨天穿什麼衣服嗎？",
+          "Does anyone remember what Sally wore yesterday?"
+        ]
+      ]
+    }
+  ]
+});
+
+// Unit 5.2: manually checked against all seven source pages.
+units.push({
+  "id": "u52",
+  "group": "Unit 5.2",
+  "title": "Global Warming",
+  "subtitle": "閱讀全球暖化與環境行動，練習疑問詞作主詞的名詞子句",
+  "sourceNote": "依 Unit 5.2.pdf 第 50–56 頁逐頁人工轉錄與視覺核對。繁體中文與參考答案為學習輔助；溫度數字保留教材敘述，不代表最新統計或預測。原文 reduce 的名詞誤用另列說明，單字庫採正確動詞用法與原文結尾例句。",
+  "text": [
+    [
+      "Earth has warmed by about one degree Fahrenheit over the last 100 years. This increase in temperature is called global warming. Earth may warm up naturally, but many experts have found out who is responsible for it – a lot of people are. Many people do not think earth is affected by their daily habits and lifestyles, so they do whatever they want without thinking about the results.",
+      "教材描述地球在過去一百年間升溫約華氏一度，這種溫度上升稱為全球暖化。地球可能自然升溫，但許多專家發現，很多人類活動也應為此負責。許多人不認為日常習慣和生活方式會影響地球，因此隨心所欲，不考慮後果。"
+    ],
+    [
+      "Some climate changes are natural. After the Industrial Revolution, people began to change the environment and climate. They began to use more and more machines. Although machines made life easier, they also used energy and created pollution.",
+      "有些氣候變化是自然現象。工業革命之後，人們開始改變環境與氣候，使用越來越多機器。機器雖使生活更便利，也消耗能源並造成污染。"
+    ],
+    [
+      "With the growth of pollution and population, and with the reduce of forests in the world, the amount of greenhouse gases in the air has increased. They trap energy in our atmosphere and make Earth warmer. Sea levels rise as glaciers melt. This causes flooding and damage of crops and drinking water.",
+      "隨著污染與人口增加，以及全球森林減少，空氣中的溫室氣體增加。它們將能量留在大氣中，使地球更暖。冰河融化時，海平面上升，造成洪水，損害農作物與飲用水。"
+    ],
+    [
+      "The greenhouse effect is actually a good thing. Without it, life on Earth would not be possible. But now, an increase in greenhouse gas production could cause major changes in Earth’s climate.",
+      "溫室效應本身其實有益；沒有它，地球上的生命就無法存在。但溫室氣體排放量增加，可能造成地球氣候的重大變化。"
+    ],
+    [
+      "Scientists predict that the global temperature will increase another two to six degrees Fahrenheit over the next 100 years. Human health is in danger. For poor people as well as babies and the elderly, heat stress can be a very serious medical problem.",
+      "教材引述科學家的預測，未來一百年間全球氣溫可能再上升華氏二至六度。人類健康會面臨威脅；對貧困者、嬰兒及長者而言，熱緊迫可能是嚴重的醫療問題。此處數字為教材原文，並非最新預測。"
+    ],
+    [
+      "The new climate will change all the world’s habitats and ecosystems. A rapid change in climate does not give living things time to adapt. Many plants and animals will not be able to live.",
+      "新的氣候將改變全球的棲地與生態系。氣候快速變化，使生物沒有時間適應，許多動植物將無法存活。"
+    ],
+    [
+      "Global warming is a huge problem. What can we do to make a difference? The Environmental Protection Agency has some suggestions:",
+      "全球暖化是個大問題。我們能做什麼來帶來改變？教材列出環境保護署的幾項建議："
+    ],
+    [
+      "Read and learn about the environment.",
+      "閱讀並學習環境知識。"
+    ],
+    [
+      "Inform others about what has caused the problem.",
+      "告訴他人造成問題的原因。"
+    ],
+    [
+      "Try to save electricity.",
+      "設法節省用電。"
+    ],
+    [
+      "Bike, bus or walk instead of driving.",
+      "以騎自行車、搭公車或步行代替開車。"
+    ],
+    [
+      "Plant trees.",
+      "種樹。"
+    ],
+    [
+      "Recycle your own materials and buy recycled products.",
+      "回收自己的物品，並購買再生製品。"
+    ],
+    [
+      "It is important not to take our environment for granted. By taking positive steps now, we may be able to reduce global warming in the future.",
+      "不要把環境視為理所當然，這點很重要。現在採取積極行動，未來就可能減緩全球暖化。"
+    ]
+  ],
+  "vocab": [
+    [
+      "global warming",
+      "n.",
+      "全球暖化",
+      "This increase in temperature is called global warming.",
+      "global warming"
+    ],
+    [
+      "increase",
+      "n./v.",
+      "增加；上升",
+      "This increase in temperature is called global warming.",
+      "increase"
+    ],
+    [
+      "be responsible for",
+      "phr.",
+      "對……負責",
+      "Earth may warm up naturally, but many experts have found out who is responsible for it – a lot of people are.",
+      "is responsible for"
+    ],
+    [
+      "affect",
+      "v.",
+      "影響",
+      "Many people do not think earth is affected by their daily habits and lifestyles, so they do whatever they want without thinking about the results.",
+      "affected"
+    ],
+    [
+      "Industrial Revolution",
+      "n.",
+      "工業革命",
+      "After the Industrial Revolution, people began to change the environment and climate.",
+      "Industrial Revolution"
+    ],
+    [
+      "environment",
+      "n.",
+      "環境",
+      "After the Industrial Revolution, people began to change the environment and climate.",
+      "environment"
+    ],
+    [
+      "pollution",
+      "n.",
+      "污染",
+      "Although machines made life easier, they also used energy and created pollution.",
+      "pollution"
+    ],
+    [
+      "population",
+      "n.",
+      "人口",
+      "With the growth of pollution and population, and with the reduce of forests in the world, the amount of greenhouse gases in the air has increased.",
+      "population",
+      "保留原文例句；句中 the reduce of forests 應改為 the reduction of forests。"
+    ],
+    [
+      "reduce",
+      "v.",
+      "減少；降低",
+      "By taking positive steps now, we may be able to reduce global warming in the future.",
+      "reduce",
+      "教材單字表標為 n.，但 reduce 是動詞；名詞應為 reduction。此處選用教材結尾的正確動詞例句。"
+    ],
+    [
+      "trap",
+      "v.",
+      "使困住；留住",
+      "They trap energy in our atmosphere and make Earth warmer.",
+      "trap"
+    ],
+    [
+      "atmosphere",
+      "n.",
+      "大氣層",
+      "They trap energy in our atmosphere and make Earth warmer.",
+      "atmosphere"
+    ],
+    [
+      "glacier",
+      "n.",
+      "冰河",
+      "Sea levels rise as glaciers melt.",
+      "glaciers"
+    ],
+    [
+      "flooding",
+      "n.",
+      "洪水；水災",
+      "This causes flooding and damage of crops and drinking water.",
+      "flooding"
+    ],
+    [
+      "crop",
+      "n.",
+      "農作物",
+      "This causes flooding and damage of crops and drinking water.",
+      "crops"
+    ],
+    [
+      "predict",
+      "v.",
+      "預測",
+      "Scientists predict that the global temperature will increase another two to six degrees Fahrenheit over the next 100 years.",
+      "predict"
+    ],
+    [
+      "as well as",
+      "phr.",
+      "以及",
+      "For poor people as well as babies and the elderly, heat stress can be a very serious medical problem.",
+      "as well as"
+    ],
+    [
+      "medical",
+      "adj.",
+      "醫療的",
+      "For poor people as well as babies and the elderly, heat stress can be a very serious medical problem.",
+      "medical"
+    ],
+    [
+      "habitat",
+      "n.",
+      "棲地",
+      "The new climate will change all the world’s habitats and ecosystems.",
+      "habitats"
+    ],
+    [
+      "rapid",
+      "adj.",
+      "快速的",
+      "A rapid change in climate does not give living things time to adapt.",
+      "rapid"
+    ],
+    [
+      "adapt",
+      "v.",
+      "適應",
+      "A rapid change in climate does not give living things time to adapt.",
+      "adapt"
+    ],
+    [
+      "inform",
+      "v.",
+      "告知",
+      "Inform others about what has caused the problem.",
+      "Inform"
+    ],
+    [
+      "recycle",
+      "v.",
+      "回收再利用",
+      "Recycle your own materials and buy recycled products.",
+      "Recycle"
+    ],
+    [
+      "take … for granted",
+      "phr.",
+      "把……視為理所當然",
+      "It is important not to take our environment for granted.",
+      "take our environment for granted"
+    ]
+  ],
+  "practice": [
+    {
+      "title": "教材用字說明",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "with the reduce of forests",
+          "原文保留。reduce 是動詞，這裡應為 with the reduction of forests。"
+        ],
+        [
+          "Who is reasonable for it?",
+          "第 50 頁文法框原問句寫 reasonable，與下一句 responsible 不一致；依語意應為 Who is responsible for it?"
+        ],
+        [
+          "Liberians work in a quiet _____.",
+          "教材填空題用 Liberians（賴比瑞亞人），依職業語境疑為 Librarians（圖書館員）；空格為 environment。"
+        ],
+        [
+          "Reading Multiple Choice 3",
+          "依課文，Population growth 與森林減少都是原因，A、C 均可；不當作唯一答案的計分題。"
+        ]
+      ]
+    },
+    {
+      "title": "Noun Clauses · 疑問詞作主詞",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "Many experts have found out who is responsible for it.",
+          "who 是名詞子句的主詞，後面直接接 is responsible for it。"
+        ],
+        [
+          "What has caused the problem? → We’ll inform others what has caused the problem.",
+          "what 作主詞，子句維持 what has caused the problem 的順序。"
+        ],
+        [
+          "Who broke the window? → Do you know who broke the window?",
+          "who 作主詞，不使用 did 倒裝。"
+        ],
+        [
+          "Who likes singing? → I don’t know who likes singing.",
+          "who 作主詞，動詞為 likes。"
+        ],
+        [
+          "What’s wrong with him? → I wonder what’s wrong with him.",
+          "保留 what is wrong with him 的順序。"
+        ]
+      ]
+    },
+    {
+      "title": "True or False · 是非題",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "Many experts think that a lot of people are responsible for global warming.",
+          "T · 依第一段。"
+        ],
+        [
+          "The Industrial Revolution helped change the environment and the climate.",
+          "T · 依第二段。"
+        ],
+        [
+          "Higher sea levels are responsible for the melting of glaciers.",
+          "F · 課文說冰河融化造成海平面上升，因果相反。"
+        ],
+        [
+          "Heat stress can be a serious medical problem.",
+          "T · 依教材敘述。"
+        ],
+        [
+          "It is impossible to reduce global warming.",
+          "F · 結尾說積極行動可能減緩暖化。"
+        ]
+      ]
+    },
+    {
+      "title": "Reading · Multiple Choice",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "The greenhouse effect is actually a good thing because _____.\n(A) it causes major changes in Earth’s climate.\n(B) it makes life on Earth possible.\n(C) it makes glaciers melt.",
+          "B · 課文說沒有溫室效應，地球上就無法有生命。"
+        ],
+        [
+          "Which of the following is a cause of global warming?\n(A) Heat stress. (B) Melting glaciers. (C) Pollution.",
+          "C · Pollution。"
+        ],
+        [
+          "Which of the following is a cause of global warming?\n(A) Population growth. (B) Flooding. (C) The reduce of forests.",
+          "A、C 依課文均成立；C 的 reduce 應為 reduction。原題無唯一答案。"
+        ],
+        [
+          "Who is responsible for the climate change?\n(A) People like you and me. (B) Scientists. (C) Developed countries.",
+          "A · 依課文強調一般人的日常活動作答。"
+        ]
+      ]
+    },
+    {
+      "title": "Vocabulary · 教材填空",
+      "intro": "字庫：increase, affect, lifestyle, trap, predict, rapid, adapt, reduce, habitat, atmosphere, environment, glacier。依句子調整字形。",
+      "items": [
+        [
+          "Roger got a pay _____ because he did a very good job.",
+          "increase"
+        ],
+        [
+          "I decided to _____ the amount of fat in my diet in order to lose weight.",
+          "reduce"
+        ],
+        [
+          "Sarah needs to get a very good job to afford the _____ that she wants.",
+          "lifestyle"
+        ],
+        [
+          "It took Ellen and his family a long time to _____ to life in the United States.",
+          "adapt"
+        ],
+        [
+          "We saw a _____ on our trip to the Rocky Mountains. The huge mass of ice was very stunning.",
+          "glacier"
+        ],
+        [
+          "The children are _____ by their mother’s injury. They have been sad for days.",
+          "affected · 被動語態須用過去分詞。"
+        ],
+        [
+          "Earth’s _____ is similar to a jacket for our planet. It surrounds (圍繞) our planet, keeps us warm, gives us oxygen (氧氣) to breathe, and it is where our weather happens.",
+          "atmosphere"
+        ],
+        [
+          "Many new buildings have been built; the neighborhood has a _____ change.",
+          "rapid"
+        ],
+        [
+          "A card reader _____ that I would score well and win the championship.",
+          "predicted · 配合 would 與過去敘述。"
+        ],
+        [
+          "The panda’s natural _____ is the bamboo forest.",
+          "habitat"
+        ],
+        [
+          "Liberians work in a quiet _____.",
+          "environment · Liberians 疑為 Librarians，見用字說明。"
+        ],
+        [
+          "The dog was _____ in the car and could not protect its owner.",
+          "trapped · 過去分詞須雙寫 p。"
+        ]
+      ]
+    },
+    {
+      "title": "Q & A · 閱讀問答",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "How has the temperature of Earth changed over the last 100 years?",
+          "According to the passage, Earth has warmed by about one degree Fahrenheit.（依教材，不是最新數據。）"
+        ],
+        [
+          "What is global warming?",
+          "Global warming is an increase in Earth’s temperature."
+        ],
+        [
+          "What have many experts found out about who is responsible for global warming? Why?",
+          "They have found that many people are responsible because their daily habits and lifestyles affect Earth."
+        ],
+        [
+          "How has the Industrial Revolution changed the environment and climate?",
+          "People began using more machines, which used energy and created pollution."
+        ],
+        [
+          "What makes Earth become warmer and sea level rise?",
+          "Greenhouse gases trap energy in the atmosphere and make Earth warmer. Sea levels rise as glaciers melt."
+        ],
+        [
+          "Why is the greenhouse effect actually a good thing?",
+          "Without it, life on Earth would not be possible."
+        ],
+        [
+          "What do scientists predict about the global temperature over the next 100 years? How will the increase of the global temperature affect people and the whole world?",
+          "According to the passage, they predict an increase of two to six degrees Fahrenheit. Heat stress may harm people, and rapid climate change may prevent plants and animals from adapting.（保留教材預測，非最新資料。）"
+        ],
+        [
+          "According to the six suggestions that the Environmental Protection Agency makes, how many of them have you done? How many of them haven’t you done? Will you do it/them in the future? Why?",
+          "開放題：依課文六項建議檢視自己的行動。參考句型：I have tried to save electricity. I will recycle more because I want to help the environment."
+        ]
+      ]
+    },
+    {
+      "title": "Grammar Focus · 改寫名詞子句",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "What did she want to eat? → I don’t know _____.",
+          "I don’t know what she wanted to eat."
+        ],
+        [
+          "Who stole the cookies? → I wonder _____.",
+          "I wonder who stole the cookies."
+        ],
+        [
+          "Why is she so angry? → Does anyone know _____?",
+          "Does anyone know why she is so angry?"
+        ],
+        [
+          "What is the matter with Hank? → I am not sure _____.",
+          "I am not sure what is the matter with Hank."
+        ],
+        [
+          "What caused the problem? → No one knows _____.",
+          "No one knows what caused the problem."
+        ]
+      ]
+    },
+    {
+      "title": "Translation · 中譯英",
+      "intro": "先自行作答，再展開參考答案；以下為學習輔助解答。",
+      "items": [
+        [
+          "我媽媽問我她的信用卡在哪裡。",
+          "My mother asked me where her credit card was."
+        ],
+        [
+          "他所做的事是很不禮貌的。",
+          "What he did was very impolite."
+        ],
+        [
+          "我不知道你是怎麼做到的。",
+          "I don’t know how you did it."
+        ],
+        [
+          "你可以告訴我發生甚麼事？",
+          "Can you tell me what happened?"
+        ],
+        [
+          "我將不會告訴你我吃了甚麼。",
+          "I won’t tell you what I ate."
+        ],
+        [
+          "最大的問題是誰拿走那把雨傘。",
+          "The biggest question is who took that umbrella."
+        ],
+        [
+          "我永遠搞不清楚他甚麼時候會出現。（…figure…）",
+          "I can never figure out when he will show up."
+        ],
+        [
+          "誰應該為全球暖化負責是個好問題。",
+          "Who should be responsible for global warming is a good question."
+        ]
+      ]
+    }
+  ]
+});
