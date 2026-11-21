@@ -10,7 +10,7 @@ function esc(value) { return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;
 function shuffle(items) { return [...items].sort(() => Math.random() - .5); }
 function scores() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '[]'); } catch { return []; } }
 function saveScore(item) { const all = scores(); all.push(item); localStorage.setItem(STORE_KEY, JSON.stringify(all)); }
-function unitById(id) { return [...units, ...hanlinUnits].find(unit => unit.id === id); }
+function unitById(id) { return [...units, ...hanlinUnits, ...(typeof amcUnits === 'undefined' ? [] : amcUnits)].find(unit => unit.id === id); }
 let availableVoices = [];
 function refreshVoices() { availableVoices = speechSynthesis.getVoices(); }
 function preferredEnglishVoice() {
@@ -45,7 +45,7 @@ function home() {
       <div><p class="eyebrow">Independent Learning</p><h1>選擇教材，<br>建立自己的英文路徑。</h1><p>從課文閱讀或字彙練習開始；每套教材各自保有適合的學習與測驗方式。</p></div>
       <aside class="hero-note"><strong>今日的小目標</strong>選擇一套教材，再挑選要練習的 Unit。${recent ? `<br><br>最近課文紀錄：${esc(recent.title)} · ${recent.total}%` : ''}</aside>
     </section>
-    ${gardenBanner()}<section class="book-grid"><article class="book-card"><span class="tag">Reading · Grade 8</span><h2>八年級英文課文</h2><p>中英對照閱讀、核心單字、英文朗讀與兩種測驗學習路徑。</p><button class="primary" data-course="reading">進入課文 Units →</button></article><article class="book-card vocab-book"><span class="tag">Vocabulary</span><h2>字彙字識</h2><p>單字庫、例句朗讀與隨機四選一克漏字測驗；課程會持續增加。</p><button class="primary" data-course="vocab">進入字彙單元 →</button></article><article class="book-card"><span class="tag">Mock Exam · Grade 8</span><h2>第一次段考</h2><p>十份模擬考：綜合練習、98 個課文考詞克漏字，以及完整涵蓋 417 個字彙考詞的選擇題。</p><button class="primary" data-course="midterm">進入模擬考 →</button></article><article class="book-card hanlin-book"><span class="tag">Hanlin · 三上</span><h2>翰林英文課本</h2><p>課本對話與閱讀、中英對照、單字朗讀及 Part 1～Part 4 互動練習。</p><button class="primary" data-course="hanlin">進入翰林課程 →</button></article></section>`;
+    ${gardenBanner()}<section class="book-grid"><article class="book-card"><span class="tag">Reading · Grade 8</span><h2>八年級英文課文</h2><p>中英對照閱讀、核心單字、英文朗讀與兩種測驗學習路徑。</p><button class="primary" data-course="reading">進入課文 Units →</button></article><article class="book-card vocab-book"><span class="tag">Vocabulary</span><h2>字彙字識</h2><p>單字庫、例句朗讀與隨機四選一克漏字測驗；課程會持續增加。</p><button class="primary" data-course="vocab">進入字彙單元 →</button></article><article class="book-card"><span class="tag">Mock Exam · Grade 8</span><h2>第一次段考</h2><p>十份模擬考：綜合練習、98 個課文考詞克漏字，以及完整涵蓋 417 個字彙考詞的選擇題。</p><button class="primary" data-course="midterm">進入模擬考 →</button></article><article class="book-card hanlin-book"><span class="tag">Hanlin · 三上</span><h2>翰林英文課本</h2><p>課本對話與閱讀、中英對照、單字朗讀及 Part 1～Part 4 互動練習。</p><button class="primary" data-course="hanlin">進入翰林課程 →</button></article><article class="book-card"><span class="tag">AMC English</span><h2>AMC課程</h2><p>中英對照閱讀、單字與片語、例句四選一與課文聽力理解。</p><button class="primary" data-course="amc">進入 AMC 課程 →</button></article></section>`;
   app.querySelectorAll('[data-course]').forEach(button => button.onclick = () => setRoute(`#${button.dataset.course}`));
 }
 
@@ -141,13 +141,13 @@ function lesson(id, wantedPart = 'read') {
   const unit = unitById(id); if (!unit) return home();
   activeUnit = unit; activePart = wantedPart; testA = null; testB = null;
   app.innerHTML = `
-    <a class="back" href="${unit.course === 'hanlin' ? '#hanlin' : '#reading'}">← ${esc(unit.courseLabel || '八年級英文課文')}</a>
-    <section class="lesson-head"><p class="eyebrow">${esc(unit.group)} · 學習單元</p><h1>${esc(unit.title)}</h1><p>${esc(unit.subtitle)}</p>${unit.sourceNote ? `<p class="catalog-note">${esc(unit.sourceNote)}</p>` : ''}<span class="progress-pill">${unit.vocab.length} 個核心單字</span></section>
+    <a class="back" href="${unit.course === 'amc' ? '#amc' : unit.course === 'hanlin' ? '#hanlin' : '#reading'}">← ${esc(unit.courseLabel || '八年級英文課文')}</a>
+    <section class="lesson-head"><p class="eyebrow">${esc(unit.group)} · 學習單元</p><h1>${esc(unit.title)}</h1><p>${esc(unit.subtitle)}</p>${unit.sourceNote ? `<p class="catalog-note">${esc(unit.sourceNote)}</p>` : ''}<span class="progress-pill">${unit.vocab.length} 個${unit.course === 'amc' ? '單字／片語' : '核心單字'}</span></section>
     <div class="parts">
       <button class="part-tab ${wantedPart === 'read' ? 'active':''}" data-part="read">Part 1 · 閱讀</button>
       <button class="part-tab ${wantedPart === 'vocab' ? 'active':''}" data-part="vocab">Part 2 · 單字庫</button>
-      <button class="part-tab ${wantedPart === 'a' ? 'active':''}" data-part="a">Part 3 · 測驗 A</button>
-      <button class="part-tab ${wantedPart === 'b' ? 'active':''}" data-part="b">Part 4 · 測驗 B</button>
+      <button class="part-tab ${wantedPart === 'a' ? 'active':''}" data-part="a">${unit.course === 'amc' ? 'Part 3 · 單字及片語測驗' : 'Part 3 · 測驗 A'}</button>
+      <button class="part-tab ${wantedPart === 'b' ? 'active':''}" data-part="b">${unit.course === 'amc' ? 'Part 4 · 課文聽力測驗' : 'Part 4 · 測驗 B'}</button>
     </div><section class="panel" id="part-content"></section>`;
   app.querySelectorAll('[data-part]').forEach(button => button.onclick = () => renderPart(button.dataset.part));
   renderPart(wantedPart);
@@ -155,6 +155,7 @@ function lesson(id, wantedPart = 'read') {
 
 function renderPart(part) {
   clearEnterNext();
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
   activePart = part;
   document.querySelectorAll('.part-tab').forEach(button => button.classList.toggle('active', button.dataset.part === part));
   const box = document.querySelector('#part-content'); if (!box || !activeUnit) return;
@@ -164,10 +165,11 @@ function renderPart(part) {
     box.querySelector('#speak-all').onclick = () => say(activeUnit.text.map(t => t[0]).join(' '));
     box.querySelectorAll('[data-sentence]').forEach(btn => btn.onclick = () => say(activeUnit.text[btn.dataset.sentence][0]));
   } else if (part === 'vocab') {
-    box.innerHTML = `<div class="panel-head"><div><h2>核心單字</h2><p>依本單元教材整理；補充例句會另行標示，測驗依例句中的字形作答。</p></div></div><div class="vocab-grid">${activeUnit.vocab.map((v, index) => `<article class="word-card"><h3>${esc(v[0])}<span class="pos">${esc(v[1])}</span></h3><p class="meaning">${esc(v[2])}</p><p class="example">“${esc(v[3])}”</p>${v[5] ? `<p class="catalog-note">${esc(v[5])}</p>` : ''}${v[4] && v[4] !== v[0] ? `<p class="catalog-note">例句字形：${esc(v[4])}</p>` : ''}<button class="ghost" data-example="${index}">▶ 朗讀例句</button><button class="ghost" data-word="${index}">▶ 發音</button></article>`).join('')}</div>`;
+    box.innerHTML = `<div class="panel-head"><div><h2>${activeUnit.course === 'amc' ? '單字及片語' : '核心單字'}</h2><p>${activeUnit.course === 'amc' ? '保留教材原例句與出處；Part 3 以例句中的詞義進行四選一練習。' : '依本單元教材整理；補充例句會另行標示，測驗依例句中的字形作答。'}</p></div></div><div class="vocab-grid">${activeUnit.vocab.map((v, index) => `<article class="word-card"><h3>${esc(v[0])}<span class="pos">${esc(v[1])}</span></h3><p class="meaning">${esc(v[2])}</p><p class="example">“${esc(v[3])}”</p>${v[5] ? `<p class="catalog-note">${esc(v[5])}</p>` : ''}${v[4] && v[4] !== v[0] ? `<p class="catalog-note">例句字形：${esc(v[4])}</p>` : ''}<button class="ghost" data-example="${index}">▶ 朗讀例句</button><button class="ghost" data-word="${index}">▶ 發音</button></article>`).join('')}</div>`;
     box.querySelectorAll('[data-example]').forEach(btn => btn.onclick = () => say(activeUnit.vocab[btn.dataset.example][3]));
     box.querySelectorAll('[data-word]').forEach(btn => btn.onclick = () => say(activeUnit.vocab[btn.dataset.word][0]));
-  } else if (part === 'a') startTestA();
+  } else if (activeUnit.course === 'amc') startAmcQuiz(part);
+  else if (part === 'a') startTestA();
   else startTestB();
 }
 
@@ -202,6 +204,7 @@ function finishA() {
   finishPair('a');
 }
 function finishPair(part) {
+  const labels = activeUnit.course === 'amc' ? {a:'Part 3 單字及片語', b:'Part 4 課文聽力'} : {a:'測驗 A', b:'測驗 B'};
   const paired = testA?.completed && testB?.completed;
   const current = part === 'a' ? testA : testB;
   const percent = Math.round(current.correct / current.questions.length * 100);
@@ -213,11 +216,11 @@ function finishPair(part) {
       saveScore({ unit: activeUnit.id, title: (activeUnit.courseLabel ? activeUnit.courseLabel + ' · ' : '') + activeUnit.group + ' · ' + activeUnit.title, a, b, total, date: new Date().toISOString() });
       testA.saved = testB.saved = true;
     }
-    document.querySelector('#part-content').innerHTML = resultHTML('本單元測驗完成', total, `測驗 A：${a} 分 · 測驗 B：${b} 分`, '查看學習紀錄 →', 'progress');
+    document.querySelector('#part-content').innerHTML = resultHTML('本單元測驗完成', total, `${labels.a}：${a} 分 · ${labels.b}：${b} 分`, '查看學習紀錄 →', 'progress');
     document.querySelector('[data-next]').onclick = () => setRoute('#progress');
   } else {
     const next = part === 'a' ? 'b' : 'a';
-    document.querySelector('#part-content').innerHTML = resultHTML(`測驗 ${part.toUpperCase()} 完成`, percent, `${current.correct} / ${current.questions.length} 題答對。完成另一份測驗後記錄平均總分。`, `前往測驗 ${next.toUpperCase()} →`, next);
+    document.querySelector('#part-content').innerHTML = resultHTML(`${labels[part]}完成`, percent, `${current.correct} / ${current.questions.length} 題答對。完成另一份測驗後記錄平均總分。`, `前往${labels[next]} →`, next);
     document.querySelector('[data-next]').onclick = () => renderPart(next);
   }
 }
@@ -256,7 +259,7 @@ function resultHTML(title, score, detail, label, next) { return `<div class="res
 let mistakeReview = null;
 function mistakesPage() {
   const records = mistakeBank();
-  const groups = [{ id: 'reading', label: '八年級英文課文' }, { id: 'hanlin', label: '翰林英文課本' }, { id: 'vocab', label: '字彙字識' }];
+  const groups = [{ id: 'reading', label: '八年級英文課文' }, { id: 'hanlin', label: '翰林英文課本' }, { id: 'vocab', label: '字彙字識' }, { id: 'amc', label: 'AMC課程' }];
   app.innerHTML = `<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">Review center</p><h1>錯題複習</h1><p>每一題保留原本題幹與選項；同一題連續答對 3 次會自動從錯題庫移除。錯題只儲存在此 Browser 的 localStorage，不會跨裝置或 Browser 同步。</p></section><section class="mistake-groups">${groups.map(group => { const items = records.filter(item => item.course === group.id); return `<article class="mistake-group"><h2>${group.label}</h2><p>${items.length ? `目前有 ${items.length} 題待複習` : '目前沒有待複習的錯題。'}</p>${items.length ? `<button class="primary" data-review-course="${group.id}">Random 錯題練習 →</button>` : ''}</article>`; }).join('')}</section>`;
   app.querySelectorAll('[data-review-course]').forEach(button => button.onclick = () => { location.hash = `#mistakes/${button.dataset.reviewCourse}`; });
 }
@@ -266,6 +269,9 @@ function showMistakeReview() {
   const q = mistakeReview.questions[mistakeReview.index]; if (!q) { location.hash = '#mistakes'; return; }
   const isChoice = q.kind === 'choice';
   app.innerHTML = `<a class="back" href="#mistakes">← 錯題複習</a><section class="panel"><div class="panel-head"><div><p class="eyebrow">${esc(q.courseLabel)} · ${esc(q.unit)}</p><h2>錯題練習</h2><p>第 ${mistakeReview.index + 1} 題／${mistakeReview.questions.length} 題 · 已連續答對 ${q.streak || 0} / 3 次</p></div></div><div class="question-num">原題保留</div>${isChoice ? `<p class="blank-sentence">${esc(q.question)}</p><div class="choices">${q.choices.map((choice, index) => `<button class="choice" data-review-choice="${esc(choice)}"><b>${'ABCD'[index]}.</b> ${esc(choice)}</button>`).join('')}</div>` : `<p class="blank-sentence">${esc(q.question)}</p><div class="answer-form"><input id="review-answer" autocomplete="off" placeholder="輸入完整英文單字或片語" aria-label="答案"><button class="primary" id="check-review">確認答案</button></div>`}<div class="quiz-actions"><span class="quiz-feedback" id="review-feedback">${isChoice ? '選擇答案後顯示解析。' : '輸入答案後顯示解析。'}</span></div><button class="ghost" id="learned">我已經學會了</button></section>`;
+  if (q.audio) {
+    const play = document.createElement('button'); play.className = 'secondary'; play.textContent = '▶ 重播聽力片段'; play.onclick = () => say(q.audio); app.querySelector('.panel-head').append(play);
+  }
   if (isChoice) app.querySelectorAll('[data-review-choice]').forEach(button => button.onclick = () => answerMistakeChoice(button, q));
   else { const check = () => answerMistakeInput(q); app.querySelector('#check-review').onclick = check; app.querySelector('#review-answer').addEventListener('keydown', event => { if (event.key === 'Enter') check(); }); app.querySelector('#review-answer').focus(); }
   app.querySelector('#learned').onclick = () => { removeMistake(q.id); mistakeReview.index++; showMistakeReview(); };
@@ -275,7 +281,7 @@ function finishMistakeAnswer(q, correct, selected) {
   let message;
   if (correct) { const result = markMistakeCorrect(q.id); message = result.removed ? `答對了！${answerPair}。已連續答對 3 次，這題已從錯題庫移除！` : `答對了！${answerPair}。連續答對 ${result.streak} / 3 次。`; }
   else { storeMistake(q, selected); message = `正確答案是「${answerPair}」。此題的連續答對次數已重新計算。`; }
-  document.querySelector('#review-feedback').textContent = message;
+  document.querySelector('#review-feedback').textContent = message + (q.audio ? ` 原文：${q.audio} 解析：${q.explanation || ''}` : '');
   const next = document.createElement('button'); next.className = 'secondary next-question'; next.textContent = '下一題 →'; next.onclick = () => { clearEnterNext(); mistakeReview.index++; showMistakeReview(); }; document.querySelector('.quiz-actions').append(next); armEnterNext(next.onclick);
 }
 function answerMistakeChoice(button, q) { const buttons = document.querySelectorAll('[data-review-choice]'); buttons.forEach(item => item.disabled = true); const correct = button.dataset.reviewChoice === q.correct; if (correct) button.classList.add('correct'); else { button.classList.add('wrong'); [...buttons].find(item => item.dataset.reviewChoice === q.correct).classList.add('correct'); } if (q.course === 'vocab') [...buttons].forEach((item, index) => { const choice = item.dataset.reviewChoice; item.innerHTML = `<b>${'ABCD'[index]}. ${esc(choice)}</b><span class="choice-meaning">${esc(q.meanings?.[choice] || '')}</span>`; }); finishMistakeAnswer(q, correct, button.dataset.reviewChoice); }
@@ -295,5 +301,5 @@ function drawChart(data) {
   const points=data.map((d,i)=>({x:data.length===1?(p.l+w-p.r)/2:p.l+i*(w-p.l-p.r)/(data.length-1),y:p.t+(100-d.total)/100*(h-p.t-p.b),d}));
   ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();points.forEach((p,i)=>{ctx.fillStyle='#fffdfa';ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#2275a8';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#53636e';ctx.textAlign='center';ctx.fillText(p.d.unit.toUpperCase(),p.x,h-15);});
 }
-function router() { clearEnterNext(); const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'midterm') midtermPage(parts[1]); else if(parts[0] === 'garden') gardenPage(); else if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'hanlin') hanlinCatalog(); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && vocabUnits.some(item => item.id === parts[2])) zhishi(parts[2]); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
+function router() { if ('speechSynthesis' in window) speechSynthesis.cancel(); clearEnterNext(); const route = location.hash.slice(1) || 'home'; const parts=route.split('/'); if(parts[0] === 'midterm') midtermPage(parts[1]); else if(parts[0] === 'garden') gardenPage(); else if(parts[0] === 'unit') lesson(parts[1], parts[2] || 'read'); else if(parts[0] === 'amc') amcCatalog(); else if(parts[0] === 'hanlin') hanlinCatalog(); else if(parts[0] === 'reading') readingCatalog(); else if(parts[0] === 'vocab' && parts[1] === 'unit' && vocabUnits.some(item => item.id === parts[2])) zhishi(parts[2]); else if(parts[0] === 'vocab') zhishiCatalog(); else if(parts[0] === 'mistakes' && parts[1]) startMistakeReview(parts[1]); else if(parts[0] === 'mistakes') mistakesPage(); else if(parts[0] === 'progress') progress(); else home(); }
 window.addEventListener('hashchange', router); window.addEventListener('resize', () => { if(location.hash === '#progress' && scores().length) drawChart(scores()); }); router();
