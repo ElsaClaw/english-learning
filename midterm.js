@@ -18,7 +18,7 @@ function examScoreBreakdown(reading, choice, counts) {
   return [counts.reading ? `克漏字 ${reading}/${counts.reading}` : '', counts.choice ? `選擇 ${choice}/${counts.choice}` : ''].filter(Boolean).join(' · ');
 }
 function midtermCatalog() {
-  const history=examRecords();
+  const history=examRecords().filter(r=>!r.paperId?.startsWith('second-midterm-'));
   app.innerHTML=`<a class="back" href="#home">← 所有教材</a><section class="catalog-head"><p class="eyebrow">First Midterm · Practice</p><h1>第一次段考</h1>
     <p>模擬考 1～4：綜合練習，保留原有題目與範圍。</p>
     <p>模擬考 5、6：各 50 題克漏字，涵蓋八年級英文課文 Unit 1～3.2 與翰林三上 Unit 4 的全部 98 個單字／片語。兩份只有 brain、wallet 重複，使用不同句子。</p>
@@ -29,7 +29,7 @@ function midtermCatalog() {
     <section class="exam-history"><h2>段考練習紀錄</h2><p>紀錄僅儲存於目前 Browser。作答期間可返回上一題；離開或重新整理前請先交卷。</p>${history.length?history.slice().reverse().map(r=>`<p>${esc(r.title)}${['midterm-5','midterm-6'].includes(r.paperId)?'（舊版）':''} · ${esc(new Date(r.date).toLocaleString('zh-TW'))} · <strong>${r.score} 分</strong>（${examScoreBreakdown(r.reading,r.choice,{reading:r.readingTotal ?? 20,choice:r.choiceTotal ?? 30})}）</p>`).join(''):'<p>還沒有交卷紀錄，選一份開始吧！</p>'}</section>`;
   app.querySelectorAll('[data-exam]').forEach(b=>b.onclick=()=>{const p=midtermPapers.find(p=>p.id===b.dataset.exam);midtermAttempt={paper:p,index:0,answers:{},questions:['reading','choice'].flatMap(type=>examShuffle(p.questions.filter(q=>q.type===type)).map(q=>({...q,choices:q.choices?examShuffle(q.choices):null})))};setRoute('#midterm/test');});
 }
-function midtermPage(part) { if(part==='test'&&midtermAttempt) midtermQuestion(); else midtermCatalog(); }
+function midtermPage(part) { if(part==='test'&&midtermAttempt&&!midtermAttempt.paper.id.startsWith('second-midterm-')) midtermQuestion(); else midtermCatalog(); }
 function midtermQuestion() {
   clearEnterNext();const a=midtermAttempt,q=a.questions[a.index];
   const answered=Object.values(a.answers).filter(v=>String(v).trim()).length;
@@ -61,5 +61,5 @@ function midtermResult() {
   const counts=examCounts(a.paper);const score=Math.round((reading+choice)/counts.total*1000)/10;let saved=true;
   try {const history=examRecords();history.push({title:a.paper.title,paperId:a.paper.id,date:new Date().toISOString(),score,reading,choice,readingTotal:counts.reading,choiceTotal:counts.choice});localStorage.setItem(MIDTERM_STORE,JSON.stringify(history));}catch{saved=false;}
   midtermAttempt=null;
-  app.innerHTML=`<a class="back" href="#midterm">← 第一次段考</a><section class="catalog-head"><p class="eyebrow">${esc(a.paper.title)} · Result</p><h1>${score} 分</h1><p>${examScoreBreakdown(reading,choice,counts)}</p><p>${saved?'此次成績已儲存在目前 Browser。':'Browser 無法儲存此次成績；請先記下分數。'}</p></section><section>${results.map((q,i)=>`<article class="exam-answer-card ${q.correct?'is-correct':'is-wrong'}"><h2>${i+1}. ${q.correct?'✓ 答對':'訂正'}</h2><p>${esc(q.prompt)}</p><p>你的答案：${esc(q.given||'未作答')} · 正確答案：<strong>${esc(q.answer)}</strong></p><p>${esc(q.explanation)}</p><small>單字來源：${esc(q.sourceTitle)}</small></article>`).join('')}</section>`;window.scrollTo(0,0);
+  app.innerHTML=`<a class="back" href="${a.paper.id.startsWith('second-midterm-')?'#second-midterm':'#midterm'}">← ${a.paper.id.startsWith('second-midterm-')?'第二次段考':'第一次段考'}</a><section class="catalog-head"><p class="eyebrow">${esc(a.paper.title)} · Result</p><h1>${score} 分</h1><p>${examScoreBreakdown(reading,choice,counts)}</p><p>${saved?'此次成績已儲存在目前 Browser。':'Browser 無法儲存此次成績；請先記下分數。'}</p></section><section>${results.map((q,i)=>`<article class="exam-answer-card ${q.correct?'is-correct':'is-wrong'}"><h2>${i+1}. ${q.correct?'✓ 答對':'訂正'}</h2><p>${esc(q.prompt)}</p><p>你的答案：${esc(q.given||'未作答')} · 正確答案：<strong>${esc(q.answer)}</strong></p><p>${esc(q.explanation)}</p><small>單字來源：${esc(q.sourceTitle)}</small></article>`).join('')}</section>`;window.scrollTo(0,0);
 }
